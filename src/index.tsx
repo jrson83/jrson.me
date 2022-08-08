@@ -1,9 +1,9 @@
-import type { Data, Helpers } from "@types";
+import type { Data, PageHelpers } from "@types";
 
 export const title = "Home - jrson.me";
 export const layout = "layouts/root.tsx";
 
-export default ({ title }: Data, { url }: Helpers) => (
+export default ({ title }: Data, { url }: PageHelpers) => (
   <>
     <h1>{title as string}</h1>
     <p>

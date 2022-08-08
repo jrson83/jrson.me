@@ -1,5 +1,9 @@
 {
   "scripts": {
+    "clean": {
+      "desc": "Cleans dist",
+      "cmd": "rm -rf _site/"
+    },
     "check": {
       "desc": "Type-checks the code",
       "cmd": "deno cache -c deno.json ./src/index.tsx"
