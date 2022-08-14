@@ -49,6 +49,6 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           local_path: "./_site/*"
-          remote_path: "${{ secrets.REMOTE_PATH }}"
+          remote_path: "/var/www/domain-jrson-me/_site"
           sftp_only: true
           delete_remote_files: true
