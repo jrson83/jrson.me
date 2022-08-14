@@ -1,0 +1,15 @@
+@use "sass:map";
+@use "./config" as *;
+
+// Component: Badge
+$badge: (
+  font-size: 0.75rem,
+  font-weight: map.get($config, font-weight),
+  color: inherit,
+  background-color: var(--border-color),
+  padding-y: 0.25rem,
+  padding-x: 0.625rem,
+  border: none,
+  border-radius: map.get($config, border-radius),
+  active-background-color: var(--secondary-color),
+) !default;

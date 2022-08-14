@@ -1,0 +1,62 @@
+@use "sass:color";
+@use "sass:map";
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.showcase {
+  display: flex;
+  gap: 2rem;
+  margin-top: var(--body-spacing);
+}
+
+.showcase-item {
+  width: 50%;
+}
+
+.showcase-item-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--body-spacing);
+  border: 1px solid var(--border-color);
+  border-radius: var(--body-border-radius);
+  color: var(--font-color);
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid var(--secondary-link-color);
+  }
+
+  @include breakpoint(md) {
+    padding: map.get($config, spacing) - 0.5rem;
+  }
+}
+
+.showcase-btn-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  gap: 0.5rem;
+
+  &.left {
+    align-items: flex-end;
+  }
+
+  &.right {
+    align-items: flex-start;
+  }
+
+  small {
+    color: var(--third-font-color);
+  }
+
+  @include breakpoint(md) {
+    flex-direction: row;
+    align-items: center;
+
+    span {
+      display: none;
+    }
+  }
+}

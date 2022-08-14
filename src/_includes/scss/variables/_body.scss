@@ -1,0 +1,13 @@
+@use "sass:map";
+@use "./config" as *;
+
+// Variables: Body
+$body: (
+  scroll-behavior: smooth,
+  background-color: var(--primary-color),
+  color: var(--primary-font-color),
+  font-family: map.get($config, font-family),
+  font-size: clamp(1.035rem, calc(12px + 0.54vw), 1.125rem),
+  font-weight: map.get($config, font-weight),
+  line-height: map.get($config, line-height),
+) !default;

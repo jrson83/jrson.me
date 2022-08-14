@@ -6,8 +6,31 @@
   },
   "tasks": {
     "lume": "deno eval \"import 'lume/task.ts'\" --",
-    "clean": "rm -rf _site/",
-    "build": "deno task lume",
+    "clean": "rm -rf ./_site",
+    "build": "BUILD_MODE=\"prod\" deno task lume",
     "serve": "BUILD_MODE=\"dev\" deno task lume -s"
+  },
+  "lint": {
+    "files": {
+      "exclude": [
+        "./_site"
+      ]
+    },
+    "rules": {
+      "tags": [
+        "recommended"
+      ],
+      "exclude": [
+        "no-explicit-any",
+        "no-unused-vars"
+      ]
+    }
+  },
+  "fmt": {
+    "files": {
+      "exclude": [
+        "./_site"
+      ]
+    }
   }
 }

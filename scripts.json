@@ -2,7 +2,7 @@
   "scripts": {
     "clean": {
       "desc": "Cleans dist",
-      "cmd": "rm -rf _site/"
+      "cmd": "rm -rf ./_site"
     },
     "check": {
       "desc": "Type-checks the code",

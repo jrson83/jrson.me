@@ -1,0 +1,62 @@
+// Layout: Utilities
+h2 a[class="header-anchor"],
+h3 a[class="header-anchor"] {
+  margin-left: -2rem;
+}
+
+.btn-header-anchor {
+  width: 2rem;
+  opacity: 0;
+  color: var(--secondary-link-color);
+}
+
+h2:hover a[class="header-anchor"] .btn-header-anchor,
+h3:hover a[class="header-anchor"] .btn-header-anchor {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.scroll-progress {
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  width: var(--width);
+  height: 5px;
+  overflow-x: hidden;
+  background: var(--secondary-link-color);
+}
+
+.btn-copy {
+  color: var(--third-font-color);
+  cursor: copy;
+
+  &:hover {
+    color: var(--primary-font-color);
+  }
+
+  > * {
+    pointer-events: none;
+  }
+}
+
+.stack-icon-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 1rem;
+  margin-bottom: var(--body-spacing);
+}
+
+.mark-horizontal {
+  position: fixed;
+  top: 50%;
+  width: 100%;
+  border-bottom: dashed 1px currentcolor;
+}
+
+.mark-vertical {
+  position: fixed;
+  left: 50%;
+  height: 100%;
+  border-left: dashed 1px currentcolor;
+}

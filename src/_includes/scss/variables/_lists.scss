@@ -1,0 +1,10 @@
+@use "sass:map";
+@use "./config" as *;
+
+// Variables: Lists
+$lists: (
+  spacing: map.get($config, spacing),
+  marker-ul: disc,
+  marker-ol: decimal,
+  marker-color: var(--primary-font-color),
+) !default;

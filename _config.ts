@@ -6,13 +6,14 @@ import slugify_urls from "lume/plugins/slugify_urls.ts";
 import sass from "lume/plugins/sass.ts";
 import terser from "lume/plugins/terser.ts";
 
+import readingTime from "#plugins/readingTime/mod.ts";
 import unified from "#plugins/unified/mod.ts";
 import remarkPlugins from "#plugins/unified/remark/mod.ts";
 import rehypePlugins from "#plugins/unified/rehype/mod.ts";
 import preactjsx from "#plugins/preactjsx/mod.ts";
+import atomFeed from "#plugins/atom-feed/mod.ts";
 import sitemap from "#plugins/sitemap/mod.ts";
-
-const buildTime = `v${Date.now()}`;
+import md5CacheBuster from "#plugins/md5-cache-buster/mod.ts";
 
 const site = lume({
   src: "./src",
@@ -30,7 +31,7 @@ const site = lume({
 
 site
   .copy("assets", ".")
-  .data("cacheBusting", buildTime)
+  .use(readingTime())
   .use(date())
   .use(slugify_urls())
   .use(unified({
@@ -41,6 +42,7 @@ site
   .use(sass())
   .loadAssets([".js"])
   .use(terser())
+  .use(atomFeed())
   .use(sitemap({
     query: ["url!=/404/"],
   }));
@@ -51,12 +53,8 @@ site.process([".html"], (page: Page) => {
   }
 });
 
-if (Deno.env.get("BUILD_MODE") === "dev") {
-  site.process([".css", ".js"], function (page: Page) {
-    page.updateDest({
-      path: `${page.dest.path}.${buildTime}`,
-    });
-  });
+if (Deno.env.get("BUILD_MODE") === "prod") {
+  site.use(md5CacheBuster());
 }
 
 export default site;

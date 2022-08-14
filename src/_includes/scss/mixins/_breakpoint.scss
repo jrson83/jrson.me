@@ -1,0 +1,24 @@
+@use "sass:map";
+@use "../variables" as *;
+
+// Mixin: Breakpoint
+@mixin breakpoint($breakpoint) {
+  @if not map-has-key($breakpoints, $breakpoint) {
+    @warn "Warning: `#{$breakpoint}` is not a valid breakpoint name.";
+  } @else if $breakpoint == xs {
+    @content;
+  } @else if $breakpoint == md {
+    @media only screen and (max-width: (map.get($breakpoints, $breakpoint) - 1px)) {
+      @content;
+    }
+  } @else if $breakpoint == xxl {
+    @media only screen and (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    /* stylelint-disable-next-line max-line-length */
+    @media only screen and (min-width: nth(map.get($breakpoints, $breakpoint), -1)) and (max-width: (map.get($breakpoints, $breakpoint) - 1px)) {
+      @content;
+    }
+  }
+}

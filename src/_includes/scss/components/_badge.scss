@@ -1,0 +1,41 @@
+@use "sass:map";
+@use "../variables" as *;
+
+// Component: Badge
+.bdg {
+  margin: 0;
+  padding: map.get($badge, padding-y) map.get($badge, padding-x);
+  border: map.get($badge, border);
+  border-radius: map.get($badge, border-radius);
+  background-color: map.get($badge, background-color);
+  color: map.get($badge, color);
+  font-size: map.get($badge, font-size);
+  font-weight: map.get($badge, font-weight);
+  line-height: 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:empty {
+    display: none;
+  }
+
+  &:hover,
+  &:active {
+    background-color: map.get($badge, active-background-color);
+  }
+
+  &.bdg-tag {
+    position: relative;
+  }
+
+  .bdg-link {
+    position: absolute;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

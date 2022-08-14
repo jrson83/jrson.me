@@ -1,0 +1,39 @@
+@use "../functions" as *;
+
+// Variables: Themes
+$themes: (
+  light: (
+    primary-color: hsl(0deg 0% 95%),
+    secondary-color: hsl(0deg 0% 96%),
+    ext-primary-color: hsl(0deg 0% 97%),
+    ext-secondary-color: hsl(0deg 0% 94%),
+    primary-font-color: #4a5568,
+    secondary-font-color: hsl(3deg 52% 50%),
+    third-font-color: hsl(218deg 17% 35% / 90%),
+    primary-link-color: hsl(219deg 63% 50%),
+    secondary-link-color: #5986d9bf,
+    heading-color: #1a202c,
+    border-color: #e6e6e6,
+  ),
+  dark: (
+    primary-color: hsl(207deg 13% 14%),
+    secondary-color: hsl(210deg 12% 16%),
+    ext-primary-color: hsl(210deg 12% 15%),
+    ext-secondary-color: hsl(210deg 12% 15%),
+    primary-font-color: #e1e4e8,
+    secondary-font-color: #e19892,
+    third-font-color: hsl(214deg 13% 90% / 60%),
+    primary-link-color: #88b0cd,
+    secondary-link-color: #88b0cdbf,
+    heading-color: #e8e8fd,
+    border-color: #384047,
+  ),
+) !default;
+
+@each $theme, $map in $themes {
+  html[data-theme="#{$theme}"] {
+    @each $key, $submap in $map {
+      --#{$key}: #{map-deep-get($themes, $theme, "#{$key}")};
+    }
+  }
+}

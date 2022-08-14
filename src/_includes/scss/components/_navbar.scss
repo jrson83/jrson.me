@@ -1,0 +1,57 @@
+@use "../mixins" as *;
+@use "../variables" as *;
+
+// Component: Navbar
+.nav {
+  display: flex;
+  z-index: 1000;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  backface-visibility: hidden;
+
+  .container,
+  .container-fluid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+  }
+
+  @include breakpoint(md) {
+    position: relative;
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  list-style: none;
+}
+
+.nav-item {
+  margin-right: 1.25rem;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  a {
+    display: flex;
+    border-bottom: 1px solid transparent;
+
+    &.is-active:not(:hover) {
+      border-bottom: 1px solid var(--secondary-link-color);
+      color: var(--primary-link-color);
+    }
+  }
+}
+
+.theme-toggle {
+  display: block;
+  cursor: pointer;
+}

@@ -1,0 +1,27 @@
+{
+  "name": "jrson.me",
+  "short_name": "jrson.me",
+  "description": "Coming",
+  "start_url": ".",
+  "theme_color": "#f5f5f5",
+  "background_color": "#1f2428",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/images/pwa/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/pwa/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/pwa/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

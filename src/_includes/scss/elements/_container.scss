@@ -1,0 +1,22 @@
+@use "sass:map";
+@use "../mixins" as *;
+@use "../variables" as *;
+
+// Element: container
+.container {
+  width: 90%;
+  width: calc(100% - 2rem);
+  max-width: map.get($config, container-width);
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+
+  &-fluid {
+    width: 100%;
+  }
+
+  @include breakpoint(md) {
+    width: 100%;
+  }
+}

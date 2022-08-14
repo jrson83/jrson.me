@@ -1,0 +1,28 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+// Layout: Footer
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--body-spacing) / 2;
+  padding: var(--body-spacing);
+  font-size: 1rem;
+
+  ul.li-i,
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  @include breakpoint(md) {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+
+    ul.li-i {
+      margin-bottom: var(--body-spacing);
+    }
+  }
+}

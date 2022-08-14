@@ -1,0 +1,13 @@
+@use "sass:map";
+@use "./config" as *;
+
+// Element: Code
+$code: (
+  border-radius: map.get($config, border-radius),
+  font-family: ("Inconsolata", "Consolas", "Monaco", "Andale Mono", "Ubuntu Mono", monospace),
+  font-size: 1.125rem,
+  small-font-size: map.get($config, font-size-small),
+  spacing: map.get($config, spacing),
+  background-color: var(--secondary-color),
+  line-height: map.get($config, line-height)
+) !default;

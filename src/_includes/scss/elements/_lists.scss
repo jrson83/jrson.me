@@ -1,0 +1,59 @@
+@use "sass:map";
+@use "../variables" as *;
+@use "../functions" as *;
+
+// Element: Lists
+$list-spacing: map.get($lists, spacing);
+$list-marker-color: map.get($lists, marker-color);
+
+ul,
+ol,
+dl {
+  margin: $list-spacing 0 $list-spacing $list-spacing;
+}
+
+ul {
+  list-style: map.get($lists, marker-ul) outside;
+
+  ::marker {
+    color: $list-marker-color;
+  }
+}
+
+ul ul {
+  list-style-type: circle;
+
+  ::marker {
+    color: $list-marker-color;
+  }
+}
+
+ol {
+  list-style: map.get($lists, marker-ol) inside;
+}
+
+ul.li-u {
+  list-style: none;
+}
+
+ul.li-i {
+  margin: $list-spacing 0 $list-spacing 0;
+
+  li {
+    display: inline-block;
+    margin-right: 1rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+dt {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+dd {
+  margin-left: $list-spacing;
+}

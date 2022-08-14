@@ -55,7 +55,7 @@ export interface PageData extends BasePageData {
   /** The site metadata */
   site: typeof SiteMeta;
 
-  cache_busting: string;
+  cacheBusting: string;
 }
 
 export interface Page extends BasePage {

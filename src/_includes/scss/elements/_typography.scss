@@ -1,0 +1,66 @@
+@use "sass:map";
+@use "../mixins" as *;
+@use "../variables" as *;
+
+// Element: Typography
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-bottom: map.get($config, spacing);
+  line-height: map.get($config, line-height-heading);
+}
+
+h1 {
+  font-size: clamp(1.913rem, calc(12px + 2.475vw), 2.587rem);
+}
+
+h2 {
+  font-size: clamp(1.575rem, calc(12px + 1.8vw), 2.025rem);
+
+  @include breakpoint(md) {
+    font-size: clamp(1.913rem, calc(12px + 2.475vw), 2.587rem);
+  }
+}
+
+h3 {
+  font-size: clamp(1.282rem, calc(12px + 1.35vw), 1.688rem);
+
+  @include breakpoint(md) {
+    font-size: clamp(1.575rem, calc(12px + 1.8vw), 2.025rem);
+  }
+}
+
+h4 {
+  font-size: clamp(1.125rem, calc(12px + 0.9vw), 1.35rem);
+}
+
+p {
+  margin-bottom: map.get($config, spacing);
+  color: inherit;
+  font-size: inherit;
+  line-height: map.get($config, line-height);
+  overflow-wrap: break-word;
+}
+
+/* span {
+  font-size: clamp(0.9rem, calc(12px + 0.36vw), 1.012rem);
+} */
+
+a,
+a:visited,
+a:active {
+  color: var(--primary-link-color);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a.is-active {
+  color: var(--secondary-link-color);
+}
+
+small {
+  font-size: map.get($config, font-size-small);
+}

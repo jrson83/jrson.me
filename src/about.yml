@@ -1,0 +1,174 @@
+layout: layouts/about.tsx
+title: About
+description: Test
+url: /about/
+
+menu:
+  title: About
+  visible: true
+  order: 1
+
+header:
+  title: Hi 👋, I'm jrson!
+  description: |
+    I spent more time dealing with compiler settings, plugins, and development environment settings than actually programming.
+    This is where the fun ends, this is where the passion and love begins.
+
+stacks:
+  title: Tech Stack for web development
+  icons:
+    - title: Applications and tools
+      items:
+        - title: Debian
+          icon: debian
+          color: A81D33
+          url: https://www.debian.org/
+        - title: Microsoft Windows
+          icon: windows
+          color: 0078D6
+          url: https://www.microsoft.com
+        - title: Node.js
+          icon: node
+          color: 339933
+          url: https://nodejs.org/en/
+        - title: Deno
+          icon: deno
+          color: 000
+          url: https://deno.land/
+        - title: NPM
+          icon: npm
+          color: CB3837
+          url: https://www.npmjs.com/
+        - title: PNPM
+          icon: pnpm
+          color: F69220
+          url: https://pnpm.io/
+        - title: Github
+          icon: github
+          color: 000
+          url: https://github.com/
+        - title: Visual Studio Code
+          icon: vscode
+          color: 007ACC
+          url: https://code.visualstudio.com/
+    - title: Code
+      items:
+        - title: JavaScript
+          icon: javascript
+          color: F7DF1E
+          url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+        - title: TypeScript
+          icon: typescript
+          color: 3178C6
+          url: https://www.typescriptlang.org/
+        - title: HTML
+          icon: html
+          color: E34F26
+          url: https://www.w3.org/html/
+        - title: CSS
+          icon: css
+          color: 1572B6
+          url: https://www.w3.org/Style/CSS/Overview.en.html
+        - title: SASS
+          icon: sass
+          color: CC6699
+          url: https://sass-lang.com/
+        - title: Laravel
+          icon: laravel
+          color: FF2D20
+          url: https://laravel.com/
+        - title: PHP
+          icon: php
+          color: 777BB4
+          url: https://www.php.net/
+        - title: MySQL
+          icon: mysql
+          color: 4479A1
+          url: https://www.mysql.com/
+
+blogstacks:
+  title: Blog Tech Stack
+  lists:
+    - description: Packages/tools I used for developing my blog.
+      items:
+        - title: Lume
+          description: A Static site generator for Deno
+          url: https://lume.land/
+        - title: Preact
+          description: Fast 3kB alternative to React with the same modern API
+          url: https://preactjs.com/
+        - title: TypeScript
+          description: JavaScript with syntax for types
+          url: https://www.typescriptlang.org/
+        - title: shrtcss
+          description: A lightweight SCSS/CSS framework (WIP)
+          url: https://github.com/jrson83/shrtcss
+        - title: minireset.css
+          description: A tiny modern CSS reset that covers the basics
+          url: https://github.com/jgthms/minireset.css
+        - title: Coldark
+          description: Modified version of Coldark Theme for Prism.js
+          url: https://github.com/ArmandPhilippot/coldark-prism
+        - title: Deno
+          description: A modern runtime for JavaScript and TypeScript
+          url: https://deno.land/
+        - title: Velociraptor
+          description: The script runner for Deno
+          url: https://velociraptor.run/
+        - title: unified
+          description: Lets you inspect and transform content with plugins
+          url: https://unifiedjs.com/
+        - title: rehype-prism-plus
+          description: A rehype plugin to highlight code blocks
+          url: https://github.com/timlrx/rehype-prism-plus
+        - title: rehype-prism-diff
+          description: A rehype plugin allow not only diff language
+          url: https://www.npmjs.com/package/rehype-prism-diff
+        - title: rehype-code-titles
+          description: A rehype plugin for adding titles to blocks
+          url: https://github.com/rockchalkwushock/rehype-code-titles
+        - title: rehype-external-links
+          description: A rehype plugin to add rel to external links
+          url: https://github.com/rehypejs/rehype-external-links
+        - title: rehype-extract-toc
+          description: A rehype plugin to attache a TOC to the VFile
+          url: https://github.com/stefanprobst/rehype-extract-toc
+        - title: rehype-extract-excerpt
+          description: A rehype plugin to attache a paragraph to the VFile
+          url: https://github.com/jrson83/rehype-extract-excerpt
+        - title: remark-reading-time
+          description: A remark to estimate reading time from markdown
+          url: https://github.com/mattjennings/remark-reading-time
+        - title: Simple Icons
+          description: Free SVG icons for popular brands
+          url: https://simpleicons.org/
+        - title: Icônes
+          description: Icon Explorer with instant searching
+          url: https://icones.netlify.app/
+        - title: Unicons
+          description: Pixel-perfect vector icons and Iconfont
+          url: https://github.com/Iconscout/unicons
+
+    - description: Packages/tools I used for optimizing my blog.
+      items:
+        - title: minify-html
+          description: A Rust HTML minifier
+          url: https://github.com/wilsonzlin/minify-html
+        - title: PostCSS
+          description: A tool for transforming CSS with JavaScript
+          url: https://postcss.org/
+        - title: PurgeCSS
+          description: A tool to remove unused CSS from your project
+          url: https://purgecss.com/
+        - title: clean-css
+          description: A fast and efficient CSS optimizer
+          url: https://clean-css.github.io/
+        - title: Terser
+          description: An industry-standard minifier for JavaScript code
+          url: https://terser.org/
+        - title: Brotli
+          description: A generic-purpose lossless compression algorithm
+          url: https://github.com/google/brotli
+        - title: Lighthouse
+          description: An open-source tool for improving web apps
+          url: https://developer.chrome.com/docs/lighthouse/

@@ -1,0 +1,10 @@
+// Mixin: Full-width
+@mixin full-width {
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  border-right: none;
+  border-left: none;
+  border-radius: 0;
+}

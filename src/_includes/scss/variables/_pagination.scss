@@ -1,0 +1,11 @@
+@use "sass:map";
+@use "./config" as *;
+
+// Component: Pagination
+$pagination: (
+  font-size: 1.1rem,
+  gap: 1rem,
+  active-border-radius: map.get($config, border-radius),
+  active-border: 1px solid var(--border-color),
+  active-background-color: var(--secondary-color),
+) !default;

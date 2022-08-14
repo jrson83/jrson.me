@@ -1,0 +1,8 @@
+// Layout: Main
+main {
+  flex: 1 0 auto;
+}
+
+main section:first-of-type {
+  margin-top: var(--body-spacing);
+}

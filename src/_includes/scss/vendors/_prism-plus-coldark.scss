@@ -1,0 +1,342 @@
+@use "sass:map";
+@use "sass:math";
+@use "../mixins" as *;
+@use "../variables" as *;
+
+/**
+ * Coldark Theme for Prism.js
+ * Theme variation: Cold & Dark
+ * Tested with HTML, CSS, JS, JSON, PHP, YAML, Bash script
+ * Converted to SCSS & sligtly modified by jrson83
+ * @author Armand Philippot <contact@armandphilippot.com>
+ * @homepage https://github.com/ArmandPhilippot/coldark-prism
+ * @license MIT
+ */
+html {
+  &[data-theme="light"] {
+    --code-background: var(--secondary-color);
+    --code-font-color: var(--primary-font-color);
+    --code-text-shadow: none;
+    --code-comment: #3c526d;
+    --code-punctuation: #4a5568;
+    --code-delimiter: #006d6d;
+    --code-attr-name: #755f00;
+    --code-class-name: #005a8e;
+    --code-attr-value: #116b00;
+    --code-builtin: #af00af;
+    --code-function: #7c00aa;
+    --code-atrule: #a04900;
+    --code-deleted: #c22f2e;
+    --code-highlight-line: rgb(208 218 231 / 70%);
+    --code-highlight-line-border: rgb(59 130 246);
+    --code-line-number: rgb(156 163 175);
+    --code-line-inserted: rgb(145 208 118 / 18%);
+    --code-line-inserted-boder: rgb(145 208 118 / 80%);
+    --code-line-deleted: rgb(205 102 96 / 18%);
+    --code-line-deleted-border: rgb(205 102 96 / 80%);
+  }
+
+  &[data-theme="dark"] {
+    --code-background: var(--secondary-color);
+    --code-font-color: var(--primary-font-color);
+    --code-text-shadow: none;
+    --code-comment: #8da1b9;
+    --code-punctuation: #e3eaf2;
+    --code-delimiter: #6cc;
+    --code-attr-name: #e6d37a;
+    --code-class-name: #6cb8e6;
+    --code-attr-value: #91d076;
+    --code-builtin: #f4adf4;
+    --code-function: #c699e3;
+    --code-atrule: #e9ae7e;
+    --code-deleted: #cd6660;
+    --code-highlight-line: rgb(55 65 81 / 50%);
+    --code-highlight-line-border: rgb(59 130 246);
+    --code-line-number: rgb(156 163 175);
+    --code-line-inserted: rgb(145 208 118 / 12%);
+    --code-line-inserted-boder: rgb(145 208 118 / 80%);
+    --code-line-deleted: rgb(205 102 96 / 12%);
+    --code-line-deleted-border: rgb(205 102 96 / 80%);
+  }
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  background: none;
+  color: var(--code-font-color);
+  font-family: map.get($code, font-family);
+  font-size: clamp(1.035rem, calc(12px + 0.54vw), 1.125rem);
+  line-height: map.get($config, line-height);
+  text-align: left;
+  text-shadow: var(--code-text-shadow);
+  word-wrap: normal;
+  word-break: normal;
+  white-space: pre;
+  word-spacing: normal;
+  hyphens: none;
+  tab-size: 4;
+  direction: ltr;
+}
+
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection,
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection {
+  background: var(--primary-color);
+  color: unset;
+  text-shadow: none;
+}
+
+pre[class*="language-"] {
+  margin: map.get($code, spacing) 0;
+  padding: map.get($code, font-size);
+  overflow: auto;
+  border: 1px solid var(--border-color);
+  border-radius: map.get($code, border-radius);
+  background: var(--code-background);
+}
+
+:not(pre) > code[class*="language-"] {
+  padding: 0.1em;
+  border-radius: unset;
+  white-space: normal;
+}
+
+.token {
+  &.comment,
+  &.prolog,
+  &.doctype,
+  &.cdata {
+    color: var(--code-comment);
+  }
+
+  &.punctuation {
+    color: var(--code-punctuation);
+  }
+
+  &.delimiter.important,
+  &.selector .parent,
+  &.tag,
+  &.tag .token.punctuation {
+    color: var(--code-delimiter);
+  }
+
+  &.attr-name,
+  &.boolean,
+  &.boolean.important,
+  &.number,
+  &.constant,
+  &.selector .token.attribute {
+    color: var(--code-attr-name);
+  }
+
+  &.class-name,
+  &.key,
+  &.parameter,
+  &.property,
+  &.property-access,
+  &.variable {
+    color: var(--code-class-name);
+  }
+
+  &.attr-value,
+  &.inserted,
+  &.color,
+  &.selector .token.value,
+  &.string,
+  &.string .token.url-link {
+    color: var(--code-attr-value);
+  }
+
+  &.builtin,
+  &.keyword-array,
+  &.package,
+  &.regex {
+    color: var(--code-builtin);
+  }
+
+  &.function,
+  &.selector .token.class,
+  &.selector .token.id {
+    color: var(--code-function);
+  }
+
+  &.atrule .token.rule,
+  &.combinator,
+  &.keyword,
+  &.operator,
+  &.pseudo-class,
+  &.pseudo-element,
+  &.selector,
+  &.unit {
+    color: var(--code-atrule);
+  }
+
+  &.deleted,
+  &.important {
+    color: var(--code-deleted);
+  }
+
+  &.keyword-this,
+  &.this {
+    color: var(--code-class-name);
+  }
+
+  &.important,
+  &.keyword-this,
+  &.this,
+  &.bold {
+    font-weight: bold;
+  }
+
+  &.delimiter.important {
+    font-weight: inherit;
+  }
+
+  &.italic {
+    font-style: italic;
+  }
+
+  &.entity {
+    cursor: help;
+  }
+}
+
+.language-markdown {
+  .token.title,
+  .token.title .token.punctuation {
+    color: var(--code-class-name);
+    font-weight: bold;
+  }
+
+  .token.blockquote.punctuation,
+  .token.list.punctuation {
+    color: var(--code-builtin);
+  }
+
+  .token.code {
+    color: var(--code-delimiter);
+  }
+
+  .token.hr.punctuation {
+    color: var(--code-class-name);
+  }
+
+  .token.url .token.content {
+    color: var(--code-attr-value);
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  .token.url-link {
+    color: var(--code-attr-name);
+  }
+
+  .token.table-header {
+    color: var(--code-punctuation);
+  }
+}
+
+.language-json {
+  .token.operator {
+    color: var(--code-punctuation);
+  }
+}
+
+.language-scss .token.variable {
+  color: var(--code-delimiter);
+}
+
+pre {
+  overflow-x: auto;
+}
+
+.code-highlight {
+  min-width: 100%;
+  float: left;
+}
+
+.code-line {
+  display: block;
+  margin-right: - (map.get($code, font-size));
+  margin-left: - (map.get($code, font-size));
+  padding-right: map.get($code, font-size);
+  padding-left: map.get($code, font-size);
+  border-left: 4px solid transparent;
+}
+
+.code-line.inserted,
+.code-line.diff-inserted {
+  border-color: var(--code-line-inserted-boder);
+  background-color: var(--code-line-inserted);
+}
+
+.code-line.deleted,
+.code-line.diff-deleted {
+  border-color: var(--code-line-deleted-border);
+  background-color: var(--code-line-deleted);
+}
+
+.highlight-line {
+  margin-right: - (map.get($code, font-size));
+  margin-left: - (map.get($code, font-size));
+  border-left: 4px solid var(--code-highlight-line-border);
+  background-color: var(--code-highlight-line);
+}
+
+.line-number::before {
+  content: attr(line);
+  display: inline-block;
+  width: map.get($code, font-size);
+  margin-right: map.get($code, font-size);
+  margin-left: math.div(- (map.get($code, font-size)), 2);
+  color: var(--code-line-number);
+  text-align: right;
+}
+
+.rehype-code-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem var(--body-spacing) 1rem var(--body-spacing);
+  border: 1px solid var(--border-color);
+  border-top-left-radius: var(--body-border-radius);
+  border-top-right-radius: var(--body-border-radius);
+  background-color: var(--ext-secondary-color);
+  color: inherit;
+  font-family: var(--code-font-family) !important;
+  font-size: 0.9rem;
+
+  @include breakpoint(md) {
+    @include full-width;
+  }
+
+  span {
+    padding: 0 0.5rem;
+    border-radius: map.get($code, border-radius);
+    background-color: var(--border-color);
+    overflow-wrap: break-word;
+  }
+
+  & + pre[class*="language-"] {
+    margin-top: 0;
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
+@include breakpoint(md) {
+  pre[class*="language-"] {
+    @include full-width;
+  }
+}
+
+code:not([class^="language-"]) {
+  margin: 0 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: map.get($code, border-radius);
+  background: var(--code-background);
+  color: inherit;
+  font-size: map.get($code, small-font-size);
+  overflow-wrap: break-word;
+}

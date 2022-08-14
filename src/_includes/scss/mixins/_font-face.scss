@@ -1,0 +1,24 @@
+@use "sass:string";
+
+// Mixin: Font-face
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: string.quote($font-name);
+    font-style: $style;
+    font-weight: $weight;
+    font-display: swap;
+    src:
+      local(string.quote($font-name)),
+      url($file-name + ".woff2") format("woff2"),
+      url($file-name + ".woff") format("woff");
+    unicode-range: U+000-5FF;
+  }
+}
+
+@mixin font-fallback($fallback-name, $font-name) {
+  @font-face {
+    font-family: string.quote($fallback-name);
+    src: local(string.quote($font-name));
+    unicode-range: U+000-5FF;
+  }
+}

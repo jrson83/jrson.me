@@ -1,0 +1,29 @@
+@use "sass:map";
+@use "../variables" as *;
+
+// Element: Blockquote
+blockquote {
+  margin: map.get($blockquote, spacing) 0;
+  padding: map.get($blockquote, spacing);
+  border-width: map.get($blockquote, border-width);
+  border-left-style: map.get($blockquote, border-style);
+  border-radius: map.get($blockquote, border-radius);
+  border-color: map.get($blockquote, border-color);
+  background-color: map.get($blockquote, background-color);
+  color: map.get($blockquote, color);
+
+  > q,
+  p {
+    margin: 0;
+    font-family: map.get($blockquote, font-family);
+    font-size: map.get($blockquote, font-size);
+    font-style: map.get($blockquote, font-style);
+  }
+
+  > footer {
+    display: block;
+    padding-top: map.get($blockquote, spacing);
+    padding-bottom: 0;
+    font-size: map.get($blockquote, footer-font-size);
+  }
+}
