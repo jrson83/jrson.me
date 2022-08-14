@@ -1,7 +1,7 @@
 import type { PageData, PageHelpers } from "#types";
 
 export default (
-  { cacheBusting, children, comp, description, importJs, site, title, url }:
+  { children, comp, description, excerpt, importJs, site, title, url }:
     PageData,
   { urlFilter }: PageHelpers,
 ) => {
@@ -14,7 +14,7 @@ export default (
         <title>{`${title} - ${site.title}`}</title>
 
         <meta name="title" content={`${title} - ${site.title}`} />
-        <meta name="description" content={description || site.description} />
+        <meta name="description" content={excerpt || site.description} />
         <meta name="author" content={site.title} />
         <meta name="copyright" content={site.title} />
 
@@ -27,7 +27,7 @@ export default (
         <meta property="og:title" content={`${title} - ${site.title}`} />
         <meta
           property="og:description"
-          content={description || site.description}
+          content={excerpt || site.description}
         />
         <meta property="og:url" content={urlFilter!(site.url)} />
         <meta
@@ -38,7 +38,7 @@ export default (
         <meta name="twitter:title" content={`${title} - ${site.title}`} />
         <meta
           name="twitter:description"
-          content={description || site.description}
+          content={excerpt || site.description}
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta

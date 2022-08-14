@@ -1,6 +1,7 @@
 export default {
   title: "jrson.me",
-  description: "My website description for meta, open graph and twitter card",
+  description:
+    "I am a passionate web developer who likes to experiment with different stacks. I am forced to optimize things to infinity. I blog about my experience I like to share, using Node.js & Deno.",
   url: "https://jrson.me",
   shortUrl: "jrson.me",
   lang: "en",
