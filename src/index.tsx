@@ -10,5 +10,6 @@ export default ({ title }: PageData, { urlFilter }: PageHelpers) => (
       This is a JSX page rendered with Preact.{" "}
       <a href={urlFilter!("/")}>Go to home</a>
     </p>
+    <button type="button" id="theme-toggle">Toggle</button>
   </>
 );
