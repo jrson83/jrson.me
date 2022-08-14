@@ -12,10 +12,7 @@ if (storedTheme) {
   themeToggle.setAttribute("aria-label", storedTheme);
 }
 
-const navToggle = document.getElementById("menu-toggle");
-const navMenu = document.getElementById("nav-menu");
-
-window.onload = () => {
+document.addEventListener("DOMContentLoaded", () => {
   themeToggle.onclick = () => {
     const currentTheme = document.documentElement.getAttribute("data-theme");
     let targetTheme = "light";
@@ -28,8 +25,4 @@ window.onload = () => {
     themeToggle.setAttribute("aria-label", targetTheme);
     localStorage.setItem("theme", targetTheme);
   };
-
-  navToggle.onclick = () => {
-    navMenu.classList.toggle("is-active");
-  };
-};
+});

@@ -1,7 +1,7 @@
 import type { PageData, PageHelpers } from "#types";
 
 export default (
-  { children, description, importJs, site, title }: PageData,
+  { cacheBusting, children, description, importJs, site, title }: PageData,
   { urlFilter }: PageHelpers,
 ) => (
   <html lang={site.lang}>
@@ -16,7 +16,7 @@ export default (
       <meta name="author" content={site.title} />
       <meta name="copyright" content={site.title} />
 
-      <link rel="stylesheet" href={urlFilter!("/styles.css")} />
+      <link rel="stylesheet" href={urlFilter!(`/styles.${cacheBusting}.css`)} />
     </head>
     <body>
       <nav>
@@ -34,7 +34,7 @@ export default (
         </ul>
       </nav>
       <main>{children}</main>
-      <script type="module" src={urlFilter!("/scripts/main.js")} defer />
+      <script type="module" src={urlFilter!(`/scripts/main.${cacheBusting}.js`)} defer />
       {importJs && <script type="module" src={urlFilter!(importJs)} />}
     </body>
   </html>

@@ -12,6 +12,8 @@ import rehypePlugins from "#plugins/unified/rehype/mod.ts";
 import preactjsx from "#plugins/preactjsx/mod.ts";
 import sitemap from "#plugins/sitemap/mod.ts";
 
+const buildTime = `v${Date.now()}`;
+
 const site = lume({
   src: "./src",
   server: {
@@ -27,6 +29,8 @@ const site = lume({
 });
 
 site
+  .copy("assets", ".")
+  .data("cacheBusting", buildTime)
   .use(date())
   .use(slugify_urls())
   .use(unified({
@@ -37,7 +41,6 @@ site
   .use(sass())
   .loadAssets([".js"])
   .use(terser())
-  .copy("assets", ".")
   .use(sitemap({
     query: ["url!=/404/"],
   }));
@@ -47,5 +50,13 @@ site.process([".html"], (page: Page) => {
     page.content = `<!DOCTYPE html>${page.content}`;
   }
 });
+
+if (Deno.env.get("BUILD_MODE") === "dev") {
+  site.process([".css", ".js"], function (page: Page) {
+    page.updateDest({
+      path: `${page.dest.path}.${buildTime}`,
+    });
+  });
+}
 
 export default site;

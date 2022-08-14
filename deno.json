@@ -8,6 +8,6 @@
     "lume": "deno eval \"import 'lume/task.ts'\" --",
     "clean": "rm -rf _site/",
     "build": "deno task lume",
-    "serve": "deno task lume -s"
+    "serve": "BUILD_MODE=\"dev\" deno task lume -s"
   }
 }
