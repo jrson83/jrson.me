@@ -46,7 +46,7 @@ jobs:
         uses: burnett01/rsync-deployments@5.2.1
         with:
           switches: -avzr --delete
-          path: "./_site"
+          path: "./_site/*"
           remote_path: ${{ secrets.REMOTE_PATH }}
           remote_host: ${{ secrets.FTP_SERVER }}
           remote_user: ${{ secrets.FTP_USERNAME }}
