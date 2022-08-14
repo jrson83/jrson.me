@@ -43,12 +43,11 @@ jobs:
         run: deno task build
 
       - name: Deploy to Server
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        uses: burnett01/rsync-deployments@5.2.1
         with:
-          username: ${{ secrets.FTP_USERNAME }}
-          server: ${{ secrets.FTP_SERVER }}
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          local_path: "./_site/*"
-          remote_path: "/var/www/domain-jrson-me/_site/"
-          sftp_only: true
-          delete_remote_files: true
+          switches: -avzr --delete
+          path: "./_site"
+          remote_path: ${{ secrets.REMOTE_PATH }}
+          remote_host: ${{ secrets.FTP_SERVER }}
+          remote_user: ${{ secrets.FTP_USERNAME }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
