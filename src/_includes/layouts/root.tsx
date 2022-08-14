@@ -34,7 +34,11 @@ export default (
         </ul>
       </nav>
       <main>{children}</main>
-      <script type="module" src={urlFilter!(`/scripts/main.${cacheBusting}.js`)} defer />
+      <script
+        type="module"
+        src={urlFilter!(`/scripts/main.${cacheBusting}.js`)}
+        defer
+      />
       {importJs && <script type="module" src={urlFilter!(importJs)} />}
     </body>
   </html>
