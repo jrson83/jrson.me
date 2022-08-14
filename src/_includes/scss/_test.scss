@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Inter"), url("/fonts/Inter-Regular.woff2") format("woff2"), url("/fonts/Inter-Regular.woff") format("woff");
+  unicode-range: U+000-5FF;
+}
+
+@font-face {
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Inconsolata"), url("/fonts/Inconsolata-Regular.woff2") format("woff2"), url("/fonts/Inconsolata-Regular.woff") format("woff");
+  unicode-range: U+000-5FF;
+}
+
+@font-face {
+  font-family: "Inter-Fallback";
+  src: local("Trebuchet MS");
+  unicode-range: U+000-5FF;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family:"Inter", "Inter-fallback", helvetica ,sans-serif;
+  color: #263238;
+}
+
+nav {
+  display: flex;
+  justify-content:space-between; 
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #cfd8dc; 
+}
+
+nav ul {
+  display: flex;
+  list-style: none; 
+}
+
+nav li {
+  padding-left: 1rem; 
+}
+
+nav a {
+  text-decoration: none;
+  color: #0d47a1
+}
+
+/* 
+  Extra small devices (phones, 600px and down) 
+*/
+@media only screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
+  nav ul {
+    flex-direction: column;
+    padding-top: 0.5rem;
+  }
+  nav li {
+    padding: 0.5rem 0;
+  }
+} 

@@ -4,11 +4,14 @@ export default {
   url: "https://jrson.me",
   shortUrl: "jrson.me",
   lang: "en",
-  author: "jrson83",
+  author: {
+    name: "jrson",
+    url: "https://jrson.me",
+  },
   github: {
     user: "jrson83",
     url: "https://github.com/jrson83",
   },
   twitter: "@jrson83",
-  ogImage: "/assets/images/test.png",
+  ogImage: "/assets/images/site/og-placeholder-1200x630.png",
 } as const;

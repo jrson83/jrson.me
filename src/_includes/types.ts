@@ -1,151 +1,91 @@
-import type { Data as BaseData, Helper, Page as BasePage } from "lume/core.ts";
-import type { Search } from "lume/plugins/search.ts";
-import type { ComponentChildren } from "@plugins/preactjsx/deps.ts";
+import type { Page as BasePage, PageData as BasePageData } from "lume/core.ts";
+import type { ComponentChildren } from "#plugins/preactjsx/deps.ts";
 import type SiteMeta from "../_data/site.ts";
 
-export type Menu = {
+export type { PaginateResult } from "lume/plugins/paginate.ts";
+export type { PageHelpers } from "lume/core.ts";
+export type { ComponentChildren };
+
+export interface Menu {
   title: string;
   visible: boolean;
   order: number;
+}
+
+export type ReadingTime = {
+  minutes: number;
+  text: string;
+  time: number;
+  words: number;
 };
 
-export interface Data extends BaseData {
-  /** The title of the page */
-  title?: string;
-
+export interface PageData extends BasePageData {
   /** The page description */
   description?: string;
 
-  /** The page url */
-  url: string | false;
+  /** The page excerpt */
+  excerpt?: string;
 
-  /** The page menuItem */
+  /** Helper for the active page url */
+  activeUrl?: string;
+
+  /** The site navigation menu */
   menu?: Menu;
 
-  /** The page reading time */
-  readingTime?: {
-    minutes: number;
-    text: string;
-    time: number;
-    words: number;
+  /** The post reading time */
+  readingTime?: ReadingTime;
+
+  /** The site icons */
+  icons: {
+    unicons: {
+      [key: string]: string | number;
+    };
+    stack: {
+      [key: string]: string | number;
+    };
   };
 
+  filteredBy: string;
+
+  series: {
+    title: string;
+    ident: string;
+  };
+
+  /** The site metadata */
   site: typeof SiteMeta;
-
-  /**
-   * The available components
-   * @see https://lume.land/docs/core/components/
-   */
-  // deno-lint-ignore no-explicit-any
-  comp?: any;
-
-  /**
-   * The paginator helper
-   * @see https://lume.land/plugins/paginate/
-   */
-  paginate: Paginator;
-
-  /**
-   * The pagination info
-   * @see https://lume.land/plugins/paginate/
-   */
-  pagination?: Pagination;
-
-  /**
-   * The pagination result
-   * @see https://lume.land/plugins/paginate/
-   */
-  results?: Page[];
-
-  /**
-   * The searcher helper
-   * @see https://lume.land/plugins/search/
-   */
-  search: Search;
-
-  /**
-   * The JSX children elements
-   * @see https://lume.land/plugins/jsx/
-   */
-  children: ComponentChildren;
 }
 
 export interface Page extends BasePage {
-  data: Data;
+  data: PageData;
 }
 
-export type Paginator = (
-  results: unknown[],
-  userOptions?: Partial<never>,
-) => Generator<PaginateResult, void, unknown>;
-
-export interface Pagination {
-  /** The current page number */
-  page: number;
-
-  /** The total number of pages */
-  totalPages: number;
-
-  /** The total number of elements */
-  totalResults: number;
-
-  /** The url of the previous page */
-  previous: string | null;
-
-  /** The url of the next page */
-  next: string | null;
-}
-
-export interface PaginateResult<T = Page> {
-  /** The page url */
-  url: string;
-
-  /** The page elements */
-  results: T[];
-
-  /** The pagination info */
-  pagination: Pagination;
-
-  /** Important when defining `page.menu` or `page.type` inside `paginate()` */
-  [index: string]: unknown;
-}
-
-export interface PageHelpers {
-  /** @see https://lume.land/plugins/attributes/ */
-  attr: Helper;
-
-  /** @see https://lume.land/plugins/attributes/ */
-  class: Helper;
-
-  /** @see https://lume.land/plugins/date/ */
-  date: Helper;
-
-  /** @see https://lume.land/plugins/liquid/ */
-  liquid: Helper;
-
-  /** @see https://lume.land/plugins/markdown/ */
-  md: Helper;
-
-  /** @see https://lume.land/plugins/nunjucks/ */
-  njk: Helper;
-
-  /** @see https://lume.land/plugins/postcss/ */
-  postcss: Helper;
-
-  /** @see https://lume.land/plugins/pug/ */
-  pug: Helper;
-
-  /** @see https://lume.land/plugins/slugify_urls/ */
-  slugify: Helper;
-
-  /** @see https://lume.land/plugins/terser/#the-terser-filter */
-  terser: Helper;
-
-  /** @see https://lume.land/plugins/url/#url-filter */
-  url: Helper;
-
-  /** @see https://lume.land/plugins/url/#htmlurl-filter */
-  htmlUrl: Helper;
-
-  [key: string]: Helper | undefined;
+export interface AboutData extends PageData {
+  header: {
+    title: string;
+    description: string;
+  };
+  stacks: {
+    title: string;
+    icons: Array<{
+      title: string;
+      items: Array<{
+        title: string;
+        icon: string;
+        color: number | string;
+        url: string;
+      }>;
+    }>;
+  };
+  blogstacks: {
+    title: string;
+    lists: Array<{
+      description: string;
+      items: Array<{
+        title: string;
+        description: string;
+        url: string;
+      }>;
+    }>;
+  };
 }

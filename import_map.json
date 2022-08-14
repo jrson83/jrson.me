@@ -1,10 +1,10 @@
 {
   "imports": {
-    "lume/": "https://deno.land/x/lume@v1.10.1/",
+    "lume/": "https://deno.land/x/lume@v1.10.4/",
     "preact/jsx-runtime": "https://esm.sh/preact@10.10.1/jsx-runtime",
     "preact/jsx-dev-runtime": "https://esm.sh/preact@10.10.1/jsx-dev-runtime",
-    "@plugins/": "./plugins/",
-    "@types": "./src/_includes/types.ts",
-    "@utils": "./src/_includes/utils/index.ts"
+    "#plugins/": "./plugins/",
+    "#types": "./src/_includes/types.ts",
+    "#utils": "./src/_includes/utils/index.ts"
   }
 }

@@ -8,7 +8,7 @@ import {
   remarkParse,
   remarkRehype,
   unified,
-} from "@plugins/unified/deps.ts";
+} from "./deps.ts";
 
 import type { Data, Engine, Helper, Site } from "lume/core.ts";
 
