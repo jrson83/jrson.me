@@ -89,7 +89,7 @@ export default function (userOptions?: Partial<Options>) {
 
   ${feedPages.map((post: Page) => {
     return `<entry>
-    <title>${post.data.title}</title>
+    <title>${isString(post.data.title) && post.data.title.replace(/\s\&\s/, " and ")}</title>
     <link href="${site.url(post.data.url as string, true)}"/>
     <id>${site.url(post.data.url as string, true)}</id>
     <updated>${post.data.date?.toISOString()}</updated>
