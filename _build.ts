@@ -1,8 +1,8 @@
-type BuildMode = string | undefined
+type BuildMode = string | undefined;
 
 const createConfig = (mode: BuildMode) => {
-  if (typeof mode === 'undefined') {
-    throw new Error('BUILD_MODE is not defined');
+  if (typeof mode === "undefined") {
+    throw new Error("BUILD_MODE is not defined");
   }
   if (mode === "prod") {
     return {
