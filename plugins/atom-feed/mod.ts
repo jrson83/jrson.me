@@ -77,8 +77,8 @@ export default function (userOptions?: Partial<Options>) {
       // deno-fmt-ignore
       const atomfeed = `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>${metas.title.replace(/\s\&\s/, " and ")}</title>
-  <subtitle>${metas.description}</subtitle>
+  <title>${metas.title}</title>
+  <subtitle>${metas.description.replace(/\s\&\s/, " and ")}</subtitle>
   <link href="${site.url("feed.xml", true)}" rel="self" type="application/rss+xml"/>
   <link href="${site.url("/", true)}"/>
   <updated>${feedPages[0].data.date?.toISOString()}</updated>
