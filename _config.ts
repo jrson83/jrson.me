@@ -36,7 +36,11 @@ site
   .copy("assets", ".")
   .use(readingTime())
   .use(date())
-  .use(slugify_urls())
+  .use(slugify_urls({
+    replace: {
+      "&": "and",
+    },
+  }))
   .use(unified({
     remarkPlugins,
     rehypePlugins,

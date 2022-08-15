@@ -2,6 +2,8 @@ import { merge } from "lume/core/utils.ts";
 import { Page } from "lume/core/filesystem.ts";
 import { buildSort } from "lume/plugins/search.ts";
 
+import { isString } from "#utils";
+
 import { formatXML } from "./deps.ts";
 import type { FormatOptions } from "./deps.ts";
 
@@ -75,9 +77,9 @@ export default function (userOptions?: Partial<Options>) {
       // deno-fmt-ignore
       const atomfeed = `<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>${metas.title}</title>
+  <title>${metas.title.replace(/\s\&\s/, " and ")}</title>
   <subtitle>${metas.description}</subtitle>
-  <link href="${site.url("feed.xml", true)}" rel="self"/>
+  <link href="${site.url("feed.xml", true)}" rel="self" type="application/rss+xml"/>
   <link href="${site.url("/", true)}"/>
   <updated>${feedPages[0].data.date?.toISOString()}</updated>
   <id>${site.url("/", true)}</id>
@@ -91,7 +93,7 @@ export default function (userOptions?: Partial<Options>) {
     <link href="${site.url(post.data.url as string, true)}"/>
     <id>${site.url(post.data.url as string, true)}</id>
     <updated>${post.data.date?.toISOString()}</updated>
-    <summary>${post.data.excerpt}</summary>
+    <summary>${isString(post.data.excerpt) && post.data.excerpt.replace(/\s\&\s/, " and ")}</summary>
   </entry>
   `}).join("").trim()}
 </feed>`.trim();
