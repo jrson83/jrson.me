@@ -1,5 +1,7 @@
 import type { Page } from "lume/core.ts";
 
+import { config } from "./_build.ts";
+
 import lume from "lume/mod.ts";
 import date from "lume/plugins/date.ts";
 import slugify_urls from "lume/plugins/slugify_urls.ts";
@@ -16,6 +18,7 @@ import sitemap from "#plugins/sitemap/mod.ts";
 import md5CacheBuster from "#plugins/md5-cache-buster/mod.ts";
 
 const site = lume({
+  location: config.location,
   src: "./src",
   server: {
     page404: "/404/",
@@ -53,7 +56,7 @@ site.process([".html"], (page: Page) => {
   }
 });
 
-if (Deno.env.get("BUILD_MODE") === "prod") {
+if (config.mode === "prod") {
   site.use(md5CacheBuster());
 }
 
