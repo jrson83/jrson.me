@@ -15,6 +15,7 @@ export default function* ({ search, paginate }: PageData) {
     for (const page of paginate(posts, { url, size: 10 })) {
       page.pathToPage = `/blog/tag/${tag}/`;
       page.filteredBy = tag;
+      page.title = `Blog posts tagged: “${tag}“`;
 
       yield page;
     }

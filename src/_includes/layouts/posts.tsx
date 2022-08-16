@@ -18,7 +18,6 @@ export default ({ comp, filteredBy, pagination, results, title }: PageData) => {
       <section id="search-wrapper" class="search-wrapper">
         <comp.blog.search query={filteredBy} />
       </section>
-      <h2>{filteredBy && `Tagged “${filteredBy}”`}</h2>
       <section
         id="blog-posts-section"
         itemScope
