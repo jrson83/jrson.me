@@ -58,7 +58,7 @@ export default function (userOptions?: Partial<Options>) {
   ${sitemapPages.map((page: Page) => {
     return `<url>
     <loc>${site.url(page.data.url as string, true)}</loc>
-    <lastmod>${page?.src?.lastModified?.toISOString() as string}</lastmod>
+    <lastmod>${page.data.date?.toISOString() as string}</lastmod>
   </url>
   `}).join("").trim()}
 </urlset>`.trim();

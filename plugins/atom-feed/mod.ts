@@ -92,7 +92,7 @@ export default function (userOptions?: Partial<Options>) {
     <title>${isString(post.data.title) && post.data.title.replace(/\s\&\s/, " and ")}</title>
     <link href="${site.url(post.data.url as string, true)}"/>
     <id>${site.url(post.data.url as string, true)}</id>
-    <updated>${post.src.lastModified?.toISOString()}</updated>
+    <updated>${post.data.date?.toISOString()}</updated>
     <summary>${isString(post.data.excerpt) && post.data.excerpt.replace(/\s\&\s/, " and ")}</summary>
   </entry>
   `}).join("").trim()}
