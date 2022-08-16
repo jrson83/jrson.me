@@ -125,9 +125,10 @@ Which creates the
 
 ## Configuring VS Code
 
-After initializing the project, we create an [.editorconfig](.editorconfig) file
-with my preferred settings, disable [Prettier](https://prettier.io/) for the
-current workspace, enable the
+After initializing the project, we create an
+[.editorconfig](https://github.com/jrson83/jrson.me/blob/main/.editorconfig)
+file with my preferred settings, disable [Prettier](https://prettier.io/) for
+the current workspace, enable the
 [Deno extension](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno)
 and initialize the current workspace `Ctrl+Shift+P`:
 
@@ -511,7 +512,9 @@ Loading config file D:\lume-app\_config.ts
 Since I want to maintain my website within a git repository, but not use github
 pages for deploying, instead use a custom workflow action, I setup a normal
 [git repository](https://github.com/jrson83/jrson.me) and add
-[LICENSE](LICENSE), [README.md](README.md) and [.gitignore](.gitignore) files to
+[LICENSE](https://github.com/jrson83/jrson.me/blob/main/LICENSE),
+[README.md](https://github.com/jrson83/jrson.me/blob/main/README.md) and
+[.gitignore](https://github.com/jrson83/jrson.me/blob/main/.gitignore) files to
 my project root.
 
 Lume is offering multiple ways to deploy your website. For a detailed list

@@ -7,7 +7,7 @@ export default ({ tags }: PageData, { urlFilter }: PageHelpers) => {
         return (
           <div key={index} className="bdg bdg-tag" itemProp="keywords">
             #{tag}
-            <a href={urlFilter!(`/blog/tag/${tag}`)} rel="tag">
+            <a href={urlFilter!(`/blog/tag/${tag}/`)} rel="tag">
               <span
                 className="bdg-link"
                 role="link"
