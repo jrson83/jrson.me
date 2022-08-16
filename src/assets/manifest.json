@@ -1,10 +1,13 @@
 {
   "name": "jrson.me",
   "short_name": "jrson.me",
-  "description": "Coming",
-  "start_url": ".",
+  "description": "I am a passionate web developer who likes to experiment with different stacks.",
+  "lang": "en",
+  "id": "/",
+  "start_url": "/",
   "theme_color": "#f5f5f5",
   "background_color": "#1f2428",
+  "orientation": "natural",
   "display": "standalone",
   "icons": [
     {
@@ -21,7 +24,7 @@
       "src": "/images/pwa/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     }
   ]
 }
