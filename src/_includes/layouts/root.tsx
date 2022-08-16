@@ -52,6 +52,21 @@ export default (
         <meta itemProp="url" content={urlFilter!(site.url)} />
         <meta itemProp="creator" content={site.author.name} />
 
+        <link
+          rel="sitemap"
+          type="application/xml"
+          title="Sitemap"
+          href={urlFilter!("/sitemap.xml")}
+        />
+        <link
+          rel="alternate"
+          type="application/atom+xml"
+          title="Atom feed"
+          href={urlFilter!("/feed.xml")}
+        />
+
+        <link rel="manifest" href={urlFilter!("/manifest.json")} />
+
         <meta
           name="theme-color"
           content="#F2F2F2"
@@ -63,6 +78,11 @@ export default (
           media="(prefers-color-scheme: dark)"
         />
 
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href={urlFilter!("/images/pwa/favicon.ico")}
+        />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -80,24 +100,8 @@ export default (
           sizes="16x16"
           href={urlFilter!("/images/pwa/favicon-16x16.png")}
         />
-        <link rel="manifest" href={urlFilter!("/manifest.json")} />
 
-        <link
-          rel="alternate"
-          type="application/atom+xml"
-          href={urlFilter!("feed.xml", true)}
-          title={`Blog - ${site.title}`}
-        />
-        <link
-          rel="self"
-          type="application/atom+xml"
-          href={urlFilter!("feed.xml", true)}
-        />
-
-        <link
-          rel="stylesheet"
-          href={urlFilter!(`/styles.css`)}
-        />
+        <link rel="stylesheet" href={urlFilter!(`/styles.css`)} />
       </head>
       <body>
         <comp.layout.navbar activeUrl={url} />
@@ -116,7 +120,7 @@ export default (
           src={urlFilter!(`/scripts/main.js`)}
           defer
         />
-        {importJs && <script type="module" src={urlFilter!(importJs)} />}
+        {importJs && <script type="module" src={urlFilter!(importJs)} defer />}
       </body>
     </html>
   );
