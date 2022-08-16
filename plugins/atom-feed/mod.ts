@@ -81,7 +81,7 @@ export default function (userOptions?: Partial<Options>) {
   <subtitle>${metas.description.replace(/\s\&\s/, " and ")}</subtitle>
   <link href="${site.url("feed.xml", true)}" rel="self" type="application/rss+xml"/>
   <link href="${site.url("/", true)}"/>
-  <updated>${feedPages[0].data.date?.toISOString()}</updated>
+  <updated>${new Date().toISOString()}</updated>
   <id>${site.url("/", true)}</id>
   <author>
     <name>${metas.author.name}</name>
@@ -92,7 +92,7 @@ export default function (userOptions?: Partial<Options>) {
     <title>${isString(post.data.title) && post.data.title.replace(/\s\&\s/, " and ")}</title>
     <link href="${site.url(post.data.url as string, true)}"/>
     <id>${site.url(post.data.url as string, true)}</id>
-    <updated>${post.data.date?.toISOString()}</updated>
+    <updated>${post.src.lastModified?.toISOString()}</updated>
     <summary>${isString(post.data.excerpt) && post.data.excerpt.replace(/\s\&\s/, " and ")}</summary>
   </entry>
   `}).join("").trim()}

@@ -51,7 +51,7 @@ site
   .use(terser())
   .use(atomFeed())
   .use(sitemap({
-    query: ["url!=/404/"],
+    excludes: ["/404/", "/blog/tag/"],
   }));
 
 site.process([".html"], (page: Page) => {
