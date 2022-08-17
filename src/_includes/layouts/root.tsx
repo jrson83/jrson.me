@@ -118,9 +118,9 @@ export default (
         <script
           type="module"
           src={urlFilter!(`/scripts/main.js`)}
-          defer
+          async
         />
-        {importJs && <script type="module" src={urlFilter!(importJs)} defer />}
+        {importJs && <script type="module" src={urlFilter!(importJs)} async />}
       </body>
     </html>
   );
