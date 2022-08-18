@@ -9,8 +9,8 @@ export default ({ comp, search }: PageData) => {
   return (
     <>
       <section>
-        <h1 style="margin-top: 1.5rem;">Hi 👋, I'm jrson!</h1>
-        <p style="margin-top: 2.5rem;">
+        <h1>Hi 👋, I'm jrson!</h1>
+        <p>
           I am a passionate web developer who likes to experiment with different
           stacks. I am forced to optimize things to infinity.
         </p>
