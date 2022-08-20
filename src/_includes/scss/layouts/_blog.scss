@@ -5,7 +5,8 @@
 
 article {
   &.blog-post {
-    border: 1px solid var(--border-color);
+    border-color: transparent;
+    box-shadow: 0 0 0 1px var(--border-color);
   }
 
   &:not(.blog-post) {

@@ -12,6 +12,13 @@ export default (
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{`${title} - ${site.title}`}</title>
+        <link
+          rel="preload"
+          href="/fonts/Inter-Regular.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
 
         <meta name="title" content={`${title} - ${site.title}`} />
         <meta name="description" content={excerpt || site.description} />

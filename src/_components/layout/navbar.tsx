@@ -57,14 +57,12 @@ export default (
                   icon={icons.unicons.sun}
                   title="Sun"
                   className="display-dark hidden"
-                  id="theme-toggle-light-icon"
                 />
                 <comp.shared.icon
                   icon={icons.unicons.moon}
                   title="Moon"
                   size="27"
                   className="display-light hidden"
-                  id="theme-toggle-dark-icon"
                 />
               </button>
             </li>
