@@ -71,8 +71,8 @@ section > h3 {
     filter: alpha(opacity=0);
   }
 
-  @include breakpoint(md) {
-    @include full-width;
+  @include mix-breakpoint(md) {
+    @include mix-full-width;
   }
 }
 
@@ -93,7 +93,7 @@ section > h3 {
     display: none;
   }
 
-  @include breakpoint(md) {
+  @include mix-breakpoint(md) {
     flex-wrap: wrap;
     gap: 0.6rem;
 
@@ -108,7 +108,7 @@ section > h3 {
 .meta-spacer {
   display: block;
 
-  @include breakpoint(md) {
+  @include mix-breakpoint(md) {
     display: none;
   }
 }
@@ -120,8 +120,8 @@ section > h3 {
   border-radius: var(--body-border-radius);
   background-color: var(--secondary-color);
 
-  @include breakpoint(md) {
-    @include full-width;
+  @include mix-breakpoint(md) {
+    @include mix-full-width;
   }
 
   header {

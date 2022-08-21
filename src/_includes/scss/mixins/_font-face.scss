@@ -1,7 +1,7 @@
 @use "sass:string";
 
 // Mixin: Font-face
-@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+@mixin mix-font-face($font-name, $file-name, $weight: normal, $style: normal) {
   @font-face {
     font-family: string.quote($font-name);
     font-style: $style;
@@ -15,7 +15,7 @@
   }
 }
 
-@mixin font-fallback($fallback-name, $font-name) {
+@mixin mix-font-fallback($fallback-name, $font-name) {
   @font-face {
     font-family: string.quote($fallback-name);
     src: local(string.quote($font-name));

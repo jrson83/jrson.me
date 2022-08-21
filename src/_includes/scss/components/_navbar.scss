@@ -1,4 +1,3 @@
-@use "../mixins" as *;
 @use "../variables" as *;
 
 // Component: Navbar
@@ -19,10 +18,6 @@
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem 1rem;
-  }
-
-  @include breakpoint(md) {
-    position: relative;
   }
 }
 

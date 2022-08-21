@@ -16,9 +16,3 @@ $config: (
   container-width: 50rem,
   container-fluid-width: 100%,
 ) !default;
-
-:root {
-  @each $item, $value in $config {
-    --body-#{$item}: #{$value};
-  }
-}

@@ -1,0 +1,13 @@
+@use "../mixins" as *;
+
+// Element: Root
+@include mix-root;
+@include mix-themes;
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}

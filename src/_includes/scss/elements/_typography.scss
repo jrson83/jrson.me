@@ -19,7 +19,7 @@ h1 {
 h2 {
   font-size: clamp(1.575rem, calc(12px + 1.8vw), 2.025rem);
 
-  @include breakpoint(md) {
+  @include mix-breakpoint(md) {
     font-size: clamp(1.913rem, calc(12px + 2.475vw), 2.587rem);
   }
 }
@@ -27,7 +27,7 @@ h2 {
 h3 {
   font-size: clamp(1.282rem, calc(12px + 1.35vw), 1.688rem);
 
-  @include breakpoint(md) {
+  @include mix-breakpoint(md) {
     font-size: clamp(1.575rem, calc(12px + 1.8vw), 2.025rem);
   }
 }

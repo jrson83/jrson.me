@@ -28,7 +28,7 @@
     border: 1px solid var(--secondary-link-color);
   }
 
-  @include breakpoint(md) {
+  @include mix-breakpoint(md) {
     padding: map.get($config, spacing) - 0.5rem;
   }
 }
@@ -51,7 +51,7 @@
     color: var(--third-font-color);
   }
 
-  @include breakpoint(md) {
+  @include mix-breakpoint(md) {
     flex-direction: row;
     align-items: center;
 

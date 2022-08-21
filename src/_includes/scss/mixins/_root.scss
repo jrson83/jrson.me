@@ -1,0 +1,10 @@
+@use "../variables" as *;
+
+// Mixin: Root
+@mixin mix-root {
+  :root {
+    @each $item, $value in $config {
+      --body-#{$item}: #{$value};
+    }
+  }
+}

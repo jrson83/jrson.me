@@ -1,6 +1,5 @@
 @use "sass:map";
 @use "../variables" as *;
-@use "../functions" as *;
 
 // Element: Lists
 $list-spacing: map.get($lists, spacing);

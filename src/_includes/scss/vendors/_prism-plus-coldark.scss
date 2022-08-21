@@ -305,8 +305,8 @@ pre {
   font-family: var(--code-font-family) !important;
   font-size: 0.9rem;
 
-  @include breakpoint(md) {
-    @include full-width;
+  @include mix-breakpoint(md) {
+    @include mix-full-width;
   }
 
   span {
@@ -324,9 +324,9 @@ pre {
   }
 }
 
-@include breakpoint(md) {
+@include mix-breakpoint(md) {
   pre[class*="language-"] {
-    @include full-width;
+    @include mix-full-width;
   }
 }
 

@@ -29,11 +29,3 @@ $themes: (
     border-color: #384047,
   ),
 ) !default;
-
-@each $theme, $map in $themes {
-  html[data-theme="#{$theme}"] {
-    @each $key, $submap in $map {
-      --#{$key}: #{map-deep-get($themes, $theme, "#{$key}")};
-    }
-  }
-}

@@ -1,0 +1,13 @@
+@use "../functions" as *;
+@use "../variables" as *;
+
+// Mixin: Themes
+@mixin mix-themes {
+  @each $theme, $map in $themes {
+    :root[data-theme="#{$theme}"] {
+      @each $key, $submap in $map {
+        --#{$key}: #{map-deep-get($themes, $theme, "#{$key}")};
+      }
+    }
+  }
+}

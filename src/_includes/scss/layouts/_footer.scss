@@ -16,7 +16,7 @@ footer {
     margin-bottom: 0;
   }
 
-  @include breakpoint(md) {
+  @include mix-breakpoint(md) {
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
