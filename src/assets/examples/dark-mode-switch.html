@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<script type="module">
+  const root = document.documentElement;
+  const mediaQuery = "(prefers-color-scheme: dark)";
+  const mediaMatch = window.matchMedia;
+  const currentMode = mediaMatch(mediaQuery).matches;
+
+  const storeTheme = (targetTheme) => {
+    if ("boolean" === typeof targetTheme) {
+      targetTheme = targetTheme ? "dark" : "light";
+    }
+    root.setAttribute("data-theme", targetTheme);
+    localStorage.setItem("theme", targetTheme);
+  };
+
+  const storedTheme = ("theme" in localStorage)
+    ? localStorage.getItem("theme")
+    : currentMode;
+
+  storedTheme && storeTheme(storedTheme);
+
+  document.getElementById("theme-toggle").addEventListener("click", () => {
+    const currentTheme =
+      (getComputedStyle(root).getPropertyValue("color-scheme") == "light");
+    storeTheme(!!currentTheme);
+  });
+
+  mediaMatch(mediaQuery).addEventListener("change", (event) => {
+    storeTheme(event.matches);
+  });
+</script>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Light | Dark mode switch</title>
+<meta name="supported-color-schemes" content="light dark" />
+<meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+<style>
+  /** We define one `light` & one `dark` root */
+  :root[data-theme='light'] {
+    color-scheme: light;
+    --background-color: #fff;
+    --text-color: #121416d8;
+    --link-color: #d77c3f;
+  }
+  /** We use `data-theme`, since it's easy to handle */
+  :root[data-theme='dark'] {
+    color-scheme: dark;
+    --background-color: Canvas;
+    --text-color: #F7F8F8;
+    --link-color: #d77c3f;
+  }
+  body {
+    background: var(--background-color);
+    color: var(--text-color);
+  }
+</style>
+</head>
+<body>
+<h1>Light | Dark mode switch</h1>
+<button id="theme-toggle">Change mode</button>
+<div style="height:2000px"></div>
+</body>
+</html>

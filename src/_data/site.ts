@@ -14,5 +14,5 @@ export default {
     url: "https://github.com/jrson83",
   },
   twitter: "@jrson83",
-  ogImage: "/assets/images/site/og-placeholder-1200x630.png",
+  ogImage: "/images/site/og-placeholder-1200x630.png",
 } as const;
