@@ -2,6 +2,7 @@
 title: "Creating a Blog with Lume Part 1: Install & config"
 excerpt: This is a walkthrough of using Lume to set up a prerendered static blog with Preact, TypeScript, Markdown and SASS/SCSS.
 date: 2022-08-11 12:00:00
+updated: 2022-08-23 12:00:00
 draft: false
 tags:
   - deno
@@ -192,7 +193,7 @@ And the `import_map.json`:
 ```json
 {
   "imports": {
-    "lume/": "https://deno.land/x/lume@v1.10.3/"
+    "lume/": "https://deno.land/x/lume@v1.10.4/"
   }
 }
 ```
@@ -288,7 +289,7 @@ Deno. Here is how we setup the paths for now:
 ```json:import_map.json code-diff
 {
   "imports": {
-    "lume/": "https://deno.land/x/lume@v1.10.1/",
+    "lume/": "https://deno.land/x/lume@v1.10.4/",
 +   "#plugins/": "./plugins/",
 +   "#types": "./src/_includes/types.ts"
   }
@@ -304,9 +305,9 @@ straightforward task. The only option I want to change is the target `src`
 directory (defaults to `cwd`), which I created before.
 
 ```ts:_config.ts code-diff
-const site = lume({
-+ src: "./src",
-});
+ const site = lume({
++  src: "./src",
+ });
 ```
 
 ### Plugins
@@ -344,7 +345,7 @@ plugin, which we import with the local alias path.
 + import slugify_urls from "lume/plugins/slugify_urls.ts";
 
   // custom plugins
-+ import preactjsx from "@plugins/preactjsx/mod.ts";
++ import preactjsx from "#plugins/preactjsx/mod.ts";
 
   const site = lume({
     src: "./src",
@@ -369,9 +370,9 @@ things.
 ```json:import_map.json code-diff
 {
   "imports": {
-    "lume/": "https://deno.land/x/lume@v1.10.1/",
-+   "preact/jsx-runtime": "https://esm.sh/preact@10.10.0/jsx-runtime",
-+   "preact/jsx-dev-runtime": "https://esm.sh/preact@10.10.0/jsx-dev-runtime",
+    "lume/": "https://deno.land/x/lume@v1.10.4/",
++   "preact/jsx-runtime": "https://esm.sh/preact@10.10.6/jsx-runtime",
++   "preact/jsx-dev-runtime": "https://esm.sh/preact@10.10.6/jsx-dev-runtime",
     "#plugins/": "./plugins/",
     "#types": "./src/_includes/types.ts"
   }
