@@ -16,11 +16,21 @@ export default ({ comp, search }: PageData) => {
         </p>
         <p>
           I blog about my experience I like to share, using{" "}
-          <a href="https://nodejs.org/" rel="noopener" target="_blank">
+          <a
+            href="https://nodejs.org/"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
             Node.js
           </a>{" "}
           &{" "}
-          <a href="https://deno.land/" rel="noopener" target="_blank">Deno</a>.
+          <a
+            href="https://deno.land/"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            Deno
+          </a>.
         </p>
         <comp.shared.iconbar />
       </section>

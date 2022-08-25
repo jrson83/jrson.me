@@ -20,7 +20,13 @@ export default (
           <h4 key={index}>{title}</h4>
           <div className="stack-icon-wrapper">
             {items.map(({ icon, color, title, url }, index) => (
-              <a href={url} aria-label={title}>
+              <a
+                href={url}
+                aria-label={title}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                className="no-ext"
+              >
                 <comp.shared.icon
                   key={index}
                   icon={stack[icon]}
@@ -41,8 +47,14 @@ export default (
           <ul>
             {items.map(({ description, title, url }, index) => (
               <li key={index}>
-                <a href={url} rel="noopener" target="_blank">{title}</a> -{" "}
-                {description}
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="nofollow noopener noreferrer"
+                >
+                  {title}
+                </a>{" "}
+                - {description}
               </li>
             ))}
           </ul>
