@@ -3,8 +3,7 @@ import type { Page, PageData } from "#types";
 export const layout = "layouts/posts.tsx";
 export const importJs = "/scripts/search.js";
 
-// deno-lint-ignore no-explicit-any
-let lastTag: any;
+let lastTag: Page;
 
 export default function* ({ search, paginate }: PageData) {
   for (const tag of search.tags() as Page[]) {
