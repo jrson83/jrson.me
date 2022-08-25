@@ -7,25 +7,3 @@ hr {
   border: 0;
   border-top: map.get($divider, border);
 }
-
-.divider {
-  display: flex;
-  align-items: center;
-  color: map.get($divider, color);
-  text-align: center;
-
-  &::after,
-  &::before {
-    content: "";
-    flex: 1;
-    border-top: map.get($divider, border);
-  }
-
-  &:not(:empty)::before {
-    margin-right: map.get($divider, text-spacing);
-  }
-
-  &:not(:empty)::after {
-    margin-left: map.get($divider, text-spacing);
-  }
-}
