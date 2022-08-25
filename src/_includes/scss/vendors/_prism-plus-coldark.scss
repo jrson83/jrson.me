@@ -12,7 +12,7 @@
  * @homepage https://github.com/ArmandPhilippot/coldark-prism
  * @license MIT
  */
-html {
+:root {
   &[data-theme="light"] {
     --code-background: var(--secondary-color);
     --code-font-color: var(--primary-font-color);
