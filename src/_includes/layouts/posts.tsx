@@ -14,8 +14,7 @@ export default ({ comp, filteredBy, pagination, results, title }: PageData) => {
           posts, by <code>title</code> or <code>tag</code>.
         </p>
       </section>
-      {/* Browse the following posts, or use the search below to filter. */}
-      <section id="search-wrapper" class="search-wrapper">
+      <section id="search-wrapper" className="search-wrapper">
         <comp.blog.search query={filteredBy} />
       </section>
       <section

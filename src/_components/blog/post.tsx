@@ -40,7 +40,7 @@ export default (
         />
       </p>
       <a href={urlFilter!(url)} itemProp="url" aria-label="Read more">
-        <span class="blog-post-link"></span>
+        <span className="blog-post-link"></span>
       </a>
     </article>
   );

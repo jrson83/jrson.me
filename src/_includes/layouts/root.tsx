@@ -114,7 +114,7 @@ export default (
         <comp.layout.navbar activeUrl={url} />
         <main
           id="page-content"
-          class="container"
+          className="container"
           itemScope
           itemProp="mainContentOfPage"
           itemType="https://schema.org/Blog"

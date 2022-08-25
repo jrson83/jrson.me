@@ -10,7 +10,7 @@ export default (
     <>
       <div
         id="scroll-progress"
-        class="scroll-progress"
+        className="scroll-progress"
         role="progressbar"
         title="Reading progress"
       />
