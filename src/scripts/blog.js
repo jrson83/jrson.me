@@ -45,6 +45,7 @@ const debounce = (fn) => {
 
 const storeScroll = () => {
   const contentBox = main.getBoundingClientRect();
+  const screenHeight = window.innerHeight;
 
   const headerHeight = header.offsetHeight;
   const mainHeight = contentBox.height;
@@ -63,15 +64,15 @@ const storeScroll = () => {
   const headerPercent = roundToTwo(
     (headerHeight / (scrollHeight - headerHeight)) * 100,
   );
-  const scrollPercent =
-    (scrollPosition / (mainHeight - window.innerHeight)) * 100 - headerPercent;
+  const scrollPercent = (scrollPosition / (mainHeight - screenHeight)) * 100 -
+    headerPercent;
 
   if (contentBox.top > 0) {
-    scrollProgress.style = `--width: 0%;`;
+    scrollProgress.style.transform = `scaleX(0)`;
   } else if (scrollPercent >= 100) {
-    scrollProgress.style = `--width: 100%;`;
+    scrollProgress.style.transform = `scaleX(200)`;
   } else {
-    scrollProgress.style = `--width: ${scrollPercent}%;`;
+    scrollProgress.style.transform = `scaleX(${scrollPercent.toFixed(2)})`;
   }
 };
 

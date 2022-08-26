@@ -17,13 +17,17 @@ h3:hover a[class="header-anchor"] .btn-header-anchor {
 }
 
 .scroll-progress {
+  will-change: transform;
   position: fixed;
   z-index: 10000;
   top: 0;
-  width: var(--width);
+  left: 0;
+  width: 1%;
   height: 5px;
   overflow-x: hidden;
-  background: var(--secondary-link-color);
+  transform-origin: top left;
+  transform: scaleX(0);
+  background-color: var(--secondary-link-color);
 }
 
 .btn-copy {
