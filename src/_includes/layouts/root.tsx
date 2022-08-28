@@ -124,9 +124,16 @@ export default (
         <comp.layout.footer />
         <script
           type="module"
+          nonce="CSP_NONCE"
           src={urlFilter!(`/scripts/main.js`)}
         />
-        {importJs && <script type="module" src={urlFilter!(importJs)} />}
+        {importJs && (
+          <script
+            type="module"
+            nonce="CSP_NONCE"
+            src={urlFilter!(importJs)}
+          />
+        )}
       </body>
     </html>
   );
