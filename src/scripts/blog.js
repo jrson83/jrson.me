@@ -91,30 +91,30 @@ const addCopyButtons = (clipboard) => {
         const codeBlock = button.parentNode.nextElementSibling;
 
         button.addEventListener("click", () => {
-          clipboard.writeText(codeBlock.textContent).then(
-            () => {
-              button.blur();
-              button.firstChild.style.display = "none";
-              button.lastChild.style.display = "inline";
-              button.style.pointerEvents = "none";
-              setTimeout(
-                () => (
-                  button.lastChild.style.display = "none",
-                    button.firstChild.style.display = "inline",
-                    button.style.pointerEvents = "auto"
-                ),
-                2000,
-              );
-            },
-            (err) => {
-              if (err instanceof Error) {
-                button.innerHTML = err.message;
-                console.log(err.message);
-              } else {
-                button.innerHTML = "Unexpected error", err;
-                console.log("Unexpected error", err);
-              }
-            },
+          debounce(
+            clipboard.writeText(codeBlock.textContent).then(
+              () => {
+                button.blur();
+                button.firstChild.classList.add("visually-hidden");
+                button.lastChild.classList.remove("visually-hidden");
+                setTimeout(
+                  () => {
+                    button.lastChild.classList.add("visually-hidden");
+                    button.firstChild.classList.remove("visually-hidden");
+                  },
+                  2000,
+                );
+              },
+              (err) => {
+                if (err instanceof Error) {
+                  button.innerHTML = err.message;
+                  console.log(err.message);
+                } else {
+                  button.innerHTML = "Unexpected error", err;
+                  console.log("Unexpected error", err);
+                }
+              },
+            ),
           );
         });
       }

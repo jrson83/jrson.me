@@ -30,7 +30,6 @@ const rehypeCopyCode: unified.Plugin<[], HastRoot> = () => {
             type: "element",
             tagName: "button",
             properties: { className: ["btn-reset", "btn-copy"] },
-            /* children: [{ type: "text", value: `Copy` }], */
             children: [
               {
                 type: "element",
@@ -64,7 +63,8 @@ const rehypeCopyCode: unified.Plugin<[], HastRoot> = () => {
                 type: "element",
                 tagName: "svg",
                 properties: {
-                  style: "display: none;fill: var(--code-attr-value);",
+                  /* style: "display: none;fill: var(--code-attr-value);", */
+                  class: "visually-hidden green",
                   role: "img",
                   width: "24",
                   height: "24",
