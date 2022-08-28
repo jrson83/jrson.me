@@ -7,7 +7,7 @@ export default function* ({ paginate, search }: PageData) {
   const posts = search?.pages("type=post", "date=desc") as Page[];
   const options = {
     url: (n: number) => n == 1 ? `/blog/` : `/blog/${n}/`,
-    size: 2,
+    size: 4,
   };
 
   for (const page of paginate(posts, options)) {
