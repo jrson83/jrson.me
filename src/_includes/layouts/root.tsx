@@ -1,8 +1,7 @@
 import type { PageData, PageHelpers } from "#types";
 
 export default (
-  { children, comp, excerpt, importJs, site, title, url }:
-    PageData,
+  { children, comp, excerpt, importJs, site, title, url }: PageData,
   { urlFilter }: PageHelpers,
 ) => {
   return (
