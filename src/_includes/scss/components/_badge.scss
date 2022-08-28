@@ -26,11 +26,11 @@
     background-color: map.get($badge, active-background-color);
   }
 
-  &.bdg-tag {
+  &--tag {
     position: relative;
   }
 
-  .bdg-link {
+  &--link {
     position: absolute;
     z-index: 200;
     top: 0;
