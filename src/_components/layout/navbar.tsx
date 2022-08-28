@@ -25,15 +25,14 @@ export default (
         <div className="container">
           <a
             href="/"
-            className="nav-brand"
             itemProp="url"
             aria-label="Return home"
           >
             <comp.shared.icon icon={icons.unicons.home} title="Home" />
           </a>
-          <ul id="nav-menu" className="nav-links">
+          <ul id="nav-menu" className="menu">
             {items.map(({ data }) => (
-              <li className="nav-item" itemProp="url">
+              <li className="menu__item" itemProp="url">
                 <comp.layout.link
                   href={urlFilter!(data.url)}
                   active={data.url === activeUrl ||
@@ -45,7 +44,7 @@ export default (
                 </comp.layout.link>
               </li>
             ))}
-            <li className="nav-item">
+            <li className="menu__item">
               <button
                 className="theme-toggle"
                 id="theme-toggle"
