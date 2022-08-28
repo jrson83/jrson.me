@@ -1,17 +1,34 @@
 import type { PageData, PageHelpers } from "#types";
 
 export default (
-  { children, comp, description, excerpt, importJs, site, title, url }:
+  { children, comp, excerpt, importJs, site, title, url }:
     PageData,
   { urlFilter }: PageHelpers,
 ) => {
   return (
     <html itemScope itemType="http://schema.org/WebPage" lang={site.lang}>
+      {/* deno-fmt-ignore */}
+      {/* deno-lint-ignore ban-ts-comment */}
+      {/* @ts-ignore */}
+      <script type="module" nonce="CSP_NONCE" src={urlFilter!(`/scripts/main.js`)} inline />
       <head>
         <meta charSet="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{`${title} - ${site.title}`}</title>
+
+        <meta name="supported-color-schemes" content="light dark" />
+        <meta
+          name="theme-color"
+          content="#F2F2F2"
+          media="(prefers-color-scheme: light)"
+        />
+        <meta
+          name="theme-color"
+          content="#1F2428"
+          media="(prefers-color-scheme: dark)"
+        />
+
         <link
           rel="preload"
           href="/fonts/Inter-Regular.woff2"
@@ -74,17 +91,6 @@ export default (
 
         <link rel="manifest" href={urlFilter!("/manifest.json")} />
 
-        <meta
-          name="theme-color"
-          content="#F2F2F2"
-          media="(prefers-color-scheme: light)"
-        />
-        <meta
-          name="theme-color"
-          content="#1F2428"
-          media="(prefers-color-scheme: dark)"
-        />
-
         <link
           rel="icon"
           type="image/x-icon"
@@ -108,7 +114,11 @@ export default (
           href={urlFilter!("/images/pwa/favicon-16x16.png")}
         />
 
-        <link rel="stylesheet" href={urlFilter!(`/styles.css`)} />
+        <link
+          rel="stylesheet"
+          href={urlFilter!(`/styles.css`)}
+          nonce="CSP_NONCE"
+        />
       </head>
       <body>
         <comp.layout.navbar activeUrl={url} />
@@ -122,11 +132,6 @@ export default (
           {children}
         </main>
         <comp.layout.footer />
-        <script
-          type="module"
-          nonce="CSP_NONCE"
-          src={urlFilter!(`/scripts/main.js`)}
-        />
         {importJs && (
           <script
             type="module"

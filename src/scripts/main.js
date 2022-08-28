@@ -1,28 +1,30 @@
 "use strict";
 
-const themeToggle = document.getElementById("theme-toggle");
+const root = document.documentElement;
+const mediaQuery = "(prefers-color-scheme: dark)";
+const mediaMatch = window.matchMedia;
+const currentMode = mediaMatch(mediaQuery).matches;
 
-const storedTheme = localStorage.getItem("theme") ||
-  (window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light");
+const storeTheme = (targetTheme) => {
+  if ("boolean" === typeof targetTheme) {
+    targetTheme = targetTheme ? "dark" : "light";
+  }
+  root.setAttribute("data-theme", targetTheme);
+  localStorage.setItem("theme", targetTheme);
+};
 
-if (storedTheme) {
-  document.documentElement.setAttribute("data-theme", storedTheme);
-  themeToggle.setAttribute("aria-label", storedTheme);
-}
+const storedTheme = ("theme" in localStorage)
+  ? localStorage.getItem("theme")
+  : currentMode;
 
-document.addEventListener("DOMContentLoaded", () => {
-  themeToggle.onclick = () => {
-    const currentTheme = document.documentElement.getAttribute("data-theme");
-    let targetTheme = "light";
+storedTheme && storeTheme(storedTheme);
 
-    if (currentTheme === "light") {
-      targetTheme = "dark";
-    }
+document.getElementById("theme-toggle").addEventListener("click", () => {
+  const currentTheme =
+    (getComputedStyle(root).getPropertyValue("color-scheme") == "light");
+  storeTheme(!!currentTheme);
+});
 
-    document.documentElement.setAttribute("data-theme", targetTheme);
-    themeToggle.setAttribute("aria-label", targetTheme);
-    localStorage.setItem("theme", targetTheme);
-  };
+mediaMatch(mediaQuery).addEventListener("change", (event) => {
+  storeTheme(event.matches);
 });

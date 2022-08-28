@@ -7,6 +7,7 @@ import date from "lume/plugins/date.ts";
 import slugify_urls from "lume/plugins/slugify_urls.ts";
 import sass from "lume/plugins/sass.ts";
 import terser from "lume/plugins/terser.ts";
+import inline from "lume/plugins/inline.ts";
 
 import readingTime from "#plugins/readingTime/mod.ts";
 import unified from "#plugins/unified/mod.ts";
@@ -49,6 +50,7 @@ site
   .use(sass())
   .loadAssets([".js"])
   .use(terser())
+  .use(inline())
   .use(atomFeed())
   .use(sitemap({
     excludes: ["/404/", "/blog/tag/"],
