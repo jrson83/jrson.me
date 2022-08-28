@@ -12,10 +12,6 @@
   padding-right: 1rem;
   padding-left: 1rem;
 
-  &--fluid {
-    width: 100%;
-  }
-
   @include mix-breakpoint(md) {
     width: 100%;
   }

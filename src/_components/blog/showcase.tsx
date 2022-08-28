@@ -29,10 +29,10 @@ export default (
           <a
             href={urlFilter!(previousPost?.data?.url)}
             rel="prev"
-            className="showcase-item"
+            className="showcase__item"
             itemProp="url"
           >
-            <button className="showcase-item-btn" title="Previous post">
+            <button className="showcase__btn" title="Previous post">
               <span>
                 <comp.shared.icon
                   icon={unicons.arrowLeft}
@@ -40,7 +40,7 @@ export default (
                   size="28"
                 />
               </span>
-              <span className="showcase-btn-text left">
+              <span className="showcase__text left">
                 <small itemProp="name">Previous</small>
                 <span>
                   {truncateString(
@@ -54,16 +54,16 @@ export default (
             </button>
           </a>
         )
-        : <div className="showcase-item" />}
+        : <div className="showcase__item" />}
       {nextPost && !isEmptyArray(nextPost) && (
         <a
           href={urlFilter!(nextPost?.data?.url)}
           rel="next"
-          className="showcase-item"
+          className="showcase__item"
           itemProp="url"
         >
-          <button className="showcase-item-btn" title="Next post">
-            <span className="showcase-btn-text right">
+          <button className="showcase__btn" title="Next post">
+            <span className="showcase__text right">
               <small itemProp="name">Next</small>
               <span>
                 {truncateString(

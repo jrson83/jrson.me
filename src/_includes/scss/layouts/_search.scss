@@ -5,14 +5,14 @@
   position: relative;
 }
 
-.search-inner {
+.search {
   position: relative;
   margin-bottom: map.get($config, spacing) * 2;
   padding: 0;
   border-radius: var(--body-border-radius);
   background-color: var(--secondary-color);
 
-  .search-icon {
+  &__icon {
     position: absolute;
     top: 50%;
     left: 10px;
@@ -45,7 +45,7 @@ input[type="search"] {
   }
 }
 
-.search-result {
+.search__result {
   position: absolute;
   z-index: 400;
   top: 100%;

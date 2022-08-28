@@ -10,7 +10,11 @@ footer {
   padding: var(--body-spacing);
   font-size: 1rem;
 
-  ul.li-i,
+  ul.li-i {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
   p {
     margin-top: 0;
     margin-bottom: 0;

@@ -1,11 +1,11 @@
 export default ({ query }: { query: string }) => {
   return (
     <>
-      <div id="search-inner" className="search-inner">
+      <div id="search-inner" className="search">
         <svg
           aria-hidden="true"
           role="img"
-          className="search-icon"
+          className="search__icon"
           width="20"
           height="20"
           preserveAspectRatio="xMidYMid meet"
@@ -18,7 +18,6 @@ export default ({ query }: { query: string }) => {
           </path>
         </svg>
         <input
-          className="search-input"
           id="search-input"
           type="search"
           spellCheck={false}
@@ -27,7 +26,7 @@ export default ({ query }: { query: string }) => {
           value={query && `#${query}`}
         />
       </div>
-      <div id="search-result" className="search-result" role="listbox"></div>
+      <div id="search-result" className="search__result" role="listbox"></div>
     </>
   );
 };

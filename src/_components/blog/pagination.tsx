@@ -33,7 +33,7 @@ export default (
             </li>
           )
           : (
-            <li className="v-hidden">
+            <li className="hidden--v">
               <comp.shared.icon
                 icon={unicons.arrowLeft}
                 title=""
@@ -76,7 +76,7 @@ export default (
             </li>
           )
           : (
-            <li className="v-hidden">
+            <li className="hidden--v">
               Next&nbsp;{" "}
               <comp.shared.icon
                 icon={unicons.arrowRight}
