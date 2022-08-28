@@ -1,0 +1,23 @@
+// shrtcss v0.1.0 <unstable & unreleased> | MIT License | https://github.com/jrson83/shrtcss
+@charset "UTF-8";
+
+// Reset
+@forward "scss/vendors";
+
+// Functions
+@forward "scss/functions";
+
+// Variables
+@forward "scss/variables";
+
+// Layouts
+@forward "scss/layouts";
+
+// Utilities
+@forward "scss/utils";
+
+// Elements
+@forward "scss/elements";
+
+// Components
+@forward "scss/components";

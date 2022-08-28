@@ -1,11 +1,11 @@
 import type { PageData, PageHelpers } from "#types";
 
 export default (
-  { children, comp, excerpt, importJs, site, title, url }: PageData,
+  { children, comp, excerpt, importJs, site, title, type, url }: PageData,
   { urlFilter }: PageHelpers,
 ) => {
   return (
-    <html itemScope itemType="http://schema.org/WebPage" lang={site.lang}>
+    <html itemScope itemType="http://schema.org/WebPage" lang={site.lang} data-theme="light">
       {/* deno-fmt-ignore */}
       {/* deno-lint-ignore ban-ts-comment */}
       {/* @ts-ignore */}
@@ -36,6 +36,21 @@ export default (
           crossOrigin="anonymous"
         />
 
+        {type && type === "post" && (
+          <link
+            rel="preload"
+            href="/fonts/Inconsolata-Regular.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+        )}
+
+        {/* deno-fmt-ignore */}
+        {/* deno-lint-ignore ban-ts-comment */}
+        {/* @ts-ignore */}
+        <link rel="stylesheet" nonce="CSP_NONCE" href={urlFilter!(`/styles.css`)} inline />
+        
         <meta name="title" content={`${title} - ${site.title}`} />
         <meta name="description" content={excerpt || site.description} />
         <meta name="author" content={site.title} />
@@ -111,12 +126,6 @@ export default (
           type="image/png"
           sizes="16x16"
           href={urlFilter!("/images/pwa/favicon-16x16.png")}
-        />
-
-        <link
-          rel="stylesheet"
-          href={urlFilter!(`/styles.css`)}
-          nonce="CSP_NONCE"
         />
       </head>
       <body>

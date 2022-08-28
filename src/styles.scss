@@ -1,23 +1,22 @@
-// shrtcss v0.1.0 <unstable & unreleased> | MIT License | https://github.com/jrson83/shrtcss
-@charset "UTF-8";
-
-// Reset
-@forward "scss/vendors";
-
-// Functions
-@forward "scss/functions";
-
-// Variables
-@forward "scss/variables";
-
-// Layouts
-@forward "scss/layouts";
-
-// Utilities
-@forward "scss/utils";
-
-// Elements
-@forward "scss/elements";
-
-// Components
-@forward "scss/components";
+@use "scss/vendors/minireset";
+@use "scss/vendors/fonts";
+@use "scss/variables/config";
+@use "scss/elements/root";
+@use "scss/elements/typography";
+@use "scss/layouts/body";
+@use "scss/components/navbar";
+@use "scss/layouts/main";
+@use "scss/elements/container";
+@use "scss/layouts/footer";
+@use "scss/utils/divider";
+@use "scss/utils/hidden";
+@use "scss/layouts/blog";
+@use "scss/components/badge";
+@use "scss/elements/lists";
+@use "scss/utils/external-link";
+@use "scss/layouts/utils";
+@use "scss/elements/blockquote";
+@use "scss/layouts/search";
+@use "scss/layouts/showcase";
+@use "scss/components/pagination";
+@use "scss/vendors/prism-plus-coldark";
