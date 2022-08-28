@@ -18,7 +18,7 @@ export default (
           ? (
             <li className="prev">
               <a
-                className="pagination-item"
+                className="pagination--item"
                 href={urlFilter!(pagination.previous)}
                 title="Previous page"
                 aria-label="Previous page"
@@ -48,7 +48,7 @@ export default (
           <li key={index}>
             <a
               href={urlFilter!(`/blog${index > 1 && `/${index}` || ``}`)}
-              className={`pagination-item ${
+              className={`pagination--item ${
                 pagination?.page === index ? "is-active" : ""
               }`}
               {...(pagination?.page === index && { ariaCurrent: true })}
@@ -61,7 +61,7 @@ export default (
           ? (
             <li>
               <a
-                className="pagination-item"
+                className="pagination--item"
                 href={urlFilter!(pagination.next)}
                 title="Next page"
                 aria-label="Next page"
