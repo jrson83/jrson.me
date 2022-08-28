@@ -9,7 +9,7 @@ export default ({ tags }: PageData, { urlFilter }: PageHelpers) => {
             #{tag}
             <a href={urlFilter!(`/blog/tag/${tag}/`)} rel="tag">
               <span
-                className="bdg--link"
+                className="bdg__link"
                 role="link"
                 tabIndex={0}
                 aria-label={tag}
