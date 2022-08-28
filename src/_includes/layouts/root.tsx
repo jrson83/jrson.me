@@ -5,7 +5,12 @@ export default (
   { urlFilter }: PageHelpers,
 ) => {
   return (
-    <html itemScope itemType="http://schema.org/WebPage" lang={site.lang} data-theme="light">
+    <html
+      itemScope
+      itemType="http://schema.org/WebPage"
+      lang={site.lang}
+      data-theme="light"
+    >
       {/* deno-fmt-ignore */}
       {/* deno-lint-ignore ban-ts-comment */}
       {/* @ts-ignore */}
@@ -50,7 +55,7 @@ export default (
         {/* deno-lint-ignore ban-ts-comment */}
         {/* @ts-ignore */}
         <link rel="stylesheet" nonce="CSP_NONCE" href={urlFilter!(`/styles.css`)} inline />
-        
+
         <meta name="title" content={`${title} - ${site.title}`} />
         <meta name="description" content={excerpt || site.description} />
         <meta name="author" content={site.title} />
