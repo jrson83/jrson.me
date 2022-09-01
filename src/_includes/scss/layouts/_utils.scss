@@ -66,6 +66,10 @@ h3:hover a[class="header-anchor"] .btn-header-anchor {
 }
 
 video {
+  max-width: 100%;
+  height: auto;
+  width: 768px;
+  aspect-ratio: 1;
   margin-bottom: var(--body-spacing);
 }
 
