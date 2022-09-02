@@ -1,5 +1,5 @@
 import type { Page as BasePage, PageData as BasePageData } from "lume/core.ts";
-import type { ComponentChildren } from "lume/plugins/jsx_preact.ts";
+import type { ComponentChildren } from "lume/deps/preact.ts";
 import type SiteMeta from "../_data/site.ts";
 
 export type { PaginateResult } from "lume/plugins/paginate.ts";
