@@ -18,8 +18,7 @@ export { default as remarkParse } from "https://esm.sh/remark-parse@10.0.1";
 export { default as remarkRehype } from "https://esm.sh/remark-rehype@10.1.0";
 export * as unified from "https://esm.sh/unified@10.1.2";
 
-// replacement for readingTime plugin
-// export { default as readingTime } from "https://esm.sh/remark-reading-time@2.0.1?bundle";
+export { default as readingTime } from "https://esm.sh/remark-reading-time@2.0.1?bundle";
 
 export { default as rehypeMinifyWhitespace } from "https://esm.sh/rehype-minify-whitespace@5.0.1";
 export { default as rehypeCodeTitles } from "https://esm.sh/rehype-code-titles@1.1.0";

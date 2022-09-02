@@ -10,7 +10,6 @@ import sass from "lume/plugins/sass.ts";
 import terser from "lume/plugins/terser.ts";
 import inline from "lume/plugins/inline.ts";
 
-import readingTime from "#plugins/readingTime/mod.ts";
 import unified from "#plugins/unified/mod.ts";
 import remarkPlugins from "#plugins/unified/remark/mod.ts";
 import rehypePlugins from "#plugins/unified/rehype/mod.ts";
@@ -35,7 +34,6 @@ const site = lume({
 
 site
   .copy("assets", ".")
-  .use(readingTime())
   .use(date())
   .use(slugify_urls({
     replace: {
