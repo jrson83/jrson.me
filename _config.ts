@@ -54,12 +54,6 @@ site
     excludes: ["/404/", "/blog/tag/"],
   }));
 
-site.process([".html"], (page: Page) => {
-  if (!page.content?.toString().trim().startsWith("<!DOCTYPE")) {
-    page.content = `<!DOCTYPE html>${page.content}`;
-  }
-});
-
 if (config.mode === "prod") {
   site.use(md5CacheBuster());
 }
