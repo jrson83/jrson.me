@@ -3,19 +3,20 @@ import type { PageData } from "#types";
 export const layout = "layouts/root.tsx";
 
 export default (
-  {
+  data: PageData,
+) => {
+  const {
     children,
     comp,
     date,
     excerpt,
     icons: { unicons },
-    readingTime,
     series,
     tags,
     title,
     url,
-  }: PageData,
-) => {
+    page,
+  } = data;
   return (
     <>
       <article
@@ -39,7 +40,7 @@ export default (
               size="22"
               title="Reading Time"
             />
-            <span itemProp="timeRequired">{readingTime?.text}</span>
+            <span itemProp="timeRequired">{page.data.readingTime.text}</span>
             <div className="break"></div>
             <span className="meta-spacer">&#8226;</span>
             <comp.blog.tag tags={tags} />
