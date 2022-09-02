@@ -1,5 +1,3 @@
-import type { Page } from "lume/core.ts";
-
 import { config } from "./_build.ts";
 
 import lume from "lume/mod.ts";
