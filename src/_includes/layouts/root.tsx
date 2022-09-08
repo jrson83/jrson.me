@@ -71,7 +71,7 @@ export default (
           property="og:description"
           content={excerpt || site.description}
         />
-        <meta property="og:url" content={urlFilter!(site.url)} />
+        <meta property="og:url" content={urlFilter!("/", true)} />
         <meta
           property="og:image"
           content={`${urlFilter!(site.ogImage, true)}`}
@@ -91,7 +91,7 @@ export default (
         <meta name="twitter:site" content={site.twitter} />
 
         <meta itemProp="name" content={site.title} />
-        <meta itemProp="url" content={urlFilter!(site.url)} />
+        <meta itemProp="url" content={urlFilter!("/", true)} />
         <meta itemProp="creator" content={site.author.name} />
 
         <link
