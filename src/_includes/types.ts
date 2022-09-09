@@ -6,19 +6,6 @@ export type { PaginateResult } from "lume/plugins/paginate.ts";
 export type { PageHelpers } from "lume/core.ts";
 export type { ComponentChildren };
 
-export interface Menu {
-  title: string;
-  visible: boolean;
-  order: number;
-}
-
-export type ReadingTime = {
-  minutes: number;
-  text: string;
-  time: number;
-  words: number;
-};
-
 export interface PageData extends BasePageData {
   /** The page description */
   description?: string;
@@ -30,10 +17,19 @@ export interface PageData extends BasePageData {
   activeUrl?: string;
 
   /** The site navigation menu */
-  menu?: Menu;
+  menu?: {
+    title: string;
+    visible: boolean;
+    order: number;
+  };
 
   /** The post reading time */
-  readingTime?: ReadingTime;
+  readingTime?: {
+    minutes: number;
+    text: string;
+    time: number;
+    words: number;
+  };
 
   /** The site icons */
   icons: {
@@ -45,8 +41,10 @@ export interface PageData extends BasePageData {
     };
   };
 
+  /** The tag filter */
   filteredBy: string;
 
+  /** Blog post series */
   series: {
     title: string;
     ident: string;
@@ -55,12 +53,15 @@ export interface PageData extends BasePageData {
   /** The site metadata */
   site: typeof SiteMeta;
 
+  /** Cache busting plugin */
   cacheBusting: string;
 
-  page: any;
+  /** Overwrite Page interface */
+  page: Page;
 }
 
 export interface Page extends BasePage {
+  /** Overwrite PageData interface */
   data: PageData;
 }
 
