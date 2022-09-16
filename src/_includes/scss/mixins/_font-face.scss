@@ -9,8 +9,7 @@
     font-display: swap;
     src:
       local(string.quote($font-name)),
-      url($file-name + ".woff2") format("woff2"),
-      url($file-name + ".woff") format("woff");
+      url($file-name + ".woff2") format("woff2");
     unicode-range: U+000-5FF;
   }
 }
