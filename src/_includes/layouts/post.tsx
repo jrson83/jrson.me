@@ -40,7 +40,7 @@ export default (
               size="22"
               title="Reading Time"
             />
-            <span itemProp="timeRequired">{page.data.readingTime.text}</span>
+            <span itemProp="timeRequired">{page.data.readingTime?.text}</span>
             <div className="break"></div>
             <span className="meta-spacer">&#8226;</span>
             <comp.blog.tag tags={tags} />
