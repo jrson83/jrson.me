@@ -7,7 +7,6 @@ import jsx from "lume/plugins/jsx_preact.ts";
 import sass from "lume/plugins/sass.ts";
 import terser from "lume/plugins/terser.ts";
 import inline from "lume/plugins/inline.ts";
-import minifyHTML from "lume/plugins/minify_html.ts";
 
 import unified from "lume/plugins/remark.ts";
 import remarkPlugins from "#plugins/unified/remark/mod.ts";
@@ -54,9 +53,7 @@ site
   }));
 
 if (config.mode === "prod") {
-  site
-    .use(minifyHTML())
-    .use(md5CacheBuster());
+  site.use(md5CacheBuster());
 }
 
 export default site;
