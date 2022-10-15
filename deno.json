@@ -5,10 +5,10 @@
     "jsxImportSource": "npm:preact"
   },
   "tasks": {
-    "lume": "deno eval \"import 'lume/task.ts'\" --",
     "clean": "rm -rf ./_site",
     "build": "BUILD_MODE=\"prod\" deno task lume",
-    "serve": "BUILD_MODE=\"dev\" deno task lume -s"
+    "serve": "BUILD_MODE=\"dev\" deno task lume -s",
+    "lume": "echo \"import 'lume/cli.ts'\" | deno run --unstable -A -"
   },
   "lint": {
     "files": {
