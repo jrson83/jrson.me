@@ -218,12 +218,12 @@ need to use it. The plugins `date()` function is accessible through the second
 `props` argument `filters`, which can be used in layouts and pages.
 
 ```ts:posts.tsx
-import type { Helpers, PageData } from "#types";
+import type { PageData, PageHelpers } from "#types";
 
 export const title = "Fallback title";
 export const layout = "layouts/root.tsx";
 
-export default ({ date, title, children }: PageData, filters: Helpers) => {
+export default ({ date, title, children }: PageData, filters: PageHelpers) => {
   const prettyDate: string = filters.date(date, "HUMAN_DATE");
 
   return (
@@ -276,12 +276,12 @@ following changes. Notice that we create a query with the `type=post` we created
 before in the posts `_data.ts` file.
 
 ```ts:index.tsx
-import type { Helpers, PageData } from "#types";
+import type { PageData, PageHelpers } from "#types";
 
 export const title = "Home";
 export const layout = "layouts/root.tsx";
 
-export default ({ search, title }: PageData, { date, url }: Helpers) => {
+export default ({ search, title }: PageData, { date, url }: PageHelpers) => {
   const posts = search.pages("type=post", "date=desc", 3);
 
   return (
@@ -330,13 +330,13 @@ We will not create a page for the post overview, instead we create a new
 `root.tsx` as layout.
 
 ```ts:posts.tsx code-diff
-import type { Helpers, PageData } from "#types";
+import type { PageData, PageHelpers } from "#types";
 
 export const title = "Blog posts";
 export const layout = "layouts/root.tsx";
 
-- export default ({ search, title }: PageData, { date, url }: Helpers) => {
-+ export default ({ title, results, pagination }: PageData, { date, url }: Helpers,) => { 
+- export default ({ search, title }: PageData, { date, url }: PageHelpers) => {
++ export default ({ title, results, pagination }: PageData, { date, url }: PageHelpers) => { 
   return (
     <>
       <h1>{title}</h1>
@@ -443,26 +443,26 @@ files we want to build a navigation from, which we then can access with
 
 For the home page `index.tsx` we add the `menu` object:
 
-```ts:index.tsx code-diff
-+ export const menu = {
-+   title,
-+   visible: true,
-+   order: 0,
-+ };
+```ts:index.tsx {1-5} showLineNumbers
+export const menu = {
+  title,
+  visible: true,
+  order: 0,
+};
 ```
 
 For the blog post overview page _template_ `blog.tmpl.ts` we add the `menu`
 object:
 
-```ts:blog.tmpl.ts code-diff
+```ts:blog.tmpl.ts {2-8} showLineNumbers
 for (const page of paginate(posts, options)) {
-+ if (page.pagination.page === 1) {
-+   page.menu = {
-+     title: "Blog",
-+     visible: true,
-+     order: 1,
-+   };
-+ }
+  if (page.pagination.page === 1) {
+    page.menu = {
+      title: "Blog",
+      visible: true,
+      order: 1,
+    };
+  }
   page.type = "posts";
   yield page;
 }
@@ -470,12 +470,12 @@ for (const page of paginate(posts, options)) {
 
 For the about page `about.tsx` we add the `menu` object:
 
-```ts:about.tsx
-+ export const menu = {
-+   title,
-+   visible: true,
-+   order: 2,
-+ };
+```ts:about.tsx {1-5} showLineNumbers
+export const menu = {
+  title,
+  visible: true,
+  order: 2,
+};
 ```
 
 ## Conclusion

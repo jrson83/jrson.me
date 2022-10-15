@@ -254,12 +254,12 @@ To complete the configuration, we add tree more tasks, for cleaning up
 [Lumes `dest` folder](https://lume.land/docs/configuration/config-file/#dest)
 (defaults to `_site`) and running `fmt`.
 
-```json:deno.json code-diff
+```json:deno.json {5} showLineNumbers
 {
   "importMap": "import_map.json",
   "tasks": {
     "lume": "deno eval \"import 'lume/task.ts'\" --",
-+   "clean": "rm -rf _site/",
+    "clean": "rm -rf _site/",
     "build": "deno task lume",
     "serve": "deno task lume -s"
   }
@@ -286,12 +286,12 @@ import `#dir/file.ts`.
 I couldn't find any information regarding how to setup import alias paths in
 Deno. Here is how we setup the paths for now:
 
-```json:import_map.json code-diff
+```json:import_map.json {4,5} showLineNumbers
 {
   "imports": {
     "lume/": "https://deno.land/x/lume@v1.10.4/",
-+   "#plugins/": "./plugins/",
-+   "#types": "./src/_includes/types.ts"
+    "#plugins/": "./plugins/",
+    "#types": "./src/_includes/types.ts"
   }
 }
 ```
@@ -304,10 +304,10 @@ Deno. Here is how we setup the paths for now:
 straightforward task. The only option I want to change is the target `src`
 directory (defaults to `cwd`), which I created before.
 
-```ts:_config.ts code-diff
- const site = lume({
-+  src: "./src",
- });
+```ts:_config.ts {2} showLineNumbers
+const site = lume({
+  src: "./src",
+});
 ```
 
 ### Plugins
@@ -332,29 +332,31 @@ you then can import.
 > [experimental-plugins](https://github.com/lumeland/experimental-plugins)
 > repository.
 
+> **Update:** The Preact plugin is included in Lume since version 1.11.2!
+
 Let's look at all the [plugin](https://lume.land/plugins/?status=all)
 descriptions and choose what we need to get started. Additionally we create a
 local copy of the
 [PreactJSX](https://github.com/lumeland/experimental-plugins/tree/main/preactjsx)
 plugin, which we import with the local alias path.
 
-```ts:_config.ts code-diff showLinenumbers
-  // default plugins
-  import lume from "lume/mod.ts";
-+ import date from "lume/plugins/date.ts";
-+ import slugify_urls from "lume/plugins/slugify_urls.ts";
+```ts:_config.ts {3-4,6-7,13-16} showLineNumbers
+// default plugins
+import lume from "lume/mod.ts";
+import date from "lume/plugins/date.ts";
+import slugify_urls from "lume/plugins/slugify_urls.ts";
 
-  // custom plugins
-+ import preactjsx from "#plugins/preactjsx/mod.ts";
+// custom plugins
+import preactjsx from "#plugins/preactjsx/mod.ts";
 
-  const site = lume({
-    src: "./src",
-  });
+const site = lume({
+  src: "./src",
+});
 
-+ site
-+ .use(date())
-+ .use(slugify_urls())
-+ .use(preactjsx());
+site
+  .use(date())
+  .use(slugify_urls())
+  .use(preactjsx());
 
 export default site;
 ```
@@ -367,12 +369,12 @@ things.
 1. Add the `preact/jsx-runtime` alias to the `import_map.json`, which finally
    looks as follows:
 
-```json:import_map.json code-diff
+```json:import_map.json {4-5} showLineNumbers
 {
   "imports": {
     "lume/": "https://deno.land/x/lume@v1.10.4/",
-+   "preact/jsx-runtime": "https://esm.sh/preact@10.10.6/jsx-runtime",
-+   "preact/jsx-dev-runtime": "https://esm.sh/preact@10.10.6/jsx-dev-runtime",
+    "preact/jsx-runtime": "https://esm.sh/preact@10.10.6/jsx-runtime",
+    "preact/jsx-dev-runtime": "https://esm.sh/preact@10.10.6/jsx-dev-runtime",
     "#plugins/": "./plugins/",
     "#types": "./src/_includes/types.ts"
   }
@@ -383,13 +385,13 @@ things.
    how Deno handles TypeScript, check out the docs
    [TypeScript overview](https://deno.land/manual/TypeScript/overview).
 
-```json:deno.json code-diff
+```json:deno.json {3-6} showLineNumbers
 {
   "importMap": "import_map.json",
-+ "compilerOptions": {
-+   "jsx": "react-jsx",
-+   "jsxImportSource": "preact"
-+ }
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  }
 }
 ```
 
@@ -400,14 +402,21 @@ way to get started is to extend the current type definitions. Let's create the
 file `./src/_includes/types.ts` and extend some default types. This may be
 changed later.
 
+> **Update:** I added a guide on how to use Lume with TypeScript to the
+> [Lume docs](https://lume.land/docs/configuration/using-typescript/).
+
 ```ts:types.ts
 import type { Page as BasePage, PageData as BasePageData } from "lume/core.ts";
 
+// To handle all types in one place, use re-export
+export type { PageHelpers } from "lume/core.ts";
+
 export interface PageData extends BasePageData {
-  // We can define our own types here
+  // Define your own properties
+  readingTime?: string;
 }
 
-// Atm we need to use this workaround
+// Create a new interface
 export interface Page extends BasePage {
   data: PageData;
 }
