@@ -2,7 +2,7 @@
   "importMap": "import_map.json",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "preact"
+    "jsxImportSource": "npm:preact"
   },
   "tasks": {
     "lume": "deno eval \"import 'lume/task.ts'\" --",

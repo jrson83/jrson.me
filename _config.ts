@@ -8,7 +8,7 @@ import sass from "lume/plugins/sass.ts";
 import terser from "lume/plugins/terser.ts";
 import inline from "lume/plugins/inline.ts";
 
-import unified from "#plugins/unified/mod.ts";
+import unified from "lume/plugins/remark.ts";
 import remarkPlugins from "#plugins/unified/remark/mod.ts";
 import rehypePlugins from "#plugins/unified/rehype/mod.ts";
 import atomFeed from "#plugins/atom-feed/mod.ts";
