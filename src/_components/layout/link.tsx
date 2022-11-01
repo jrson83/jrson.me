@@ -1,4 +1,4 @@
-import type { ComponentChildren } from "#types";
+import type { Children } from "#types";
 
 export default (
   props: {
@@ -6,7 +6,7 @@ export default (
     className?: string;
     active: boolean;
     itemProp: string;
-    children: ComponentChildren;
+    children: Children;
   },
 ) => {
   const className = [props.className, props.active && "is-active"].filter(
