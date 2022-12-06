@@ -1,4 +1,5 @@
 import type { PageData } from "#types";
+import { Fragment } from "npm:preact";
 
 export const layout = "layouts/root.tsx";
 
@@ -14,6 +15,7 @@ export default (
     series,
     tags,
     title,
+    update,
     url,
     page,
   } = data;
@@ -28,6 +30,14 @@ export default (
           <h1 itemProp="headline">{title}</h1>
           <meta itemProp="description" content={excerpt}></meta>
           <div className="blog-post-meta">
+            {update && (
+              <Fragment>
+                <mark>
+                  Updated on <comp.blog.time date={update} />
+                </mark>
+                <div className="break-flex"></div>
+              </Fragment>
+            )}
             <comp.shared.icon
               icon={unicons.calendar}
               size="22"
@@ -43,7 +53,9 @@ export default (
             <span itemProp="timeRequired">{page.data.readingTime?.text}</span>
             <div className="break"></div>
             <span className="meta-spacer">&#8226;</span>
-            <comp.blog.tag tags={tags} />
+            <div className="blog-post-tags">
+              <comp.blog.tag tags={tags} />
+            </div>
           </div>
         </header>
         <comp.blog.tocSeries series={series} url={url} />

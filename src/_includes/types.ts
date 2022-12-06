@@ -13,6 +13,9 @@ export interface PageData extends BasePageData {
   /** The page excerpt */
   excerpt?: string;
 
+  /** The last modification date of the page */
+  update?: Date;
+
   /** Helper for the active page url */
   activeUrl?: string;
 

@@ -83,11 +83,26 @@ section > h3 {
 
 .blog-post-meta {
   display: flex;
+  flex-flow: row wrap;
+  gap: 0.5rem;
   align-items: center;
   padding-bottom: var(--body-spacing);
   color: var(--third-font-color);
   font-size: clamp(0.9rem, calc(12px + 0.36vw), 1.012rem);
-  gap: 0.8rem;
+
+  mark {
+    font-size: 0.85rem;
+    color: var(--third-font-color);
+    padding: 0.1rem 0.5rem;
+    border-radius: map.get($badge, border-radius);
+    border: 1px solid var(--border-color);
+    background-color: var(--border-color);
+  }
+
+  .break-flex {
+    flex-basis: 100%;
+    height: 0;
+  }
 
   .break {
     display: none;
@@ -111,6 +126,13 @@ section > h3 {
   @include mix-breakpoint(md) {
     display: none;
   }
+}
+
+.blog-post-tags {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .series-toc {
