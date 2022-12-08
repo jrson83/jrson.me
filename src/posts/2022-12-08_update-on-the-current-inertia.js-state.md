@@ -1,6 +1,6 @@
 ---
 title: Update on the current Inertia.js state
-excerpt: The Inertia.js Preact Adapter v0.2.0 is now available on npm!
+excerpt: Updated information on the current state of Inertia.js packages.
 date: 2022-12-08 20:45:00
 draft: false
 tags:
