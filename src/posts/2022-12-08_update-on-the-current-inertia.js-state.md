@@ -86,6 +86,10 @@ Anyway, since the restructuring is still very new and possibly not yet
 completed, I can imagine that an update with information on this will take place
 in the near future.
 
+> **Update:** [@robertboes](https://robertbo.es/) gave me the hint, that there
+> is a `next` subdomain which provides an upgrade guide:
+> [https://next.inertiajs.com/upgrade-guide](https://next.inertiajs.com/upgrade-guide)
+
 **Helpful Resources:**
 
 - [@inertiajs/core@@1.0.0-beta.2](https://www.npmjs.com/package/@inertiajs/core/v/1.0.0-beta.2)
