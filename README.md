@@ -1,19 +1,24 @@
-# jrson.me
-
-![Deno JS](https://img.shields.io/badge/built%20with-deno.land-000000?style=flat-square&logo=deno&logoColor=ffffff)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/jrson83/jrson.me/deploy-site.yml?branch=main&style=flat-square&logo=github)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/jrson83/jrson.me?style=flat-square&logo=visual-studio-code)
-![GitHub top language](https://img.shields.io/github/languages/top/jrson83/jrson.me?logo=typescript&style=flat-square)
-![GitHub](https://img.shields.io/github/license/jrson83/jrson.me?style=flat-square)
-
-## Description
-
-My [personal blog](https://jrson.me/), built with Lume 🔥 on Deno 🦕.
-
-- [Lume](https://lume.land/) - A Static site generator for Deno
-- [Preact](https://preactjs.com/) - Fast 3kB alternative to React with the same
-  modern API
-- [TypeScript](https://www.typescriptlang.org/) - JavaScript with syntax for
-  types
-- [shrtcss](https://github.com/jrson83/shrtcss) - A lightweight SCSS/CSS
-  framework (WIP)
+<h1 align="center">jrson.me</h1>
+<p align="center">
+  <img src="https://img.shields.io/badge/built%20with-deno.land-000000?style=flat-square&amp;logo=deno&amp;logoColor=ffffff" alt="Deno JS" />
+  <img src="https://img.shields.io/github/actions/workflow/status/jrson83/jrson.me/deploy-site.yml?branch=main&amp;style=flat-square&amp;logo=github" alt="GitHub Workflow Status" />
+  <img src="https://img.shields.io/github/languages/code-size/jrson83/jrson.me?style=flat-square&amp;logo=visual-studio-code" alt="GitHub code size in bytes" />
+  <img src="https://img.shields.io/github/languages/top/jrson83/jrson.me?logo=typescript&amp;style=flat-square" alt="GitHub top language" />
+  <img src="https://img.shields.io/github/license/jrson83/jrson.me?style=flat-square" alt="GitHub" />
+</p>
+<br />
+<h2 align="center">Description</h2>
+<p align="center">My <a href="https://jrson.me/">personal blog</a>, built with Lume 🔥 on Deno 🦕.</p>
+<br />
+<ul style="list-style: none;" align="center">
+  <li><a href="https://lume.land/">Lume</a> - A Static site generator for Deno</li>
+  <li><a href="https://preactjs.com/">Preact</a> - Fast 3kB alternative to React with the same modern API</li>
+  <li><a href="https://www.typescriptlang.org/">TypeScript</a> - JavaScript with syntax for types</li>
+  <li><a href="https://github.com/jrson83/shrtcss">shrtcss</a> - A lightweight SCSS/CSS framework (WIP)</li>
+</ul>
+<br />
+<h2 align="center">PageSpeed Insights</h2>
+<br />
+<p align="center">
+  <img src=".github/assets/pagespeed-insights-svg.glitch.svg" style="width:600px;" />
+</p>
