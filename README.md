@@ -10,12 +10,12 @@
 <h2 align="center">Description</h2>
 <p align="center">My <a href="https://jrson.me/">personal blog</a>, built with Lume 🔥 on Deno 🦕.</p>
 <br />
-<ul style="list-style: none;" align="center">
-  <li><a href="https://lume.land/">Lume</a> - A Static site generator for Deno</li>
-  <li><a href="https://preactjs.com/">Preact</a> - Fast 3kB alternative to React with the same modern API</li>
-  <li><a href="https://www.typescriptlang.org/">TypeScript</a> - JavaScript with syntax for types</li>
-  <li><a href="https://github.com/jrson83/shrtcss">shrtcss</a> - A lightweight SCSS/CSS framework (WIP)</li>
-</ul>
+<p align="center">
+  <a href="https://lume.land/">Lume</a> - A Static site generator for Deno<br />
+  <a href="https://preactjs.com/">Preact</a> - Fast 3kB alternative to React with the same modern API<br />
+  <a href="https://www.typescriptlang.org/">TypeScript</a> - JavaScript with syntax for types<br />
+  <a href="https://github.com/jrson83/shrtcss">shrtcss</a> - A lightweight SCSS/CSS framework (WIP)<br />
+</p>
 <br />
 <h2 align="center">PageSpeed Insights</h2>
 <br />
