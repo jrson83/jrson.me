@@ -1,6 +1,6 @@
 import { merge } from "lume/core/utils.ts";
 import { Page } from "lume/core/filesystem.ts";
-import { buildFilter, buildSort } from "lume/plugins/search.ts";
+import { buildSort } from "lume/plugins/search.ts";
 
 import type { Site } from "lume/core.ts";
 import type { Search } from "lume/plugins/search.ts";
@@ -24,22 +24,22 @@ export const defaults: Options = {
 };
 
 /** A plugin to generate a sitemap.xml from page files after build */
-export default function (userOptions?: Partial<Options>) {
+export default function (userOptions?: Partial<Options>): (site: Site) => void {
   const options = merge(defaults, userOptions);
 
-  return (site: Site) => {
+  return (site: Site): void => {
     site.addEventListener("afterRender", () => {
       // Create the sitemap.xml page
-      const sitemap = Page.create("sitemap.xml", getSitemapContent(site));
+      const sitemap: Page = Page.create("sitemap.xml", getSitemapContent(site));
 
       // Add to the sitemap page to pages
       site.pages.push(sitemap);
     });
 
-    function getSitemapContent(site: Site) {
+    function getSitemapContent(site: Site): string {
       // Get the search instance from the global data
       const search = site.globalData.search as Search;
-      let sitemapPages = search.pages(options.query, options.sort);
+      let sitemapPages = search.pages(options.query, options.sort) as Page[];
 
       // Filter to remove `excludes` pages
       if (Array.isArray(options.excludes) && options?.excludes?.length) {
@@ -52,7 +52,7 @@ export default function (userOptions?: Partial<Options>) {
       sitemapPages.sort(buildSort(options.sort));
 
       // deno-fmt-ignore
-      const sitemap = `
+      const sitemap: string = `
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   ${sitemapPages.map((page: Page) => {

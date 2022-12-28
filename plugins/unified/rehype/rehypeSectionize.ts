@@ -14,7 +14,7 @@ import {
 export interface RehypeSlugSectionizeAnchorizeOptions {
   depth?: number;
   wrapperTagName?: string;
-  wrapperProperties?: HTMLElement;
+  wrapperProperties?: HastElement;
   wrapperSlugAdditive?: string;
 }
 

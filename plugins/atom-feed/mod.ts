@@ -4,8 +4,7 @@ import { buildSort } from "lume/plugins/search.ts";
 
 import { isString } from "#utils";
 
-import { formatXML } from "./deps.ts";
-import type { FormatOptions } from "./deps.ts";
+import { XMLFormat } from "#plugins/atom-feed/deps.ts";
 
 import type { Site } from "lume/core.ts";
 import type { Search } from "lume/plugins/search.ts";
@@ -22,7 +21,7 @@ export interface Options {
   limit: number;
 
   /** Options passed to xml-formatter */
-  options: Partial<FormatOptions>;
+  options: Partial<XMLFormat.XMLFormatterOptions>;
 }
 
 // Default options
@@ -58,14 +57,14 @@ export default function (userOptions?: Partial<Options>) {
       site.pages.push(feed);
     });
 
-    function getFeedContent(site: Site) {
+    function getFeedContent(site: Site): string {
       // Get the pages
       const search = site.globalData.search as Search;
       const feedPages = search.pages(
         options.query,
         options.sort,
         options.limit,
-      );
+      ) as Page[];
 
       // Sort the pages
       feedPages.sort(buildSort(options.sort));
@@ -98,7 +97,7 @@ export default function (userOptions?: Partial<Options>) {
   `}).join("").trim()}
 </feed>`.trim();
 
-      return formatXML(atomfeed, options.options);
+      return XMLFormat.default(atomfeed, options.options) as string;
     }
 
     function isActiveProcessor(site: Site, processor: string): boolean {
