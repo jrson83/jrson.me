@@ -15,11 +15,11 @@
   <picture>
     <img src="https://img.shields.io/github/license/jrson83/jrson.me?style=flat-square" alt="GitHub" />
   </picture>
-  <picture>
-    <a href="https://jrson.me/feed.xml">
-    <img src="https://img.shields.io/badge/rss-feed-F58025?logo=rss&logoColor=fff&style=flat-square" alt="RSS feed" />
-    </a>
-  </picture>
+  <a href="https://jrson.me/feed.xml">
+    <picture>
+      <img src="https://img.shields.io/badge/rss-feed-F58025?logo=rss&logoColor=fff&style=flat-square" alt="RSS feed" />
+    </picture>
+  </a>
 </p>
 <br />
 <p align="center">My <a href="https://jrson.me/">personal blog</a>, built with:</p>
@@ -34,5 +34,9 @@
 <h2 align="center">PageSpeed Insights</h2>
 <br />
 <p align="center">
-  <img src=".github/assets/pagespeed-insights-svg.glitch.svg" style="width:600px;" />
+  <a href="https://jrson.me/">
+    <picture>
+      <img src=".github/assets/pagespeed-insights-svg.glitch.svg" style="width:600px;" alt="PageSpeed Insights" />
+    </picture>
+  </a>
 </p>
