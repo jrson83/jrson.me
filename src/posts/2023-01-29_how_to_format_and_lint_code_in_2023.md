@@ -2,6 +2,7 @@
 title: How to Format and Lint code in 2023
 excerpt: "Replace Prettier and ESLint now with a lightweight and faster alternative: Rome"
 date: 2023-01-29 05:00:00
+update: 2023-01-29 19:00:00
 draft: false
 tags:
   - nodejs
@@ -39,13 +40,33 @@ What I really like about Rome:
 - Has a
   [Rome VS Code extension](https://marketplace.visualstudio.com/items?itemName=rome.rome)
 
-## How to migrate
+## How to migrate to Rome
 
 1. Get the
    [Rome VS Code extension](https://marketplace.visualstudio.com/items?itemName=rome.rome)
 2. [Install](https://docs.rome.tools/guides/getting-started/#installation)
    `rome` with your preferred package manager
-3. Create a `rome.json` (here is mine):
+3. Configure VS Code to use Rome as default formatter
+
+```json:.vscode/settings.json
+{
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.organizeImports.rome": true
+	},
+	"[javascript][javascriptreact][typescript][typescriptreact]": {
+		"editor.defaultFormatter": "rome.rome"
+	},
+	"[json][jsonc][markdown]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
+	"[css][scss][less]": {
+		"editor.defaultFormatter": "vscode.css-language-features"
+	}
+}
+```
+
+4. Create a `rome.json` (here is mine):
 
 ```json:rome.json
 {
@@ -78,7 +99,7 @@ What I really like about Rome:
 }
 ```
 
-4. Add the `scripts` to `package.json`
+5. Add the `scripts` to `package.json`
 
 ```json
 "scripts": {
@@ -87,9 +108,20 @@ What I really like about Rome:
 }
 ```
 
-5. Enjoy!
+6. Enjoy blazing fast Rome!
 
 ## Conclusion
 
-I will keep an eye on the [rome dev blog](https://rome.tools/blog/), since there
-is much more planed for the future. Thanks for reading.
+We just learned that Rome is a great alternative formatter & linter in 2023!
+
+We should keep an eye on the [rome dev blog](https://rome.tools/blog/), since there
+is much more planed for the future.
+
+Thanks for reading!
+
+---
+
+**Helpful Resources:**
+
+- [Rome](https://rome.tools/)
+- [Rome Benchmarks](https://github.com/rome/tools/blob/main/benchmark/README.md)
