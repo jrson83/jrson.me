@@ -1,6 +1,6 @@
 ---
 title: 'Website Speed and Performance Optimization Part 1: Metrics & Tools'
-excerpt: Quis nostrud ullamco duis non ea qui mollit.
+excerpt: An insight into the optimization techniques I have applied to my blog.
 date: 2023-01-30 01:00:00
 draft: false
 tags:
