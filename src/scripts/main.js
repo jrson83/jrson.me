@@ -20,8 +20,11 @@ const storedTheme = ("theme" in localStorage)
 storedTheme && storeTheme(storedTheme);
 
 document.getElementById("theme-toggle").addEventListener("click", () => {
+  {/* deno-fmt-ignore */}
+  {/* deno-lint-ignore ban-ts-comment */}
+  {/* @ts-ignore */}
   const currentTheme =
-    (getComputedStyle(root).getPropertyValue("color-scheme") == "light");
+    getComputedStyle(root).getPropertyValue("color-scheme") == "light";
   storeTheme(!!currentTheme);
 });
 
