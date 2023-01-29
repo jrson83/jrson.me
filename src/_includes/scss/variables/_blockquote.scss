@@ -10,11 +10,12 @@ $blockquote: (
   border-width: 0.3125rem,
   border-radius: map.get($config, border-radius),
   spacing: map.get($config, spacing),
+  padding: 1rem map.get($config, spacing),
   font-family: (
     "Times New Roman",
     sans-serif,
   ),
-  font-size: clamp(1.125rem, calc(12px + 0.6vw), 1.25rem),
+  font-size: inherit,
   font-style: italic,
   footer-font-size: map.get($config, font-size-small)
 ) !default;

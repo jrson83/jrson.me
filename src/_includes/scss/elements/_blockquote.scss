@@ -4,7 +4,7 @@
 // Element: Blockquote
 blockquote {
   margin: map.get($blockquote, spacing) 0;
-  padding: map.get($blockquote, spacing);
+  padding: map.get($blockquote, padding);
   border-width: map.get($blockquote, border-width);
   border-left-style: map.get($blockquote, border-style);
   border-radius: map.get($blockquote, border-radius);
