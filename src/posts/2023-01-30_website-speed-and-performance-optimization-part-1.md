@@ -142,15 +142,15 @@ It can be used to easily convert, resize or compress images.
 Which method is the fastest? See [Result](https://jsben.ch/AshUS).
 
 ```ts
-document.getElementById('someId');
+document.getElementById("someId");
 ```
 
 ```ts
-document.querySelector('#someId');
+document.querySelector("#someId");
 ```
 
 ```ts
-document.querySelector('.someClass');
+document.querySelector(".someClass");
 ```
 
 ## Conclusion
