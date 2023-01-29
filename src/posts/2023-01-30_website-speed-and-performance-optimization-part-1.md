@@ -137,6 +137,22 @@ It can be used to easily convert, resize or compress images.
 
 ---
 
+## Bonus: Quiz
+
+Which method is the fastest? See [Result](https://jsben.ch/AshUS).
+
+```ts
+document.getElementById('someId');
+```
+
+```ts
+document.querySelector('#someId');
+```
+
+```ts
+document.querySelector('.someClass');
+```
+
 ## Conclusion
 
 In the first part of the series we learned about important metrics and tools
