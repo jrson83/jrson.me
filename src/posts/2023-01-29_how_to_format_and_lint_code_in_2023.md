@@ -114,8 +114,8 @@ What I really like about Rome:
 
 We just learned that Rome is a great alternative formatter & linter in 2023!
 
-We should keep an eye on the [rome dev blog](https://rome.tools/blog/), since there
-is much more planed for the future.
+We should keep an eye on the [rome dev blog](https://rome.tools/blog/), since
+there is much more planed for the future.
 
 Thanks for reading!
 
