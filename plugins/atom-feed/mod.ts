@@ -1,6 +1,6 @@
 import { merge } from "lume/core/utils.ts";
 import { Page } from "lume/core/filesystem.ts";
-import { buildSort } from "lume/plugins/search.ts";
+import { buildSort } from "lume/core/searcher.ts";
 
 import { isString } from "#utils";
 
@@ -15,7 +15,7 @@ export interface Options {
   query: string[];
 
   /** The values to sort the feeds pages. defaults to `date=desc` */
-  sort: string[];
+  sort: string;
 
   /** The limit to display pages. defaults to `10` */
   limit: number;
@@ -27,7 +27,7 @@ export interface Options {
 // Default options
 export const defaults: Options = {
   query: ["type=post"],
-  sort: ["date=desc"],
+  sort: "date=desc",
   limit: 10,
   options: {
     indentation: "  ",

@@ -1,6 +1,6 @@
 import { merge } from "lume/core/utils.ts";
 import { Page } from "lume/core/filesystem.ts";
-import { buildSort } from "lume/plugins/search.ts";
+import { buildSort } from "lume/core/searcher.ts";
 
 import type { Site } from "lume/core.ts";
 import type { Search } from "lume/plugins/search.ts";
@@ -13,14 +13,14 @@ export interface Options {
   excludes: string[];
 
   /** The values to sort the sitemap */
-  sort: string[];
+  sort: string;
 }
 
 // Default options
 export const defaults: Options = {
   query: [],
   excludes: [],
-  sort: ["url=asc"],
+  sort: "url=asc",
 };
 
 /** A plugin to generate a sitemap.xml from page files after build */
