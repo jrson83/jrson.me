@@ -8,7 +8,7 @@ tags:
 ---
 
 <div align="center">
-  <img src="/images/blog/2023-08-02/bloodborne-bell.png" style="width:200px;" alt="Bloodborne Bell" />
+  <img src="/images/blog/2023-08-02/bloodborne-bell.png" class="img-limit" alt="Bloodborne Bell" />
 </div>
 
 ## Introduction

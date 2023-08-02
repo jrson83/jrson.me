@@ -195,3 +195,10 @@ ol.series-list {
     color: var(--primary-link-color);
   }
 }
+
+.img-limit {
+  max-width: 300px;
+  @include mix-breakpoint(md) {
+    max-width: 200px;
+  }
+}
