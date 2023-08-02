@@ -43,7 +43,7 @@ jobs:
         run: deno task build
 
       - name: Deploy to Server
-        uses: burnett01/rsync-deployments@5.2.1
+        uses: burnett01/rsync-deployments@6.0.0
         with:
           switches: -avzr --delete
           path: "./_site/*"
