@@ -36,7 +36,7 @@
 <p align="center">
   <a href="https://jrson.me/">
     <picture>
-      <img src="./.github/assets/pagespeed-insights-svg.glitch.svg" width="600" alt="PageSpeed Insights" />
+      <img src="https://raw.githubusercontent.com/jrson83/jrson.me/main/.github/assets/pagespeed-insights-svg.glitch.svg?sanitize=true" width="600" alt="PageSpeed Insights">
     </picture>
   </a>
 </p>
