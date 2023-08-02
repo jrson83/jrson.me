@@ -1,15 +1,13 @@
 ---
-title: 'Website Speed and Performance Optimization Part 1: Metrics & Tools'
+title: 'Website Speed and Performance Optimization: Metrics & Tools'
 excerpt: An insight into the optimization techniques I have applied to my blog.
 date: 2023-01-30 01:00:00
+update: 2023-08-02 19:00:00
 draft: false
 tags:
   - html
   - css
   - javascript
-series:
-  title: Website Speed and Performance Optimization
-  ident: performance
 ---
 
 I like to give a little insight into the optimization techniques I have applied
@@ -155,8 +153,8 @@ document.querySelector(".someClass");
 
 ## Conclusion
 
-In the first part of the series we learned about important metrics and tools
-when measuring a websites performance.
+We learned about important metrics and tools when measuring a websites
+performance.
 
 If you want to read more about different optimization techniques, the website
 [web.dev](https://web.dev/blog/) is a great place to start.

@@ -1,0 +1,22 @@
+@use "sass:map";
+@use "../functions" as *;
+@use "../variables" as *;
+
+// Element: Table
+.table {
+  border-radius: map.get($config, border-radius);
+  margin-bottom: map.get($config, spacing);
+  overflow-x: auto;
+
+  tbody tr:nth-child(odd) {
+    background-color: var(--secondary-color);
+  }
+
+  th,
+  td {
+    text-align: left;
+    vertical-align: middle;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+  }
+}
