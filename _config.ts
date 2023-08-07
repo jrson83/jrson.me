@@ -12,7 +12,7 @@ import unified from "lume/plugins/remark.ts";
 import remarkPlugins from "#plugins/unified/remark/mod.ts";
 import rehypePlugins from "#plugins/unified/rehype/mod.ts";
 import atomFeed from "#plugins/atom-feed/mod.ts";
-import sitemap from "#plugins/sitemap/mod.ts";
+import sitemap from "lume/plugins/sitemap.ts";
 import md5CacheBuster from "#plugins/md5-cache-buster/mod.ts";
 
 const site = lume({
@@ -49,7 +49,7 @@ site
   .use(inline())
   .use(atomFeed())
   .use(sitemap({
-    excludes: ["/404/", "/blog/tag/"],
+    query: "indexable=true"
   }));
 
 if (config.mode === "prod") {

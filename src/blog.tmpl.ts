@@ -1,5 +1,6 @@
 import type { Page, PageData } from "#types";
 
+export const indexable = true;
 export const layout = "layouts/posts.tsx";
 export const importJs = "/scripts/search.js";
 

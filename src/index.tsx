@@ -2,6 +2,7 @@ import type { Page, PageData } from "#types";
 
 export const renderOrder = 1;
 
+export const indexable = true;
 export const title = "Home";
 export const layout = "layouts/root.tsx";
 

@@ -2,6 +2,7 @@ layout: layouts/about.tsx
 title: About
 description: Test
 url: /about/
+indexable: true
 
 menu:
   title: About
