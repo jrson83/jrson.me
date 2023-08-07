@@ -49,7 +49,7 @@ site
   .use(inline())
   .use(atomFeed())
   .use(sitemap({
-    query: "indexable=true"
+    query: "indexable=true",
   }));
 
 if (config.mode === "prod") {
