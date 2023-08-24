@@ -4,6 +4,8 @@ export default (
   { children, comp, excerpt, importJs, site, title, type, url }: PageData,
   { urlFilter }: PageHelpers,
 ) => {
+  const postSlug = title?.replace(/\s+/g, "-").toLowerCase();
+
   return (
     <html
       itemScope
@@ -72,10 +74,12 @@ export default (
           content={excerpt || site.description}
         />
         <meta property="og:url" content={urlFilter!("/", true)} />
-        <meta
-          property="og:image"
-          content={`${urlFilter!(site.ogImage, true)}`}
-        />
+        {type && type === "post" && (
+          <meta
+            property="og:image"
+            content={`${urlFilter!(`/images/og/${postSlug}.jpg`, true)}`}
+          />
+        )}
 
         <meta name="twitter:title" content={`${title} - ${site.title}`} />
         <meta
@@ -83,10 +87,13 @@ export default (
           content={excerpt || site.description}
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:image"
-          content={`${urlFilter!(site.ogImage, true)}`}
-        />
+        {type && type === "post" && (
+          <meta
+            name="twitter:image"
+            content={`${urlFilter!(`/images/og/${postSlug}.jpg`, true)}`}
+          />
+        )}
+
         <meta name="twitter:creator" content={site.twitter} />
         <meta name="twitter:site" content={site.twitter} />
 
