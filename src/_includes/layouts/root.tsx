@@ -94,8 +94,8 @@ export default (
           />
         )}
 
-        <meta name="twitter:creator" content={site.twitter} />
-        <meta name="twitter:site" content={site.twitter} />
+        <meta name="twitter:creator" content={site.twitter.user} />
+        <meta name="twitter:site" content={site.twitter.user} />
 
         <meta itemProp="name" content={site.title} />
         <meta itemProp="url" content={urlFilter!("/", true)} />

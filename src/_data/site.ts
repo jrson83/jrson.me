@@ -13,6 +13,9 @@ export default {
     user: "jrson83",
     url: "https://github.com/jrson83",
   },
-  twitter: "@jrson83",
+  twitter: {
+    user: "@jrson83",
+    url: "https://twitter.com/jrson83",
+  },
   ogImage: "/images/site/og-placeholder-1200x630.png",
 } as const;

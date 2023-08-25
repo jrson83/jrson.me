@@ -36,6 +36,21 @@ export default (
     <li>
       <a
         className="no-ext"
+        href={site.twitter.url}
+        target="_blank"
+        rel="noopener"
+        aria-label="Visit my Twitter profile"
+      >
+        <comp.shared.icon
+          icon={unicons.twitter}
+          title="Visit my Twitter profile"
+          color="primary-link-color"
+        />
+      </a>
+    </li>
+    <li>
+      <a
+        className="no-ext"
         href={urlFilter!("/feed.xml", true)}
         target="_blank"
         rel="noopener"
