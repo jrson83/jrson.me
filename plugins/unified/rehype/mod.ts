@@ -6,13 +6,16 @@ import {
   rehypeMinifyWhitespace,
   rehypePrismDiff,
   rehypePrismPlus,
-  rehypeSlugSectionizeAnchorize,
+  rehypeSlugAnchorSectionize,
 } from "../deps.ts";
 
 export default [
   rehypeExternalLinks,
   rehypeExtractToc,
-  rehypeSlugSectionizeAnchorize,
+  [rehypeSlugAnchorSectionize, {
+    linkProperties: { className: "header-anchor" },
+    buttonProperties: { className: ["btn-reset", "btn-header-anchor"] },
+  }],
   rehypeCodeTitles,
   [rehypePrismPlus, { ignoreMissing: true }],
   rehypeCopyCode,

@@ -1,12 +1,12 @@
-import type { HastElement, HastRoot } from "#plugins/unified/deps.ts";
+import type { Element, Root } from "npm:@types/hast@3.0.1";
 import { unified, visit } from "#plugins/unified/deps.ts";
 
-const rehypeCopyCode: unified.Plugin<[], HastRoot> = () => {
-  return (tree: HastRoot) => {
+const rehypeCopyCode: unified.Plugin<[], Root> = () => {
+  return (tree: Root) => {
     visit(
       tree,
       { type: "element", tagName: "div" },
-      (node: HastElement) => {
+      (node: Element) => {
         const className = node?.properties?.className as Array<string> || [];
 
         if (
@@ -24,6 +24,7 @@ const rehypeCopyCode: unified.Plugin<[], HastRoot> = () => {
           {
             type: "element",
             tagName: "span",
+            properties: {},
             children: [{ type: "text", value }],
           },
           {
