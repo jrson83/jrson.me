@@ -7,12 +7,12 @@ import jsx from "lume/plugins/jsx_preact.ts";
 import sass from "lume/plugins/sass.ts";
 import terser from "lume/plugins/terser.ts";
 import inline from "lume/plugins/inline.ts";
-
+import sitemap from "lume/plugins/sitemap.ts";
 import unified from "lume/plugins/remark.ts";
+
 import remarkPlugins from "#plugins/unified/remark/mod.ts";
 import rehypePlugins from "#plugins/unified/rehype/mod.ts";
 import atomFeed from "#plugins/atom-feed/mod.ts";
-import sitemap from "lume/plugins/sitemap.ts";
 import md5CacheBuster from "#plugins/md5-cache-buster/mod.ts";
 
 const site = lume({

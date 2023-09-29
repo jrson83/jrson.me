@@ -44,6 +44,11 @@ section > h3 {
   h2,
   h3 {
     color: var(--primary-link-color);
+    font-size: clamp(1.282rem, calc(12px + 1.35vw), 1.688rem);
+
+    @include mix-breakpoint(md) {
+      font-size: clamp(1.575rem, calc(12px + 1.8vw), 2.025rem);
+    }
   }
 
   .bdg {
@@ -90,9 +95,9 @@ section > h3 {
   color: var(--third-font-color);
   font-size: clamp(0.9rem, calc(12px + 0.36vw), 1.012rem);
 
-  mark {
+  .mark {
     font-size: 0.85rem;
-    color: var(--third-font-color);
+    color: var(--secondary-font-color);
     padding: 0.1rem 0.5rem;
     border-radius: map.get($badge, border-radius);
     border: 1px solid var(--border-color);
@@ -133,6 +138,20 @@ section > h3 {
   flex-flow: row wrap;
   gap: 0.5rem;
   align-items: center;
+}
+
+.blog-post-body {
+  a:not(.heading-anchor),
+  a:visited:not(.heading-anchor),
+  a:active:not(.heading-anchor) {
+    text-decoration: underline;
+  }
+
+  a:hover,
+  a:focus,
+  a.is-active {
+    text-decoration: none;
+  }
 }
 
 .series-toc {
@@ -201,4 +220,39 @@ ol.series-list {
   @include mix-breakpoint(md) {
     max-width: 200px;
   }
+}
+
+
+.heading-section {
+  &__heading {
+    position: relative;
+    
+    &:hover .heading-anchor__symbol {
+      visibility: visible;
+    }
+  }
+}
+
+.heading-anchor {
+  position: absolute;
+  display: inline-block;
+  inline-size: max-content;
+  padding-inline-end: 0.25em;
+  left: -0.8em;
+  /* text-decoration: none !important; */
+  
+  &__symbol {
+    visibility: hidden;
+  }
+}
+
+.sr-only:not(:focus) {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }

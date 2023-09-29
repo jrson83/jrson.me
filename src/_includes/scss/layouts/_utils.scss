@@ -1,3 +1,5 @@
+@use "../mixins" as *;
+
 // Layout: Utilities
 h2 a[class="header-anchor"],
 h3 a[class="header-anchor"] {
@@ -5,10 +7,15 @@ h3 a[class="header-anchor"] {
 }
 
 .btn-header-anchor {
+  display: inline-block;
   width: 2rem;
   opacity: 0;
   color: var(--secondary-link-color);
 }
+
+/* a[class="header-anchor"][hidden] {
+  display: inline;
+} */
 
 h2:hover a[class="header-anchor"] .btn-header-anchor,
 h3:hover a[class="header-anchor"] .btn-header-anchor {

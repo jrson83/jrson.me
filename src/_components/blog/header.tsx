@@ -5,7 +5,7 @@ export default (
 ) => {
   return (
     <header>
-      <h3 itemProp="headline">{title}</h3>
+      <h2 className="blog-post-title" itemProp="headline">{title}</h2>
       <div className="blog-post-meta">
         <comp.shared.icon icon={unicons.calendar} size="22" title="Calendar" />
         <comp.blog.time date={date} />

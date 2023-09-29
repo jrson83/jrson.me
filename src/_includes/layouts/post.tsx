@@ -7,7 +7,7 @@ export default (
   data: PageData,
 ) => {
   const {
-    children,
+    content,
     comp,
     date,
     excerpt,
@@ -20,7 +20,7 @@ export default (
     page,
   } = data;
   return (
-    <>
+    <Fragment>
       <article
         itemProp="blogPost"
         itemScope
@@ -32,9 +32,9 @@ export default (
           <div className="blog-post-meta">
             {update && (
               <Fragment>
-                <mark>
+                <span className="mark">
                   Updated on <comp.blog.time date={update} />
-                </mark>
+                </span>
                 <div className="break-flex"></div>
               </Fragment>
             )}
@@ -59,11 +59,13 @@ export default (
           </div>
         </header>
         <comp.blog.tocSeries series={series} url={url} />
-        <div itemProp="articleBody">
-          {children}
-        </div>
+        <div
+          itemProp="articleBody"
+          className="blog-post-body"
+          dangerouslySetInnerHTML={{ __html: content as string }}
+        />
       </article>
       <comp.blog.showcase url={url} />
-    </>
+    </Fragment>
   );
 };

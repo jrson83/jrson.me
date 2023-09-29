@@ -2,13 +2,15 @@
 title: 'Bloodborne Isz glitch Cure'
 excerpt: This guide is intended to help Bloodborne players access the cure to Isz Glitch, that was discovered, but not widely distributed.
 date: 2023-08-02 19:00:00
+update: 2023-009-29 6:00:00
 draft: false
 tags:
   - bloodborne
+  - ps4
 ---
 
-<div align="center">
-  <img src="/images/blog/2023-08-02/bloodborne-bell.png" class="img-limit" alt="Bloodborne Bell" />
+<div align="center" markdown="1">
+  <img src="/images/blog/2023-08-02/bloodborne-bell.png" class="img-limit" alt="Bloodborne Bell" width="300" height="301" />
 </div>
 
 ## Introduction

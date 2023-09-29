@@ -26,7 +26,14 @@ export default ({ query }: { query: string }) => {
           value={query && `#${query}`}
         />
       </div>
-      <div id="search-result" className="search__result" role="listbox"></div>
+      <div
+        id="search-result"
+        className="search__result"
+        role="listbox"
+        aria-label="Search results"
+        aria-hidden="true"
+      >
+      </div>
     </>
   );
 };

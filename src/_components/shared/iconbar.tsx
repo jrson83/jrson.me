@@ -14,7 +14,6 @@ export default (
         <comp.shared.icon
           icon={unicons.envelope}
           title="Contact me by email"
-          color="primary-link-color"
         />
       </a>
     </li>
@@ -29,7 +28,6 @@ export default (
         <comp.shared.icon
           icon={unicons.github}
           title="Visit my Github profile"
-          color="primary-link-color"
         />
       </a>
     </li>
@@ -44,7 +42,6 @@ export default (
         <comp.shared.icon
           icon={unicons.twitter}
           title="Visit my Twitter profile"
-          color="primary-link-color"
         />
       </a>
     </li>
@@ -59,7 +56,6 @@ export default (
         <comp.shared.icon
           icon={unicons.rss}
           title="Visit my XML Feed"
-          color="primary-link-color"
         />
       </a>
     </li>

@@ -15,10 +15,12 @@ export { default as rehypeExtractToc } from "npm:@stefanprobst/rehype-extract-to
 export { default as rehypePrismPlus } from "npm:rehype-prism-plus@1.6.3";
 export { default as rehypePrismDiff } from "npm:rehype-prism-diff@1.1.2";
 
-export { default as slugger } from "npm:github-slugger@2.0.0";
+export { slug } from "npm:github-slugger@2.0.0";
 export { findAfter } from "npm:unist-util-find-after@5.0.0";
 export { CONTINUE, EXIT, SKIP, visit } from "npm:unist-util-visit@5.0.0";
 export { toString } from "npm:hast-util-to-string@3.0.0";
 
 export { default as rehypeCopyCode } from "./rehype/rehypeCopyCode.ts";
-export { default as rehypeSlugAnchorSectionize } from "npm:rehype-slug-anchor-sectionize@0.2.0";
+export { default as rehypeSlugAnchorSectionize } from "./rehype/slug.ts";
+export type { Test } from "npm:unist-util-is@6.0.0";
+export { default as rehypeImgSize } from "npm:rehype-img-size@1.0.1";

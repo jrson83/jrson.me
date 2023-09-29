@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function hideResults() {
     searchWrapper.classList.remove("is-active");
     if (searchResult.childElementCount > 0) {
+      searchResult.toggleAttribute("aria-hidden", true);
       searchResult.removeChild(searchResult.firstChild);
     }
   }
@@ -57,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         fragment.appendChild(node);
 
+        searchResult.setAttribute("aria-hidden", false);
         searchResult.appendChild(fragment);
 
         document.addEventListener("click", handleDocumentClick);
