@@ -36,6 +36,7 @@ site
   .use(slugify_urls({
     replace: {
       "&": "and",
+      "@": "",
     },
   }))
   .use(unified({
