@@ -77,7 +77,14 @@ export default (
         {type && type === "post" && (
           <meta
             property="og:image"
-            content={`${urlFilter!(`/images/og/${postSlug?.replaceAll(/(\@|\%)/gm, '').replaceAll('/', '-')}.jpg`, true)}`}
+            content={`${
+              urlFilter!(
+                `/images/og/${
+                  postSlug?.replaceAll(/(\@|\%)/gm, "").replaceAll("/", "-")
+                }.jpg`,
+                true,
+              )
+            }`}
           />
         )}
 
@@ -90,7 +97,14 @@ export default (
         {type && type === "post" && (
           <meta
             name="twitter:image"
-            content={`${urlFilter!(`/images/og/${postSlug?.replaceAll(/(\@|\%)/gm, '').replaceAll('/', '-')}.jpg`, true)}`}
+            content={`${
+              urlFilter!(
+                `/images/og/${
+                  postSlug?.replaceAll(/(\@|\%)/gm, "").replaceAll("/", "-")
+                }.jpg`,
+                true,
+              )
+            }`}
           />
         )}
 
