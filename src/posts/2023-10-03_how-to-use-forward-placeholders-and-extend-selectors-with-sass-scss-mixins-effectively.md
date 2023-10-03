@@ -25,7 +25,7 @@ is inserted:
 
 Taking the following SASS/SCSS example code:
 
-```sass:input.scss
+```scss:input.scss
 .first {
   color: green;
 }
@@ -70,7 +70,7 @@ In this example we can influence where in `output.css` the @extend rules are
 inserted. We could move the placeholder above the `.second` class so that the
 rules appear in that place:
 
-```sass:input.scss
+```scss:input.scss
 .first {
   color: green;
 }
@@ -127,13 +127,13 @@ the component modules like `element/_badge.scss` or `element/_button.scss`.
 > Sorry that this example may be a bit complex. I have tried to keep it as short
 > as possible.
 
-```sass:placeholder/_index.scss
+```scss:placeholder/_index.scss
 %generic-placeholder {
   color: red;
 }
 ```
 
-```sass:element/_badge.scss
+```scss:element/_badge.scss
 @use '../placeholder' as *;
 
 @mixin generate-badge {
@@ -144,7 +144,7 @@ the component modules like `element/_badge.scss` or `element/_button.scss`.
 }
 ```
 
-```sass:element/_button.scss
+```scss:element/_button.scss
 @use '../placeholder' as *;
 
 @mixin generate-button {
@@ -157,7 +157,7 @@ the component modules like `element/_badge.scss` or `element/_button.scss`.
 
 This mixin generates all modules.
 
-```sass:mixin/_module.scss
+```scss:mixin/_module.scss
 @use '../element' as *;
 
 @mixin generate-modules {
@@ -175,7 +175,7 @@ This mixin generates all modules.
 }
 ```
 
-```sass:shrtcss.scss
+```scss:shrtcss.scss
 /* forward more stuff first */
 @forward 'mixin';
 @forward 'mixin/module'; 
@@ -184,7 +184,7 @@ This mixin generates all modules.
 
 The use of my library:
 
-```sass:shrtcss-styles.scss
+```scss:shrtcss-styles.scss
 @use 'shrtcss' as *;
 @include generate-modules;
 ```
@@ -226,8 +226,8 @@ Okay. So this was confusing and I had to figure out why.
 To regain control we move the `%placeholder` inside the
 `@mixin generate-modules`.
 
-```sass:mixin/_module.scss
-`@use '../element' as *;
+```scss:mixin/_module.scss
+@use '../element' as *;
 
 @mixin generate-modules {
   @font-face {
@@ -250,7 +250,7 @@ To regain control we move the `%placeholder` inside the
 
 We remove the `@use` rule from both element files:
 
-```sass:element/_badge.scss
+```scss:element/_badge.scss
 @mixin generate-badge {
   .bdg {
     @extend %generic-placeholder;
@@ -259,7 +259,7 @@ We remove the `@use` rule from both element files:
 }
 ```
 
-```sass:element/_button.scss
+```scss:element/_button.scss
 @mixin generate-button {
   .btn {
     @extend %generic-placeholder;
