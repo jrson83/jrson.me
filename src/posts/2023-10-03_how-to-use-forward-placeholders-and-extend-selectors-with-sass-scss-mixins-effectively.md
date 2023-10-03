@@ -1,6 +1,6 @@
 ---
 title: "How to @use/@forward %placeholders and @extend selectors with SASS/SCSS @mixins effectively"
-excerpt: "In this blog post we learn how to @use %placeholders in complex SASS/SCSS modules"
+excerpt: "In this blog post we learn how to @use %placeholders in complex SASS/SCSS modules."
 date: 2023-10-03 23:00:00
 draft: false
 tags:
