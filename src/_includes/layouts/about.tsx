@@ -1,9 +1,8 @@
-import type { AboutData } from '#types'
-
 export const layout = 'layouts/root.tsx'
 
 export default (
-  { blogstacks, icons: { stack }, comp, header, stacks, title }: AboutData,
+  { blogstacks, icons: { stack }, comp, header, stacks, title }:
+    Lume.AboutPageProps,
 ) => {
   return (
     <section>

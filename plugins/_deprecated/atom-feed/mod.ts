@@ -1,3 +1,6 @@
+// @ts-nocheck
+// deno-lint-ignore-file -- The plugin is deprecated in favour of: https://lume.land/plugins/sitemap/
+
 import { Page } from 'lume/core/filesystem.ts'
 import { buildSort } from 'lume/core/searcher.ts'
 import { merge } from 'lume/core/utils.ts'

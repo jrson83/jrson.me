@@ -1,10 +1,9 @@
-import type { PageData } from '#types'
 import { Fragment } from 'npm:preact'
 
 export const layout = 'layouts/root.tsx'
 
 export default (
-  data: PageData,
+  data: Lume.PageProps,
 ) => {
   const {
     content,

@@ -1,8 +1,6 @@
-import type { PageData, PageHelpers } from '#types'
-
 export default (
-  { children, comp, excerpt, importJs, site, title, type, url }: PageData,
-  { urlFilter }: PageHelpers,
+  { children, comp, excerpt, importJs, site, title, type, url }: Lume.Data,
+  { urlFilter }: Lume.Helpers,
 ) => {
   const postSlug = title?.replace(/\s+/g, '-').toLowerCase()
 

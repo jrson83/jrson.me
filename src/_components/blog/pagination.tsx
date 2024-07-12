@@ -1,9 +1,8 @@
-import type { PageData, PageHelpers } from '#types'
 import { getPaginationPages } from '#utils'
 
 export default (
-  { comp, icons: { unicons }, pagination }: PageData,
-  { urlFilter }: PageHelpers,
+  { comp, icons: { unicons }, pagination }: Lume.PageProps,
+  { urlFilter }: Lume.Helpers,
 ) => {
   return (
     <nav id='pagination'>

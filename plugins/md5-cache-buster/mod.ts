@@ -1,8 +1,7 @@
-import { merge } from 'lume/core/utils.ts'
+import { merge } from 'lume/core/utils/object.ts'
 import modifyUrls from 'lume/plugins/modify_urls.ts'
 import { Md5 } from './deps.ts'
 
-import type { Page, Site } from 'lume/core.ts'
 import type { Message } from './deps.ts'
 
 export interface Options {
@@ -28,26 +27,24 @@ export default function (userOptions?: Partial<Options>) {
 
   const hashedAssets: HashedAssets = []
 
-  return (site: Site) => {
+  return (site: Lume.Site) => {
     site.addEventListener('afterRender', () => {
-      site.process(options.extensions, buildHash)
+      site.process(options.extensions, (pages) => pages.forEach(buildHash))
 
       site.process(['.html'], replaceUrls)
     })
 
-    function buildHash(file: Page) {
-      const hash = new Md5().update(file.content as Message).toString()
+    function buildHash(page: Lume.Page) {
+      const hash = new Md5().update(page.content as Message).toString()
 
       hashedAssets.push({
-        filename: `${file.dest.path}${file.dest.ext}`,
-        hashFilename: `${file.dest.path}.${hash}${file.dest.ext}`,
-        ext: file.dest.ext,
+        filename: `${page.src.path}${page.src.ext}`,
+        hashFilename: `${page.src.path}.${hash}${page.src.ext}`,
+        ext: page.src.ext,
         hash: hash,
       })
 
-      file.updateDest({
-        path: `${file.dest.path}.${hash}`,
-      })
+      page.data.url = `${page.src.path}.${hash}${page.src.ext}`
     }
 
     function replaceUrls() {

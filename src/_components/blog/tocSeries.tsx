@@ -1,25 +1,23 @@
-import type { Page, PageData, PageHelpers } from '#types'
-
 import { capitalize, isEmptyArray } from '#utils'
 
 export default (
-  { comp, icons: { unicons }, search, series, url }: PageData,
-  { urlFilter }: PageHelpers,
+  { comp, icons: { unicons }, search, series, url }: Lume.PageProps,
+  { urlFilter }: Lume.Helpers,
 ) => {
-  const parts: any[] = []
+  const parts: { title: string; url: string; chapter?: string }[] = []
   const activeUrl = url
 
   if (typeof series !== 'undefined') {
     for (
-      const post of search.pages(
+      const data of search.pages(
         `series.ident=${series.ident}`,
         'date=asc',
-      ) as Page[]
+      )
     ) {
       parts.push({
         title: series.title,
-        chapter: post.data.title,
-        url: urlFilter!(post.data.url),
+        url: urlFilter!(data.url),
+        chapter: data.title,
       })
     }
   }

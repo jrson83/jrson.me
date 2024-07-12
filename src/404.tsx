@@ -1,11 +1,9 @@
-import type { PageData, PageHelpers } from '#types'
-
 export const indexable = false
 export const title = '404: Page Not Found'
 export const layout = 'layouts/root.tsx'
 export const url = '/404/'
 
-export default (_data: PageData, { urlFilter }: PageHelpers) => {
+export default (_data: Lume.Data, { urlFilter }: Lume.Helpers) => {
   return (
     <>
       <h1>{title}</h1>

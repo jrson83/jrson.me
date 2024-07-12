@@ -9,11 +9,12 @@ import {
   rehypePrismDiff,
   rehypePrismPlus,
   rehypeSlugAnchorSectionize,
+  unified,
 } from '../deps.ts'
 
 const __dirname = dirname(fromFileUrl(import.meta.url))
 
-export default [
+export default <unified.PluggableList> [
   [rehypeImgSize, {
     dir: new URL(`${__dirname}/../../../src/assets`, import.meta.url).pathname,
   }],

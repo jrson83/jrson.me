@@ -1,16 +1,14 @@
-import type { Page, PageData } from '#types'
-
 export const indexable = false
 export const layout = 'layouts/posts.tsx'
 export const importJs = '/scripts/search.js'
 
-let lastTag: Page
+let lastTag: string
 
-export default function* ({ search, paginate }: PageData) {
-  for (const tag of search.tags() as Page[]) {
+export default function* ({ search, paginate }: Lume.Data) {
+  for (const tag of search.values<string>('tags')) {
     lastTag = tag
 
-    const posts = search.pages(`type=post '${tag}'`, 'date=desc') as Page[]
+    const posts = search.pages(`type=post '${tag}'`, 'date=desc')
 
     for (const page of paginate(posts, { url, size: 10 })) {
       page.pathToPage = `/blog/tag/${tag}/`

@@ -1,6 +1,7 @@
-import type { PageData, PageHelpers } from '#types'
-
-export default ({ comp, site }: PageData, { urlFilter }: PageHelpers) => {
+export default (
+  { comp, site }: Lume.PageProps,
+  { urlFilter }: Lume.Helpers,
+) => {
   return (
     <footer className='container'>
       <p>

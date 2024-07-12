@@ -1,13 +1,11 @@
-import type { Page, PageData } from '#types'
-
 export const renderOrder = 1
 
 export const indexable = true
 export const title = 'Home'
 export const layout = 'layouts/root.tsx'
 
-export default ({ comp, search }: PageData) => {
-  const posts = search?.pages('type=post', 'date=desc', 3) as Page[]
+export default ({ comp, search }: Lume.Data) => {
+  const posts = search.pages('type=post', 'date=desc', 3)
 
   return (
     <>

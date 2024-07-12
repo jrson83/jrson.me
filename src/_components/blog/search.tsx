@@ -1,4 +1,4 @@
-export default ({ query }: { query: string }) => {
+export default ({ query }: Lume.PageProps) => {
   return (
     <>
       <div id='search-inner' className='search'>

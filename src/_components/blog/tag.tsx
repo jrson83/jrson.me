@@ -1,6 +1,4 @@
-import type { PageData, PageHelpers } from '#types'
-
-export default ({ tags }: PageData, { urlFilter }: PageHelpers) => {
+export default ({ tags }: Lume.Data, { urlFilter }: Lume.Helpers) => {
   return (
     <>
       {tags?.map((tag: string, index: number) => {

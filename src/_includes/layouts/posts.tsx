@@ -1,10 +1,10 @@
-import type { PageData } from '#types'
-
 export const title = 'Blog posts'
 export const layout = 'layouts/root.tsx'
 export const url = '/blog/'
 
-export default ({ comp, filteredBy, pagination, results, title }: PageData) => {
+export default (
+  { comp, filteredBy, pagination, results, title }: Lume.Data,
+) => {
   return (
     <>
       <section>

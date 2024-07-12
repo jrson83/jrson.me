@@ -1,20 +1,18 @@
-import type { Page, PageData, PageHelpers } from '#types'
-
 import { isEmptyArray, truncateString } from '#utils'
 
 export default (
-  { comp, icons: { unicons }, search, url }: PageData,
-  { urlFilter }: PageHelpers,
+  { comp, icons: { unicons }, search, url }: Lume.PageProps,
+  { urlFilter }: Lume.Helpers,
 ) => {
-  const previousPost = search?.previousPage(
-    url?.toString(),
+  const previousPost = search.previousPage(
+    url.toString(),
     'type=post',
-  ) as Page
+  )
 
-  const nextPost = search?.nextPage(
-    url?.toString(),
+  const nextPost = search.nextPage(
+    url.toString(),
     'type=post',
-  ) as Page
+  )
 
   return (
     <nav
@@ -44,7 +42,7 @@ export default (
                 <small itemProp='name'>Previous</small>
                 <span>
                   {truncateString(
-                    previousPost.data.title as string,
+                    previousPost.title!,
                     30,
                     '...',
                     true,
@@ -67,7 +65,7 @@ export default (
               <small itemProp='name'>Next</small>
               <span>
                 {truncateString(
-                  nextPost.data.title as string,
+                  nextPost.title!,
                   30,
                   '...',
                   true,

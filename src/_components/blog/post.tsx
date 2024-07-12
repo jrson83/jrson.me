@@ -1,5 +1,3 @@
-import type { PageData, PageHelpers } from '#types'
-
 export default (
   {
     comp,
@@ -11,8 +9,8 @@ export default (
     excerpt,
     url,
     index,
-  }: PageData,
-  { urlFilter }: PageHelpers,
+  }: Lume.PageProps,
+  { urlFilter }: Lume.Helpers,
 ) => {
   return (
     <article

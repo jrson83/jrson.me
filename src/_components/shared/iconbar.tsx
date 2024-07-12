@@ -1,8 +1,6 @@
-import type { PageData, PageHelpers } from '#types'
-
 export default (
-  { comp, icons: { unicons }, site }: PageData,
-  { urlFilter }: PageHelpers,
+  { comp, icons: { unicons }, site }: Lume.PageProps,
+  { urlFilter }: Lume.Helpers,
 ) => (
   <ul className='li-i'>
     <li>

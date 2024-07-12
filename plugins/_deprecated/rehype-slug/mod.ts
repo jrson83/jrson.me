@@ -1,3 +1,5 @@
+// @ts-nocheck
+// deno-lint-ignore-file -- The plugin is deprecated in favour of: https://www.npmjs.com/package/rehype-slug-anchor-sectionize
 import type { Element, Root } from 'npm:@types/hast@3.0.1'
 import {
   findAfter,
@@ -6,7 +8,7 @@ import {
   toString as hastToString,
   unified,
   visit,
-} from '../deps.ts'
+} from '../../unified/deps.ts'
 
 export interface RehypeSlugAnchorSectionizeOptions {
   /** The heading level depth to sectionize. defaults to `3` */

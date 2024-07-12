@@ -1,7 +1,5 @@
-import type { PageData } from '#types'
-
 export default (
-  { comp, title, date, icons: { unicons }, readingTime, tags }: PageData,
+  { comp, title, date, icons: { unicons }, readingTime, tags }: Lume.PageProps,
 ) => {
   return (
     <header>

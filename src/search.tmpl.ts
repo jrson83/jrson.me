@@ -1,21 +1,19 @@
-import type { Page, PageData, PageHelpers } from '#types'
-
 export const url = '/search.json'
 
 export default function (
-  { search }: PageData,
-  { urlFilter, date }: PageHelpers,
+  { search }: Lume.Data,
+  { urlFilter, date }: Lume.Helpers,
 ) {
   const result = []
 
-  for (const post of search.pages('type=post', 'date=desc') as Page[]) {
+  for (const data of search.pages('type=post', 'date=desc')) {
     result.push({
-      title: post.data.title,
-      date: date(post.data.date, 'HUMAN_DATE'),
-      readingTime: post.data.readingTime?.text,
+      title: data.title,
+      date: date(data.date, 'HUMAN_DATE'),
+      readingTime: data.readingTime?.text,
       /* excerpt: post.data.excerpt, */
-      url: urlFilter!(post.data.url),
-      tags: post.data.tags,
+      url: urlFilter!(data.url),
+      tags: data.tags,
     })
   }
 

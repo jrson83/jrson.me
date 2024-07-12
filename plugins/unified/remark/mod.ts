@@ -1,5 +1,5 @@
-import { readingTime } from '../deps.ts'
+import { readingTime, unified } from '#plugins/unified/deps.ts'
 
-export default [
+export default <unified.PluggableList> [
   [readingTime, { name: 'readingTime' }],
 ]

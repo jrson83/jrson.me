@@ -2,7 +2,10 @@
   "importMap": "import_map.json",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "npm:preact"
+    "jsxImportSource": "npm:preact",
+    "types": [
+      "lume/types.ts"
+    ]
   },
   "tasks": {
     "clean": "rm -rf ./_site",
@@ -17,10 +20,6 @@
     "rules": {
       "tags": [
         "recommended"
-      ],
-      "exclude": [
-        "no-explicit-any",
-        "no-unused-vars"
       ]
     }
   },

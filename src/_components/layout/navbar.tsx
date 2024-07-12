@@ -1,10 +1,8 @@
-import type { Page, PageData, PageHelpers } from '#types'
-
 export default (
-  { activeUrl, comp, icons, search }: PageData,
-  { urlFilter }: PageHelpers,
+  { activeUrl, comp, icons, search }: Lume.PageProps,
+  { urlFilter }: Lume.Helpers,
 ) => {
-  const items = search?.pages('menu.visible=true', 'menu.order') as Page[]
+  const items = search.pages('menu.visible=true', 'menu.order')
 
   return (
     <>
@@ -31,16 +29,16 @@ export default (
             <comp.shared.icon icon={icons.unicons.home} title='Home' />
           </a>
           <ul id='nav-menu' className='menu'>
-            {items.map(({ data }) => (
+            {items.map(({ url, menu, title }) => (
               <li className='menu__item' itemProp='url'>
                 <comp.layout.link
-                  href={urlFilter!(data.url)}
-                  active={data.url === activeUrl ||
-                    data?.url?.toString().startsWith('/blog') &&
+                  href={urlFilter!(url)}
+                  active={url === activeUrl ||
+                    url?.toString().startsWith('/blog') &&
                       activeUrl?.toString().startsWith('/blog')}
                   itemProp='name'
                 >
-                  {data?.menu?.title || data.title}
+                  {menu?.title || title}
                 </comp.layout.link>
               </li>
             ))}
