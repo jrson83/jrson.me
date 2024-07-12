@@ -1,6 +1,4 @@
-type BuildMode = string | undefined
-
-const createConfig = (mode: BuildMode) => {
+const createConfig = (mode?: string) => {
   if (typeof mode === 'undefined') {
     throw new Error('BUILD_MODE is not defined')
   }
@@ -16,6 +14,6 @@ const createConfig = (mode: BuildMode) => {
   }
 }
 
-const BUILD_MODE: BuildMode = Deno.env.get('BUILD_MODE')
+const BUILD_MODE = Deno.env.get('BUILD_MODE')
 
 export const config = createConfig(BUILD_MODE)

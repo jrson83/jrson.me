@@ -31,7 +31,7 @@ export default function (userOptions?: Partial<Options>) {
     site.addEventListener('afterRender', () => {
       site.process(options.extensions, (pages) => pages.forEach(buildHash))
 
-      site.process(['.html'], replaceUrls)
+      site.process(['.html'], (pages) => pages.forEach(replaceUrls))
     })
 
     function buildHash(page: Lume.Page) {

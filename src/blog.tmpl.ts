@@ -2,8 +2,8 @@ export const indexable = true
 export const layout = 'layouts/posts.tsx'
 export const importJs = '/scripts/search.js'
 
-export default function* ({ paginate, search }: Lume.Data) {
-  const posts = search.pages('type=post', 'date=desc')
+export default function* ({ paginate, search }: Lume.PageProps) {
+  const posts = search.pages<Lume.PageProps>('type=post', 'date=desc')
   const options = {
     url: (n: number) => n == 1 ? `/blog/` : `/blog/${n}/`,
     size: 4,

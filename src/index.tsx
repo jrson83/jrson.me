@@ -5,7 +5,7 @@ export const title = 'Home'
 export const layout = 'layouts/root.tsx'
 
 export default ({ comp, search }: Lume.Data) => {
-  const posts = search.pages('type=post', 'date=desc', 3)
+  const posts = search.pages<Lume.Data>('type=post', 'date=desc', 3)
 
   return (
     <>
@@ -38,7 +38,7 @@ export default ({ comp, search }: Lume.Data) => {
       <hr />
       <h2>Recent posts</h2>
       <section itemScope itemType='http://schema.org/Blog'>
-        {posts.map(({ data }, index) => (
+        {posts.map((data, index) => (
           <comp.blog.post index={index.toString()} {...data} />
         ))}
         {posts?.length === 0 && <p>Sorry, no posts matched your criteria.</p>}

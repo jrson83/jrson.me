@@ -2,7 +2,7 @@ export default (
   { activeUrl, comp, icons, search }: Lume.PageProps,
   { urlFilter }: Lume.Helpers,
 ) => {
-  const items = search.pages('menu.visible=true', 'menu.order')
+  const items = search.pages<Lume.PageProps>('menu.visible=true', 'menu.order')
 
   return (
     <>
