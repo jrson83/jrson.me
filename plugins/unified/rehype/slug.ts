@@ -5,47 +5,47 @@ import {
   toString as hastToString,
   unified,
   visit,
-} from "../deps.ts";
-import type { Element, Root } from "npm:@types/hast@3.0.1";
+} from '../deps.ts'
+import type { Element, Root } from 'npm:@types/hast@3.0.1'
 
 export interface RehypeSlugAnchorSectionizeOptions {
   /** The heading level depth to sectionize. defaults to `3` */
-  depth: number;
+  depth: number
 
   /** The wrapper Element `tagName`. defaults to `section` */
-  wrapperTagName?: string;
+  wrapperTagName?: string
 
   /** The wrapper Element `properties`. defaults to `undefined` */
-  wrapperProperties?: Element["properties"];
+  wrapperProperties?: Element['properties']
 
   /** Adds an additive at end of the wrappers id.  defaults to `-section` */
-  wrapperSlugAdditive?: string;
+  wrapperSlugAdditive?: string
 
   /** The link Element `properties`. defaults to `{ className: 'heading-anchor' }` */
-  linkProperties?: Element["properties"];
+  linkProperties?: Element['properties']
 
   /** The button Element `properties`. defaults to `{ className: 'heading-anchor__btn' }` */
-  buttonProperties?: Element["properties"];
+  buttonProperties?: Element['properties']
 }
 
 const defaults: RehypeSlugAnchorSectionizeOptions = {
   depth: 3,
-  wrapperTagName: "section",
+  wrapperTagName: 'section',
   wrapperProperties: undefined,
-  wrapperSlugAdditive: "-section",
+  wrapperSlugAdditive: '-section',
   linkProperties: {
-    className: "heading-anchor",
+    className: 'heading-anchor',
   },
   buttonProperties: {
-    className: "heading-anchor__btn",
+    className: 'heading-anchor__btn',
   },
-};
+}
 
 const rehypeSlugAnchorSectionize: unified.Plugin<
   [RehypeSlugAnchorSectionizeOptions?],
   Root
 > = (userOptions?: RehypeSlugAnchorSectionizeOptions) => {
-  const options = { ...defaults, ...userOptions };
+  const options = { ...defaults, ...userOptions }
 
   const findEndHeading = (
     parent: Root | Element,
@@ -53,101 +53,101 @@ const rehypeSlugAnchorSectionize: unified.Plugin<
     depthTag: string,
   ) => {
     const isEnd = (node: Element) =>
-      node.type === "element" && node.tagName === depthTag;
-    return findAfter(parent, start, isEnd as Test) || -1;
-  };
+      node.type === 'element' && node.tagName === depthTag
+    return findAfter(parent, start, isEnd as Test) || -1
+  }
 
   return (tree) => {
     for (let depth = 0; depth <= options.depth; depth++) {
       visit(
         tree,
-        { type: "element", tagName: `h${depth}` },
+        { type: 'element', tagName: `h${depth}` },
         (node, index, parent) => {
-          if (!parent || parent == null || typeof index !== "number") return;
+          if (!parent || parent == null || typeof index !== 'number') return
 
-          const start = node;
-          const depthTag = start.tagName;
+          const start = node
+          const depthTag = start.tagName
 
-          const end = findEndHeading(parent, start, depthTag);
+          const end = findEndHeading(parent, start, depthTag)
 
-          const startIndex = parent.children.indexOf(node);
-          const endIndex = parent.children.indexOf(end as Element);
+          const startIndex = parent.children.indexOf(node)
+          const endIndex = parent.children.indexOf(end as Element)
 
           const between = parent.children.slice(
             startIndex,
             endIndex > 0 ? endIndex : undefined,
-          );
+          )
 
-          const slugId = slug(hastToString(node)) || null;
+          const slugId = slug(hastToString(node)) || null
 
           const linkProps = {
             href: `#${slugId}`,
             ...options.linkProperties,
-          };
+          }
 
           const buttonProps = {
-            "aria-hidden": "true",
+            'aria-hidden': 'true',
             ...options.buttonProperties,
-          };
+          }
 
-          const sectionProps: Element["properties"] = {
+          const sectionProps: Element['properties'] = {
             ...(options.wrapperProperties || {}),
             ...(slugId && {
-              id: `${slugId}${options.wrapperSlugAdditive || ""}`,
+              id: `${slugId}${options.wrapperSlugAdditive || ''}`,
             }),
-          };
+          }
 
           node.properties = {
             ...(slugId && {
               id: slugId,
             }),
-            className: "heading-section__heading",
-            role: "presentation",
-          };
+            className: 'heading-section__heading',
+            role: 'presentation',
+          }
 
           node.children = [
             {
-              type: "element",
-              tagName: "a",
+              type: 'element',
+              tagName: 'a',
               properties: linkProps,
               children: [
                 {
-                  type: "element",
-                  tagName: "span",
-                  properties: { className: "sr-only" },
+                  type: 'element',
+                  tagName: 'span',
+                  properties: { className: 'sr-only' },
                   children: [{
-                    type: "text",
-                    value: "Direct link to this section",
+                    type: 'text',
+                    value: 'Direct link to this section',
                   }],
                 },
                 {
-                  type: "element",
-                  tagName: "span",
+                  type: 'element',
+                  tagName: 'span',
                   properties: buttonProps,
-                  children: [{ type: "text", value: "#" }],
+                  children: [{ type: 'text', value: '#' }],
                 },
               ],
             },
             {
-              type: "element",
-              tagName: "span",
-              properties: { role: "heading", ariaLevel: depthTag.slice(1) },
+              type: 'element',
+              tagName: 'span',
+              properties: { role: 'heading', ariaLevel: depthTag.slice(1) },
               children: node.children,
             },
-          ];
+          ]
 
           const section = {
-            type: "element",
+            type: 'element',
             tagName: options.wrapperTagName,
             properties: sectionProps,
             children: between,
-          } as Element;
+          } as Element
 
-          parent.children.splice(startIndex, section.children.length, section);
+          parent.children.splice(startIndex, section.children.length, section)
         },
-      );
+      )
     }
-  };
-};
+  }
+}
 
-export default rehypeSlugAnchorSectionize;
+export default rehypeSlugAnchorSectionize

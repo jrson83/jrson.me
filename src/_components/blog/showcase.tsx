@@ -1,6 +1,6 @@
-import type { Page, PageData, PageHelpers } from "#types";
+import type { Page, PageData, PageHelpers } from '#types'
 
-import { isEmptyArray, truncateString } from "#utils";
+import { isEmptyArray, truncateString } from '#utils'
 
 export default (
   { comp, icons: { unicons }, search, url }: PageData,
@@ -8,45 +8,45 @@ export default (
 ) => {
   const previousPost = search?.previousPage(
     url?.toString(),
-    "type=post",
-  ) as Page;
+    'type=post',
+  ) as Page
 
   const nextPost = search?.nextPage(
     url?.toString(),
-    "type=post",
-  ) as Page;
+    'type=post',
+  ) as Page
 
   return (
     <nav
-      className="showcase"
-      role="navigation"
+      className='showcase'
+      role='navigation'
       itemScope
-      itemType="http://schema.org/SiteNavigationElement"
-      aria-label="Pagination Navigation"
+      itemType='http://schema.org/SiteNavigationElement'
+      aria-label='Pagination Navigation'
     >
       {previousPost && !isEmptyArray(previousPost)
         ? (
           <a
             href={urlFilter!(previousPost?.data?.url)}
-            rel="prev"
-            className="showcase__item"
-            itemProp="url"
+            rel='prev'
+            className='showcase__item'
+            itemProp='url'
           >
-            <button className="showcase__btn" title="Previous post">
+            <button className='showcase__btn' title='Previous post'>
               <span>
                 <comp.shared.icon
                   icon={unicons.arrowLeft}
-                  title=""
-                  size="28"
+                  title=''
+                  size='28'
                 />
               </span>
-              <span className="showcase__text left">
-                <small itemProp="name">Previous</small>
+              <span className='showcase__text left'>
+                <small itemProp='name'>Previous</small>
                 <span>
                   {truncateString(
                     previousPost.data.title as string,
                     30,
-                    "...",
+                    '...',
                     true,
                   )}
                 </span>
@@ -54,22 +54,22 @@ export default (
             </button>
           </a>
         )
-        : <div className="showcase__item" />}
+        : <div className='showcase__item' />}
       {nextPost && !isEmptyArray(nextPost) && (
         <a
           href={urlFilter!(nextPost?.data?.url)}
-          rel="next"
-          className="showcase__item"
-          itemProp="url"
+          rel='next'
+          className='showcase__item'
+          itemProp='url'
         >
-          <button className="showcase__btn" title="Next post">
-            <span className="showcase__text right">
-              <small itemProp="name">Next</small>
+          <button className='showcase__btn' title='Next post'>
+            <span className='showcase__text right'>
+              <small itemProp='name'>Next</small>
               <span>
                 {truncateString(
                   nextPost.data.title as string,
                   30,
-                  "...",
+                  '...',
                   true,
                 )}
               </span>
@@ -77,13 +77,13 @@ export default (
             <span>
               <comp.shared.icon
                 icon={unicons.arrowRight}
-                title=""
-                size="28"
+                title=''
+                size='28'
               />
             </span>
           </button>
         </a>
       )}
     </nav>
-  );
-};
+  )
+}

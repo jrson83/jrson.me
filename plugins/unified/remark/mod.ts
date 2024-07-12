@@ -1,5 +1,5 @@
-import { readingTime } from "../deps.ts";
+import { readingTime } from '../deps.ts'
 
 export default [
-  [readingTime, { name: "readingTime" }],
-];
+  [readingTime, { name: 'readingTime' }],
+]

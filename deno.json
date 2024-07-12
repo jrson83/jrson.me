@@ -25,6 +25,8 @@
     }
   },
   "fmt": {
+    "semiColons": false,
+    "singleQuote": true,
     "exclude": [
       "./_site"
     ]

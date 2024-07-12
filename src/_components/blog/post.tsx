@@ -1,4 +1,4 @@
-import type { PageData, PageHelpers } from "#types";
+import type { PageData, PageHelpers } from '#types'
 
 export default (
   {
@@ -16,11 +16,11 @@ export default (
 ) => {
   return (
     <article
-      className="blog-post"
+      className='blog-post'
       id={`blog-post-${index}`}
-      itemProp="blogPosts"
+      itemProp='blogPosts'
       itemScope
-      itemType="http://schema.org/BlogPosting"
+      itemType='http://schema.org/BlogPosting'
     >
       <comp.blog.header
         title={title}
@@ -28,20 +28,20 @@ export default (
         readingTime={readingTime}
         tags={tags}
       />
-      <div itemProp="description">
+      <div itemProp='description'>
         <p>{excerpt}</p>
       </div>
-      <p className="read-more">
-        Read more{" "}
+      <p className='read-more'>
+        Read more{' '}
         <comp.shared.icon
           icon={unicons.arrowRight}
-          title=""
-          size="26"
+          title=''
+          size='26'
         />
       </p>
-      <a href={urlFilter!(url)} itemProp="url" aria-label="Read more">
-        <span className="blog-post-link"></span>
+      <a href={urlFilter!(url)} itemProp='url' aria-label='Read more'>
+        <span className='blog-post-link'></span>
       </a>
     </article>
-  );
-};
+  )
+}

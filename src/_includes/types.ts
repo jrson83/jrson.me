@@ -1,99 +1,99 @@
-import type { Page as BasePage, PageData as BasePageData } from "lume/core.ts";
-import type { Children } from "lume/plugins/jsx_preact.ts";
-import type SiteMeta from "../_data/site.ts";
+import type { Page as BasePage, PageData as BasePageData } from 'lume/core.ts'
+import type { Children } from 'lume/plugins/jsx_preact.ts'
+import type SiteMeta from '../_data/site.ts'
 
-export type { PaginateResult } from "lume/plugins/paginate.ts";
-export type { PageHelpers } from "lume/core.ts";
-export type { Children };
+export type { PaginateResult } from 'lume/plugins/paginate.ts'
+export type { PageHelpers } from 'lume/core.ts'
+export type { Children }
 
 export interface PageData extends BasePageData {
   /** The page description */
-  description?: string;
+  description?: string
 
   /** The page excerpt */
-  excerpt?: string;
+  excerpt?: string
 
   /** The last modification date of the page */
-  update?: Date;
+  update?: Date
 
   /** Helper for the active page url */
-  activeUrl?: string;
+  activeUrl?: string
 
   /** The site navigation menu */
   menu?: {
-    title: string;
-    visible: boolean;
-    order: number;
-  };
+    title: string
+    visible: boolean
+    order: number
+  }
 
   /** The post reading time */
   readingTime?: {
-    minutes: number;
-    text: string;
-    time: number;
-    words: number;
-  };
+    minutes: number
+    text: string
+    time: number
+    words: number
+  }
 
   /** The site icons */
   icons: {
     unicons: {
-      [key: string]: string | number;
-    };
+      [key: string]: string | number
+    }
     stack: {
-      [key: string]: string | number;
-    };
-  };
+      [key: string]: string | number
+    }
+  }
 
   /** The tag filter */
-  filteredBy: string;
+  filteredBy: string
 
   /** Blog post series */
   series: {
-    title: string;
-    ident: string;
-  };
+    title: string
+    ident: string
+  }
 
   /** The site metadata */
-  site: typeof SiteMeta;
+  site: typeof SiteMeta
 
   /** Cache busting plugin */
-  cacheBusting: string;
+  cacheBusting: string
 
   /** Overwrite Page interface */
-  page: Page;
+  page: Page
 }
 
 export interface Page extends BasePage {
   /** Overwrite PageData interface */
-  data: PageData;
+  data: PageData
 }
 
 export interface AboutData extends PageData {
   header: {
-    title: string;
-    description: string;
-  };
+    title: string
+    description: string
+  }
   stacks: {
-    title: string;
+    title: string
     icons: Array<{
-      title: string;
+      title: string
       items: Array<{
-        title: string;
-        icon: string;
-        color: number | string;
-        url: string;
-      }>;
-    }>;
-  };
+        title: string
+        icon: string
+        color: number | string
+        url: string
+      }>
+    }>
+  }
   blogstacks: {
-    title: string;
+    title: string
     lists: Array<{
-      description: string;
+      description: string
       items: Array<{
-        title: string;
-        description: string;
-        url: string;
-      }>;
-    }>;
-  };
+        title: string
+        description: string
+        url: string
+      }>
+    }>
+  }
 }

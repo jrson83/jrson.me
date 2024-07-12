@@ -3,7 +3,7 @@ export function getPaginationPages(
   maxPages: number,
   currentPage: number,
 ): Array<number | string> {
-  const pages: Array<number | string> = [];
+  const pages: Array<number | string> = []
 
   for (let i = 1; i <= maxPages; i++) {
     if (
@@ -12,11 +12,11 @@ export function getPaginationPages(
       (i >= currentPage - 1 && i <= currentPage + 1) ||
       (maxPages - currentPage < 3 && maxPages - i <= 3)
     ) {
-      pages.push(i);
-    } else if (pages[pages.length - 1] !== "...") {
-      pages.push("...");
+      pages.push(i)
+    } else if (pages[pages.length - 1] !== '...') {
+      pages.push('...')
     }
   }
 
-  return pages;
+  return pages
 }

@@ -7,10 +7,10 @@ export function truncateString(
   if (str.length > maxLength) {
     if (wordBoundaries) {
       return `${
-        str.replaceAll(",", "").slice(0, str.lastIndexOf(" ", maxLength - 1))
-      }${ellipsis}`;
+        str.replaceAll(',', '').slice(0, str.lastIndexOf(' ', maxLength - 1))
+      }${ellipsis}`
     }
-    return `${str.replaceAll(",", "").slice(0, maxLength)}${ellipsis}`;
+    return `${str.replaceAll(',', '').slice(0, maxLength)}${ellipsis}`
   }
-  return str;
+  return str
 }

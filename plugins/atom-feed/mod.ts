@@ -1,77 +1,77 @@
-import { merge } from "lume/core/utils.ts";
-import { Page } from "lume/core/filesystem.ts";
-import { buildSort } from "lume/core/searcher.ts";
+import { merge } from 'lume/core/utils.ts'
+import { Page } from 'lume/core/filesystem.ts'
+import { buildSort } from 'lume/core/searcher.ts'
 
-import { isString } from "#utils";
+import { isString } from '#utils'
 
-import { XMLFormat } from "#plugins/atom-feed/deps.ts";
+import { XMLFormat } from '#plugins/atom-feed/deps.ts'
 
-import type { Site } from "lume/core.ts";
-import type { Search } from "lume/plugins/search.ts";
-import type { MetaData } from "lume/plugins/metas.ts";
+import type { Site } from 'lume/core.ts'
+import type { Search } from 'lume/plugins/search.ts'
+import type { MetaData } from 'lume/plugins/metas.ts'
 
 export interface Options {
   /** The query to search pages included in the feed. defaults to `type=post` */
-  query: string[];
+  query: string[]
 
   /** The values to sort the feeds pages. defaults to `date=desc` */
-  sort: string;
+  sort: string
 
   /** The limit to display pages. defaults to `10` */
-  limit: number;
+  limit: number
 
   /** Options passed to xml-formatter */
-  options: Partial<XMLFormat.XMLFormatterOptions>;
+  options: Partial<XMLFormat.XMLFormatterOptions>
 }
 
 // Default options
 export const defaults: Options = {
-  query: ["type=post"],
-  sort: "date=desc",
+  query: ['type=post'],
+  sort: 'date=desc',
   limit: 10,
   options: {
-    indentation: "  ",
+    indentation: '  ',
     collapseContent: true,
-    lineSeparator: "\n",
+    lineSeparator: '\n',
   },
-};
+}
 
 export interface FeedMetaData extends MetaData {
   author: {
-    name: string;
-    email: string;
-    url: string;
-  };
+    name: string
+    email: string
+    url: string
+  }
 }
 
 /** A plugin to <description> */
 export default function (userOptions?: Partial<Options>) {
-  const options = merge(defaults, userOptions);
+  const options = merge(defaults, userOptions)
 
   return (site: Site) => {
-    site.addEventListener("afterRender", () => {
+    site.addEventListener('afterRender', () => {
       // Create the sitemap.xml page
-      const feed = Page.create("feed.xml", getFeedContent(site));
+      const feed = Page.create('feed.xml', getFeedContent(site))
 
       // Add to the sitemap page to pages
-      site.pages.push(feed);
-    });
+      site.pages.push(feed)
+    })
 
     function getFeedContent(site: Site): string {
       // Get the pages
-      const search = site.globalData.search as Search;
+      const search = site.globalData.search as Search
       const feedPages = search.pages(
         options.query,
         options.sort,
         options.limit,
-      ) as Page[];
+      ) as Page[]
 
       // Sort the pages
-      feedPages.sort(buildSort(options.sort));
+      feedPages.sort(buildSort(options.sort))
 
-      const metas = isActiveProcessor(site, "metas")
+      const metas = isActiveProcessor(site, 'metas')
         ? feedPages[0].data.metas as FeedMetaData
-        : feedPages[0].data.site as FeedMetaData;
+        : feedPages[0].data.site as FeedMetaData
 
       // deno-fmt-ignore
       const atomfeed = `<?xml version="1.0" encoding="utf-8"?>
@@ -97,19 +97,19 @@ export default function (userOptions?: Partial<Options>) {
   `}).join("").trim()}
 </feed>`.trim();
 
-      return XMLFormat.default(atomfeed, options.options) as string;
+      return XMLFormat.default(atomfeed, options.options) as string
     }
 
     function isActiveProcessor(site: Site, processor: string): boolean {
-      const { processors } = site.processors;
+      const { processors } = site.processors
 
       // deno-lint-ignore no-unused-vars
       for (const [value, key] of processors) {
-        if (typeof value === "function" && value.name === processor) {
-          return true;
+        if (typeof value === 'function' && value.name === processor) {
+          return true
         }
       }
-      return false;
+      return false
     }
-  };
+  }
 }

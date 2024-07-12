@@ -1,8 +1,8 @@
-import type { PageData } from "#types";
+import type { PageData } from '#types'
 
-export const title = "Blog posts";
-export const layout = "layouts/root.tsx";
-export const url = "/blog/";
+export const title = 'Blog posts'
+export const layout = 'layouts/root.tsx'
+export const url = '/blog/'
 
 export default ({ comp, filteredBy, pagination, results, title }: PageData) => {
   return (
@@ -10,17 +10,17 @@ export default ({ comp, filteredBy, pagination, results, title }: PageData) => {
       <section>
         <h1>{title}</h1>
         <p>
-          Search a total of <strong>{pagination?.totalResults}</strong>{" "}
+          Search a total of <strong>{pagination?.totalResults}</strong>{' '}
           posts, by <code>title</code> or <code>tag</code>.
         </p>
       </section>
-      <section id="search-wrapper" className="search-wrapper">
+      <section id='search-wrapper' className='search-wrapper'>
         <comp.blog.search query={filteredBy} />
       </section>
       <section
-        id="blog-posts-section"
+        id='blog-posts-section'
         itemScope
-        itemType="http://schema.org/Blog"
+        itemType='http://schema.org/Blog'
       >
         {results?.map(({ data }, index) => (
           <comp.blog.post index={index.toString()} {...data} />
@@ -31,5 +31,5 @@ export default ({ comp, filteredBy, pagination, results, title }: PageData) => {
         <comp.blog.pagination pagination={pagination} />
       )}
     </>
-  );
-};
+  )
+}

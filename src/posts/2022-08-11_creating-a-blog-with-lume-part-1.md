@@ -168,11 +168,11 @@ Since I never worked with Deno before, let's have a look at the created files.
 The Lume `_config.ts`:
 
 ```ts
-import lume from "lume/mod.ts";
+import lume from 'lume/mod.ts'
 
-const site = lume();
+const site = lume()
 
-export default site;
+export default site
 ```
 
 The `deno.json` file:

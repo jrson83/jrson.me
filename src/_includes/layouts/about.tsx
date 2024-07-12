@@ -1,6 +1,6 @@
-import type { AboutData } from "#types";
+import type { AboutData } from '#types'
 
-export const layout = "layouts/root.tsx";
+export const layout = 'layouts/root.tsx'
 
 export default (
   { blogstacks, icons: { stack }, comp, header, stacks, title }: AboutData,
@@ -18,20 +18,20 @@ export default (
       {stacks.icons.map(({ title, items }, index) => (
         <>
           <h4 key={index}>{title}</h4>
-          <div className="stack-icon-wrapper">
+          <div className='stack-icon-wrapper'>
             {items.map(({ icon, color, title, url }, index) => (
               <a
                 href={url}
                 aria-label={title}
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-                className="no-ext"
+                target='_blank'
+                rel='nofollow noopener noreferrer'
+                className='no-ext'
               >
                 <comp.shared.icon
                   key={index}
                   icon={stack[icon]}
                   color={`#${color}`}
-                  size="60"
+                  size='60'
                   title={title}
                 />
               </a>
@@ -49,11 +49,11 @@ export default (
               <li key={index}>
                 <a
                   href={url}
-                  target="_blank"
-                  rel="nofollow noopener noreferrer"
+                  target='_blank'
+                  rel='nofollow noopener noreferrer'
                 >
                   {title}
-                </a>{" "}
+                </a>{' '}
                 - {description}
               </li>
             ))}
@@ -61,5 +61,5 @@ export default (
         </>
       ))}
     </section>
-  );
-};
+  )
+}
