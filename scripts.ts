@@ -8,7 +8,7 @@ export default <ScriptsConfiguration> {
     },
     check: {
       desc: "Type-checks the code",
-      cmd: "deno cache --unstable -c deno.json ./src/index.tsx",
+      cmd: "deno cache -c deno.json ./src/index.tsx",
     },
     fmt: {
       desc: "Formats code",
