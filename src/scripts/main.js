@@ -2,7 +2,7 @@
 
 const root = document.documentElement;
 const mediaQuery = "(prefers-color-scheme: dark)";
-const mediaMatch = window.matchMedia;
+const mediaMatch = globalThis.matchMedia;
 const currentMode = mediaMatch(mediaQuery).matches;
 
 const storeTheme = (targetTheme) => {

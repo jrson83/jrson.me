@@ -45,7 +45,7 @@ const debounce = (fn) => {
 
 const storeScroll = () => {
   const contentBox = main.getBoundingClientRect();
-  const screenHeight = window.innerHeight;
+  const screenHeight = globalThis.innerHeight;
 
   const headerHeight = header.offsetHeight;
   const mainHeight = contentBox.height;

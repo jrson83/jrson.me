@@ -1,4 +1,4 @@
-/** The plugin is deprecated in favour of: https://lume.land/plugins/sitemap/ */
+// deno-lint-ignore-file -- The plugin is deprecated in favour of: https://lume.land/plugins/sitemap/
 
 import { merge } from "lume/core/utils.ts";
 import { Page } from "lume/core/filesystem.ts";

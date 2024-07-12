@@ -52,7 +52,7 @@ export default function (userOptions?: Partial<Options>) {
 
     function replaceUrls() {
       site.use(modifyUrls({
-        fn(url, page) {
+        fn(url, _page) {
           if (url.endsWith(".css") || url.endsWith(".js")) {
             const result = hashedAssets.find((asset) => {
               return asset.filename.toLowerCase() === url.toLowerCase();
