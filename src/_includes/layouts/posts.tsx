@@ -3,7 +3,7 @@ export const layout = 'layouts/root.tsx'
 export const url = '/blog/'
 
 export default (
-  { comp, filteredBy, pagination, results, title }: Lume.Data,
+  { comp, filteredBy, pagination, results, title }: Lume.PageProps,
 ) => {
   return (
     <>
@@ -22,7 +22,7 @@ export default (
         itemScope
         itemType='http://schema.org/Blog'
       >
-        {results?.map(({ data }, index) => (
+        {results?.map((data, index) => (
           <comp.blog.post index={index.toString()} {...data} />
         ))}
         {results?.length === 0 && <p>Sorry, no posts matched your criteria.</p>}
