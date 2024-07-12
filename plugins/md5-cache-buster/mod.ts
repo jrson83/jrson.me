@@ -1,9 +1,9 @@
-import { Md5 } from './deps.ts'
 import { merge } from 'lume/core/utils.ts'
 import modifyUrls from 'lume/plugins/modify_urls.ts'
+import { Md5 } from './deps.ts'
 
-import type { Message } from './deps.ts'
 import type { Page, Site } from 'lume/core.ts'
+import type { Message } from './deps.ts'
 
 export interface Options {
   /** The list of extensions this plugin applies to */

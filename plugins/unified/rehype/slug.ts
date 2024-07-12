@@ -1,3 +1,4 @@
+import type { Element, Root } from 'npm:@types/hast@3.0.1'
 import {
   findAfter,
   slug,
@@ -6,7 +7,6 @@ import {
   unified,
   visit,
 } from '../deps.ts'
-import type { Element, Root } from 'npm:@types/hast@3.0.1'
 
 export interface RehypeSlugAnchorSectionizeOptions {
   /** The heading level depth to sectionize. defaults to `3` */

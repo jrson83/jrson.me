@@ -2,8 +2,8 @@
 export function getPaginationPages(
   maxPages: number,
   currentPage: number,
-): Array<number | string> {
-  const pages: Array<number | string> = []
+): number[] {
+  const pages: number[] = []
 
   for (let i = 1; i <= maxPages; i++) {
     if (
@@ -13,8 +13,8 @@ export function getPaginationPages(
       (maxPages - currentPage < 3 && maxPages - i <= 3)
     ) {
       pages.push(i)
-    } else if (pages[pages.length - 1] !== '...') {
-      pages.push('...')
+    } else if (!isNaN(pages[pages.length - 1])) {
+      pages.push(NaN)
     }
   }
 

@@ -1,4 +1,4 @@
-import { ScriptsConfiguration } from 'https://deno.land/x/velociraptor@1.5.0/mod.ts'
+import type { ScriptsConfiguration } from 'https://deno.land/x/velociraptor@1.5.0/mod.ts'
 
 export default <ScriptsConfiguration> {
   scripts: {

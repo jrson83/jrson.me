@@ -1,3 +1,4 @@
+import { dirname, fromFileUrl } from 'https://deno.land/std@0.203.0/path/mod.ts'
 import {
   rehypeCodeTitles,
   rehypeCopyCode,
@@ -9,7 +10,6 @@ import {
   rehypePrismPlus,
   rehypeSlugAnchorSectionize,
 } from '../deps.ts'
-import { dirname, fromFileUrl } from 'https://deno.land/std@0.203.0/path/mod.ts'
 
 const __dirname = dirname(fromFileUrl(import.meta.url))
 

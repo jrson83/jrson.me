@@ -5,7 +5,7 @@ export const title = '404: Page Not Found'
 export const layout = 'layouts/root.tsx'
 export const url = '/404/'
 
-export default (data: PageData, { urlFilter }: PageHelpers) => {
+export default (_data: PageData, { urlFilter }: PageHelpers) => {
   return (
     <>
       <h1>{title}</h1>

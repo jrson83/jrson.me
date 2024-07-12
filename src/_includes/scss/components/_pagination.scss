@@ -17,7 +17,12 @@
     display: flex;
     align-items: center;
     padding: 0.125rem 0.5rem;
-  
+
+    &[aria-disabled="true"] {
+      pointer-events: none;
+      cursor: default;
+    }
+
     &.is-active {
       border: map.get($pagination, active-border);
       border-radius: map.get($pagination, active-border-radius);

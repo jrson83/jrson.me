@@ -1,14 +1,14 @@
-import { merge } from 'lume/core/utils.ts'
 import { Page } from 'lume/core/filesystem.ts'
 import { buildSort } from 'lume/core/searcher.ts'
+import { merge } from 'lume/core/utils.ts'
 
 import { isString } from '#utils'
 
 import { XMLFormat } from '#plugins/atom-feed/deps.ts'
 
 import type { Site } from 'lume/core.ts'
-import type { Search } from 'lume/plugins/search.ts'
 import type { MetaData } from 'lume/plugins/metas.ts'
+import type { Search } from 'lume/plugins/search.ts'
 
 export interface Options {
   /** The query to search pages included in the feed. defaults to `type=post` */

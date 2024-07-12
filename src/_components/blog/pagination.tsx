@@ -1,5 +1,4 @@
 import type { PageData, PageHelpers } from '#types'
-
 import { getPaginationPages } from '#utils'
 
 export default (
@@ -42,21 +41,28 @@ export default (
               &nbsp;Prev
             </li>
           )}
-        {getPaginationPages(pagination?.totalPages!, pagination?.page!).map((
-          index,
-        ) => (
-          <li key={index}>
-            <a
-              href={urlFilter!(`/blog${index > 1 && `/${index}` || ``}`)}
-              className={`pagination__item ${
-                pagination?.page === index ? 'is-active' : ''
-              }`}
-              {...(pagination?.page === index && { ariaCurrent: true })}
-            >
-              {index}
-            </a>
-          </li>
-        ))}
+        {pagination &&
+          getPaginationPages(pagination.totalPages, pagination.page).map((
+            pageNumber,
+            idx,
+          ) => {
+            const isNumber = !isNaN(pageNumber)
+            const isActive = pagination?.page === pageNumber
+
+            return (
+              <li key={idx}>
+                <a
+                  {...(isActive && { ariaCurrent: true })}
+                  {...(!isNumber
+                    ? { role: 'link', 'aria-disabled': true }
+                    : { href: urlFilter!(`/blog/${pageNumber}`) })}
+                  className={`pagination__item ${isActive ? 'is-active' : ''}`}
+                >
+                  {isNumber ? pageNumber : '...'}
+                </a>
+              </li>
+            )
+          })}
         {pagination?.next
           ? (
             <li>

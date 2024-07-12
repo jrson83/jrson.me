@@ -1,5 +1,5 @@
-import type { Element, Root } from 'npm:@types/hast@3.0.1'
 import { unified, visit } from '#plugins/unified/deps.ts'
+import type { Element, Root } from 'npm:@types/hast@3.0.1'
 
 const rehypeCopyCode: unified.Plugin<[], Root> = () => {
   return (tree: Root) => {
