@@ -1,7 +1,7 @@
 ---
 title: Path aliases with import maps on Deno
 excerpt: A tiny guide how to resolve paths using path aliases with import maps on Deno.
-date: 2022-08-10 09:30:00
+date: 2022-08-10
 draft: false
 tags:
   - deno

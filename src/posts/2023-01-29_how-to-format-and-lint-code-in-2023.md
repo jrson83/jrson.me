@@ -1,8 +1,8 @@
 ---
 title: How to Format and Lint code in 2023
 excerpt: "Replace Prettier and ESLint now with a lightweight and faster alternative: Rome"
-date: 2023-01-29 05:00:00
-update: 2023-01-29 19:00:00
+date: 2023-01-29
+update: 2023-01-29
 draft: false
 tags:
   - nodejs

@@ -1,7 +1,7 @@
 ---
 title: The proper way to create a Dark Mode Switch
 excerpt: How to create a Dark Mode Switch wich is actually working.
-date: 2022-08-22 13:00:00
+date: 2022-08-22
 draft: true
 tags:
   - css

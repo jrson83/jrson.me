@@ -1,8 +1,8 @@
 ---
 title: 'Bloodborne Isz glitch Cure'
 excerpt: This guide is intended to help Bloodborne players access the cure to Isz Glitch, that was discovered, but not widely distributed.
-date: 2023-08-02 19:00:00
-update: 2023-009-29 6:00:00
+date: 2023-08-02
+update: 2023-009-29
 draft: false
 tags:
   - bloodborne

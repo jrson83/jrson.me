@@ -9,6 +9,7 @@
   },
   "tasks": {
     "clean": "rm -rf ./_site",
+    "cms": "BUILD_MODE=\"dev\" deno task lume cms",
     "build": "BUILD_MODE=\"prod\" deno task lume",
     "serve": "BUILD_MODE=\"dev\" deno task lume -s",
     "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -"

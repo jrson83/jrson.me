@@ -1,8 +1,8 @@
 ---
 title: "Creating a Blog with Lume Part 1: Install & config"
 excerpt: This is a walkthrough of using Lume to set up a prerendered static blog with Preact, TypeScript, Markdown and SASS/SCSS.
-date: 2022-08-11 12:00:00
-updated: 2022-08-23 12:00:00
+date: 2022-08-11
+updated: 2022-08-23
 draft: false
 tags:
   - deno

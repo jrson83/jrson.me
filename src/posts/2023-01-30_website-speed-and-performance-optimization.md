@@ -1,8 +1,8 @@
 ---
 title: 'Website Speed and Performance Optimization: Metrics & Tools'
 excerpt: An insight into the optimization techniques I have applied to my blog.
-date: 2023-01-30 01:00:00
-update: 2023-08-02 19:00:00
+date: 2023-01-30
+update: 2023-08-02
 draft: false
 tags:
   - html

@@ -1,7 +1,7 @@
 ---
 title: Update on the current Inertia.js state
 excerpt: Updated information on the current state of Inertia.js packages.
-date: 2022-12-08 20:45:00
+date: 2022-12-08
 draft: false
 tags:
   - inertiajs

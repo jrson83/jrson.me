@@ -1,5 +1,5 @@
 export default {
-  title: 'jrson.me',
+  name: 'jrson.me',
   description:
     'I am a passionate web developer who likes to experiment with different stacks. I am forced to optimize things to infinity. I blog about my experience I like to share, using Node.js and Deno.',
   url: 'https://jrson.me',

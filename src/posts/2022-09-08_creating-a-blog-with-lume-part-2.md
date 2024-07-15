@@ -1,7 +1,7 @@
 ---
 title: "Creating a Blog with Lume Part 2: Pages & layouts"
 excerpt: This is Part 2 of a walkthrough using Lume to set up a prerendered static blog with Preact, TypeScript, Markdown and SASS/SCSS.
-date: 2022-08-23 12:00:00
+date: 2022-08-23
 draft: false
 tags:
   - deno

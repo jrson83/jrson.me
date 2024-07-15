@@ -1,5 +1,5 @@
 export default (
-  { children, comp, excerpt, importJs, site, title, type, url }: Lume.Data,
+  { children, comp, excerpt, importJs, site, title, type, url }: Lume.PageProps,
   { urlFilter }: Lume.Helpers,
 ) => {
   const postSlug = title?.replace(/\s+/g, '-').toLowerCase()
@@ -18,7 +18,7 @@ export default (
       <head>
         <meta charSet='utf-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <title>{`${title} - ${site.title}`}</title>
+        <title>{`${title} - ${site.name}`}</title>
 
         <meta name='supported-color-schemes' content='light dark' />
         <meta
@@ -55,18 +55,18 @@ export default (
         {/* @ts-ignore */}
         <link rel="stylesheet" nonce="CSP_NONCE" href={urlFilter!(`/styles.css`)} inline />
 
-        <meta name='title' content={`${title} - ${site.title}`} />
+        <meta name='title' content={`${title} - ${site.name}`} />
         <meta name='description' content={excerpt || site.description} />
-        <meta name='author' content={site.title} />
-        <meta name='copyright' content={site.title} />
+        <meta name='author' content={site.name} />
+        <meta name='copyright' content={site.name} />
 
         <meta name='robots' content='index,follow' />
         <meta name='google' content='nositelinkssearchbox' />
 
         <meta property='og:type' content='website' />
-        <meta property='og:site_name' content={site.title} />
+        <meta property='og:site_name' content={site.name} />
         <meta property='og:locale' content={site.lang} />
-        <meta property='og:title' content={`${title} - ${site.title}`} />
+        <meta property='og:title' content={`${title} - ${site.name}`} />
         <meta
           property='og:description'
           content={excerpt || site.description}
@@ -86,7 +86,7 @@ export default (
           />
         )}
 
-        <meta name='twitter:title' content={`${title} - ${site.title}`} />
+        <meta name='twitter:title' content={`${title} - ${site.name}`} />
         <meta
           name='twitter:description'
           content={excerpt || site.description}
@@ -109,7 +109,7 @@ export default (
         <meta name='twitter:creator' content={site.twitter.user} />
         <meta name='twitter:site' content={site.twitter.user} />
 
-        <meta itemProp='name' content={site.title} />
+        <meta itemProp='name' content={site.name} />
         <meta itemProp='url' content={urlFilter!('/', true)} />
         <meta itemProp='creator' content={site.author.name} />
 
