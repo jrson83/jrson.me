@@ -20,7 +20,7 @@ export { toString } from 'npm:hast-util-to-string@3.0.0'
 export { findAfter } from 'npm:unist-util-find-after@5.0.0'
 export { CONTINUE, EXIT, SKIP, visit } from 'npm:unist-util-visit@5.0.0'
 
-export { default as rehypeSlugAnchorSectionize } from '#plugins/_deprecated/rehype-slug/mod.ts'
 export { default as rehypeCopyCode } from '#plugins/unified/rehype/rehypeCopyCode.ts'
+export { default as rehypeSlugAnchorSectionize } from '#plugins/unified/rehype/rehypeSlugAnchorSectionize.ts'
 export { default as rehypeImgSize } from 'npm:rehype-img-size@1.0.1'
 export type { Test } from 'npm:unist-util-is@6.0.0'
