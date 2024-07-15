@@ -21,6 +21,7 @@ export default (
         <title>{`${title} - ${site.name}`}</title>
 
         <meta name='supported-color-schemes' content='light dark' />
+        <meta name='color-scheme' content='light dark' />
         <meta
           name='theme-color'
           content='#F2F2F2'
