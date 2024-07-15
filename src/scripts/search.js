@@ -1,7 +1,5 @@
 'use strict'
 
-// This script is not 100% optimized yet
-
 document.addEventListener('DOMContentLoaded', () => {
   let posts = undefined
 

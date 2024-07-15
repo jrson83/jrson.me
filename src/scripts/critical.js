@@ -1,4 +1,5 @@
 'use strict'
+
 const e = document.documentElement
 const currentMode =
   globalThis.matchMedia('(prefers-color-scheme: dark)').matches

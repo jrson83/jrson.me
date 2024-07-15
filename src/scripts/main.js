@@ -1,4 +1,5 @@
 'use strict'
+
 document.getElementById('theme-toggle').addEventListener('click', () => {
   const nextTheme = (getComputedStyle(e).getPropertyValue('color-scheme') ===
       'light')
