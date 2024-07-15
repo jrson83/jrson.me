@@ -52,13 +52,11 @@ export default (
               <li key={idx}>
                 <a
                   {...(isActive && { ariaCurrent: true })}
-                  {...(!isNumber
-                    ? { role: 'link', 'aria-disabled': true }
-                    : {
-                      href: urlFilter!(
-                        `/blog${pageNumber > 1 ? `/${pageNumber}` : `/`}`,
-                      ),
-                    })}
+                  {...(!isNumber ? { role: 'link', 'aria-disabled': true } : {
+                    href: urlFilter!(
+                      `/blog${pageNumber > 1 ? `/${pageNumber}` : `/`}`,
+                    ),
+                  })}
                   className={`pagination__item ${isActive ? 'is-active' : ''}`}
                 >
                   {isNumber ? pageNumber : '...'}
