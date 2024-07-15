@@ -14,7 +14,7 @@ export default (
       {/* deno-fmt-ignore */}
       {/* deno-lint-ignore ban-ts-comment */}
       {/* @ts-ignore */}
-      <script type="module" nonce="CSP_NONCE" src={urlFilter!(`/scripts/main.js`)} inline />
+      <script nonce="CSP_NONCE" src={urlFilter!(`/scripts/critical.js`)} inline />
       <head>
         <meta charSet='utf-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
@@ -163,6 +163,10 @@ export default (
           {children}
         </main>
         <comp.layout.footer />
+        {/* deno-fmt-ignore */}
+        {/* deno-lint-ignore ban-ts-comment */}
+        {/* @ts-ignore */}
+        <script nonce="CSP_NONCE" src={urlFilter!(`/scripts/main.js`)} inline />
         {importJs && (
           <script
             type='module'
