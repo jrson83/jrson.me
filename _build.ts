@@ -1,19 +1,6 @@
-const createConfig = (mode?: string) => {
-  if (typeof mode === 'undefined') {
-    throw new Error('BUILD_MODE is not defined')
-  }
-  if (mode === 'prod') {
-    return {
-      mode,
-      location: new URL('https://jrson.me'),
-    }
-  }
-  return {
-    mode,
-    location: new URL('http://localhost'),
-  }
-}
+const createConfig = (mode = 'dev') => ({
+  mode,
+  location: new URL(mode === 'dev' ? 'http://localhost' : 'https://jrson.me'),
+})
 
-const BUILD_MODE = Deno.env.get('BUILD_MODE')
-
-export const config = createConfig(BUILD_MODE)
+export const config = createConfig(Deno.env.get('BUILD_MODE'))
