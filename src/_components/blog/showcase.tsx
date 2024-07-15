@@ -1,16 +1,16 @@
-import { isEmptyArray, truncateString } from '#utils'
+import { truncateString } from '#utils'
 
 export default (
   { comp, icons: { unicons }, search, url }: Lume.PageProps,
   { urlFilter }: Lume.Helpers,
 ) => {
   const previousPost = search.previousPage(
-    url.toString(),
+    url,
     'type=post',
   )
 
   const nextPost = search.nextPage(
-    url.toString(),
+    url,
     'type=post',
   )
 
@@ -22,10 +22,10 @@ export default (
       itemType='http://schema.org/SiteNavigationElement'
       aria-label='Pagination Navigation'
     >
-      {previousPost && !isEmptyArray(previousPost)
+      {previousPost && typeof previousPost.url !== 'undefined'
         ? (
           <a
-            href={urlFilter!(previousPost?.data?.url)}
+            href={urlFilter!(previousPost.url)}
             rel='prev'
             className='showcase__item'
             itemProp='url'
@@ -53,9 +53,9 @@ export default (
           </a>
         )
         : <div className='showcase__item' />}
-      {nextPost && !isEmptyArray(nextPost) && (
+      {nextPost && typeof nextPost.url !== 'undefined' && (
         <a
-          href={urlFilter!(nextPost?.data?.url)}
+          href={urlFilter!(nextPost.url)}
           rel='next'
           className='showcase__item'
           itemProp='url'
