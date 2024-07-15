@@ -54,7 +54,11 @@ export default (
                   {...(isActive && { ariaCurrent: true })}
                   {...(!isNumber
                     ? { role: 'link', 'aria-disabled': true }
-                    : { href: urlFilter!(`/blog/${pageNumber}`) })}
+                    : {
+                      href: urlFilter!(
+                        `/blog${pageNumber > 1 ? `/${pageNumber}` : `/`}`,
+                      ),
+                    })}
                   className={`pagination__item ${isActive ? 'is-active' : ''}`}
                 >
                   {isNumber ? pageNumber : '...'}
