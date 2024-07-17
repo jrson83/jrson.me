@@ -8,6 +8,10 @@ $list-marker-color: map.get($lists, marker-color);
 ul,
 ol,
 dl {
+  margin: 0 0 $list-spacing $list-spacing;
+}
+
+ul:not(ul li ul) {
   margin: $list-spacing 0 $list-spacing $list-spacing;
 }
 

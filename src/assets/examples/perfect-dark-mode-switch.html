@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<script>
+  const root = document.documentElement
+  const initialTheme = ('example-theme' in localStorage)
+    ? localStorage.getItem('example-theme')
+    : window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light'
+
+  if (initialTheme !== 'light') {
+    root.setAttribute('data-theme', 'dark')
+  }
+</script>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Light/dark mode switch</title>
+  <meta name='color-scheme' content='light dark' />
+  <style>
+    :root[data-theme='light'] {
+      color-scheme: light;
+      --color-bg: #fff;
+      --color-text: #000;
+    }
+
+    :root[data-theme='dark'] {
+      color-scheme: dark;
+      --color-bg: #000;
+      --color-text: #fff;
+    }
+
+    html {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Light/dark mode switch</h1>
+  <button type="button" id="theme-toggle">Toggle color-scheme</button>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+      document.getElementById('theme-toggle').addEventListener('click', () => {
+        const nextTheme =
+          (getComputedStyle(root).getPropertyValue('color-scheme') ===
+            'light')
+            ? 'dark'
+            : 'light'
+        localStorage.setItem('example-theme', nextTheme)
+        root.setAttribute('data-theme', nextTheme)
+      })
+
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener(
+        'change',
+        (event) => {
+          localStorage.removeItem('example-theme')
+          root.setAttribute(
+            'data-theme',
+            event.matches ? 'dark' : 'light',
+          )
+        },
+      )
+    })
+  </script>
+</body>
+
+</html>
