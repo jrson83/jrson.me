@@ -51,7 +51,7 @@ site
   .use(terser())
   .use(inline())
   .use(feed({
-    output: ['/posts.rss', '/posts.json'],
+    output: ['/feed.rss', '/feed.json', '/feed.xml'],
     query: 'type=post',
     info: {
       title: '=site.title',
