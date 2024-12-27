@@ -3,7 +3,7 @@
 
 // Mixin: Breakpoint
 @mixin mix-breakpoint($breakpoint) {
-  @if not map-has-key($breakpoints, $breakpoint) {
+  @if not map.has-key($breakpoints, $breakpoint) {
     @warn "Warning: `#{$breakpoint}` is not a valid breakpoint name.";
   } @else if $breakpoint == xs {
     @content;
