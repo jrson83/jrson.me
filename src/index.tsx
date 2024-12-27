@@ -35,7 +35,6 @@ export default ({ comp, search }: Lume.Data) => {
         </p>
         <comp.shared.iconbar />
       </section>
-      <hr />
       <h2>Recent posts</h2>
       <section itemScope itemType='http://schema.org/Blog'>
         {posts.map((data, index) => (
