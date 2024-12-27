@@ -50,7 +50,18 @@ site
   .loadAssets(['.js'])
   .use(terser())
   .use(inline())
-  .use(feed())
+  .use(feed({
+    output: ['/posts.rss', '/posts.json'],
+    query: 'type=post',
+    info: {
+      title: '=site.title',
+      description: '=site.description',
+    },
+    items: {
+      title: '=title',
+      description: '=excerpt',
+    },
+  }))
   .use(sitemap({
     query: 'indexable=true',
   }))
